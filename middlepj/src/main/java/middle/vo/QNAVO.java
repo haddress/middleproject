@@ -1,5 +1,5 @@
 package middle.vo;
-// 질의VO 1
+// 질의VO 
 public class QNAVO {
 
 }

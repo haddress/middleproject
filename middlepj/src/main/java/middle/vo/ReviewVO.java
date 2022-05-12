@@ -1,5 +1,5 @@
 package middle.vo;
-//리뷰 VO 1
+//리뷰 VO 
 public class ReviewVO {
 
 }

@@ -1,5 +1,5 @@
 package middle.vo;
-//질의답변VO 1
+//질의답변VO 
 public class QreplyVO {
 
 }

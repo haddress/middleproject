@@ -1,5 +1,5 @@
 package middle.vo;
-// 상품판매VO 1
+// 상품판매VO 
 public class ProductVO {
 
 }
