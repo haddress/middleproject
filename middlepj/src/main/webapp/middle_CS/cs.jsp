@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>test</title>
+<title>Insert title here</title>
 </head>
 <body>
-
+	<h4>고객센터</h4>
+		<a href="">상품문의</a><br>
+		<a href="">배송문의</a><br>
+		<a href="">기타문의</a><br>
 </body>
 </html>
