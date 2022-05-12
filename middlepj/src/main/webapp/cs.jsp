@@ -7,6 +7,7 @@
 <title>test</title>
 </head>
 <body>
-
+<h3>test.</h3>
+  <a href="memberView/LoginTest.jsp">로그인</a><br>
 </body>
 </html>

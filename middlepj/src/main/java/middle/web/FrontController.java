@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class FrontController extends HttpServlet {
+	
+	
 	HashMap<String, Control> list = null;
 	String charset = null;
 	@Override
