@@ -7,14 +7,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import middle.service.Markservice;
 
-public class MemberListControl implements Control {
+
+
+public class UserOrderListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Markservice service = new Markservice();
+		List<userorder> list = service.orderList();
+
+		request.setAttribute("list", list);
 		
-		
-		request.getRequestDispatcher("memberResult/memberListOutput.tiles").forward(request, response);
+		request.getRequestDispatcher("result/mypage.jsp").forward(request, response);
 		
 		
 	}

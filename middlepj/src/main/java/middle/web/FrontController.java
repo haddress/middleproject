@@ -17,9 +17,9 @@ public class FrontController extends HttpServlet {
 		charset = config.getInitParameter("charset");
 		list = new HashMap<String, Control>();
 		list.put("/memberInsert.do", new MemberInsertControl());
-		list.put("/memberUpdate.do", new MemberUpdateControl());
-		list.put("/memberList.do", new MemberListControl());
-		list.put("/memberSearch.do", new MemberSearchControl());
+		list.put("/usermodify.do", new ModifyUserControl());
+		list.put("/memberList.do", new UserOrderListControl());
+		list.put("/memberSearch.do", new UserSearchControl());
 		list.put("/memberDelete.do", new MemberDeleteControl());
 		
 		
