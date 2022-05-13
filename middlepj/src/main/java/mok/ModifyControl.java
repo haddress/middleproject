@@ -14,14 +14,19 @@ public class ModifyControl implements Control {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String Uid = request.getParameter("Uid");
-		String Uname = request.getParameter("Upw");
-		String author = request.getParameter("author");
-		String press = request.getParameter("press");
-		int price = Integer.parseInt(request.getParameter("price"));
+		String Upw = request.getParameter("Upw");
+		String Uname = request.getParameter("Uname");
+		String Utel = request.getParameter("Utel");
+		String Uemail = request.getParameter("Uemail");
+		String Uadress = request.getParameter("Uadress");
 		
-		UserVO vo = new UserVO();
+		UserVO1 vo = new UserVO1();
 		vo.setUid(Uid);
-
+		vo.setUname(Upw);
+		vo.setUname(Uname);
+		vo.setUname(Utel);
+		vo.setUname(Uemail);
+		vo.setUname(Uadress);
 		
 				
 		Markservice service = new Markservice();

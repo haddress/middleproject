@@ -1,6 +1,6 @@
 package mok;
 
-public class UserVO {
+public class UserVO1 {
 	private String Uid;
 	private String Upw;
 	private String Uname;
@@ -8,11 +8,11 @@ public class UserVO {
 	private String Uemail;
 	private String Uadress;
 	
-	public UserVO() {
+	public UserVO1() {
 		
 	}
 	
-	public UserVO(String uid, String upw, String uname, String utel, String uemail, String uadress) {
+	public UserVO1(String uid, String upw, String uname, String utel, String uemail, String uadress) {
 		super();
 		Uid = uid;
 		Upw = upw;
