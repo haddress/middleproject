@@ -16,7 +16,12 @@ public class ProductListControl implements Control {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String path = "hyunju/ListOutput.jsp";
+		
 		String category = request.getParameter("category");
+		String job = request.getParameter("job");
+				
+				
 		
 		ProductService service = new ProductService();
 		List<ProductVO> list = service.productList(null);

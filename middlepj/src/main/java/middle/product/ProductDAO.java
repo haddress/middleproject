@@ -40,22 +40,13 @@ public class ProductDAO extends DAO {
 	}
 
 	// 상품전체보기 -> 카테고리별로 보기(1.간식 2.장난감 3.실내용품 4.목욕/미용)
-	public List<ProductVO> listProduct(ProductVO product) {
+	public List<ProductVO> listProduct(String product_category) {
 		List<ProductVO> productList = new ArrayList<ProductVO>();
 		conn = getConnect();
-		int cnt = 1;
-		String sql = "select * from product ";
-		sql += "where 1=1";
-		if (product.getProduct_category() != null) {
-			sql += "and product_category = nvl(?, product_category)";
-		}
-		sql += "order by product_code";
-		
+		String sql = "select * from product where product_category = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			if (product.getProduct_category() != null) {
-				psmt.setString(cnt++, product.getProduct_category());
-			}
+			psmt.setString(1, product_category);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				ProductVO vo = new ProductVO();

@@ -12,8 +12,8 @@ public class ProductService {
 	}
 	
 	// 상품전체보기 -> 카테고리별로 보기(1.간식 2.장난감 3.실내용품 4.목욕/미용)
-	public List<ProductVO> productList(ProductVO product) {
-		return dao.listProduct(product);
+	public List<ProductVO> productList(String product_category) {
+		return dao.listProduct(product_category);
 	}
 	
 	// 상품상세보기
