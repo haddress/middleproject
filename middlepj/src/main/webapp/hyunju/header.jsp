@@ -31,10 +31,10 @@
 		<div id="header-second">
 			<a href="" id="header-to-home">홈</a>
 			<div id="header-second-menu">
-				<a href="" id="category-snack">간식</a>
-				<a href="" id="category-toy">장난감</a>
-				<a href="" id="category-goods">실내용품</a>
-				<a href="" id="category-wash">목욕/미용</a>
+				<a href="../productList.do"><input type="hidden" name="job" value="category-snack">간식</a>
+				<a href="../productList.do"><input type="hidden" name="job" value="category-toy">장난감</a>
+				<a href="../productList.do"><input type="hidden" name="job" value="category-goods">실내용품</a>
+				<a href="../productList.do"><input type="hidden" name="job" value="category-wash">목욕/미용</a>
 			</div>			
 		</div>
 	</header>

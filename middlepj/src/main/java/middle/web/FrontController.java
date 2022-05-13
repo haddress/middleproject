@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import middle.product.DetailProductControl;
+import middle.product.ProductInsertControl;
+import middle.product.ProductInsertJson;
+import middle.product.ProductListControl;
+import middle.product.ProductListJson;
+
 public class FrontController extends HttpServlet {
 	HashMap<String, Control> list = null;
 	String charset = null;
@@ -16,13 +22,20 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		charset = config.getInitParameter("charset");
 		list = new HashMap<String, Control>();
+		
+		list.put("/productInsert.do", new ProductInsertControl());
+		list.put("/productList.do", new ProductListControl());
+		list.put("/detailProduct.do", new DetailProductControl());
+		
 		list.put("/memberInsert.do", new MemberInsertControl());
 		list.put("/memberUpdate.do", new MemberUpdateControl());
 		list.put("/memberList.do", new MemberListControl());
 		list.put("/memberSearch.do", new MemberSearchControl());
 		list.put("/memberDelete.do", new MemberDeleteControl());
 		
-		
+		// json 관련 등록
+		list.put("/productListJson.do", new ProductListJson());
+		list.put("/productInsertJson.do", new ProductInsertJson());
 		
 	}
 	@Override
