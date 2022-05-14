@@ -22,6 +22,9 @@ public class SearchControl implements Control {
 		if(job.equals("modify")) {
 			path = "mok/modify.jsp";
 		}else if(job.equals("delete")) {
+			
+			
+			
 			path = "mok/delete.jsp";
 		}
 		

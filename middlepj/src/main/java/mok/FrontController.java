@@ -12,15 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import middle.web.Control;
 import middle.web.MemberDeleteControl;
 
-public class ProductController extends HttpServlet {
+public class FrontController extends HttpServlet {
 	HashMap<String, Control> list = null;
 	String charset = null;
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		charset = config.getInitParameter("charset");
 		list = new HashMap<String, Control>();
-		list.put("/productInsert.do", new MemberDeleteControl());
-
+		list.put("/delete.do", new UserDeleteControl());
+		list.put("/modify.do", new UserModifyControl());
 
 		
 		
