@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<footer class="footer">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dobby marCat</title>
+</head>
+<body>
+
 	<div class="footer-frame">
 		<div class="footer-div1">
 			<div class="footer-tel">고객센터 1234-5678</div>
@@ -17,7 +24,6 @@
 				<a>사업자정보확인</a>
 			</div>
 	</div>
-</footer>
 
 </body>
 </html>
