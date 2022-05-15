@@ -25,16 +25,30 @@
 
 
     <form action="search" method="get">
-        <input type="text" name="usermodfiy" id=""><br>
+        
         <input type="hidden" name="job" value="modify">
         <input type="submit" value="회원정보수정">
     </form>
     		<input type="submit" value="수정">
 		
-	    <form action="search" method="get">
-        <input type="hidden" name="job" value="delete">
-        <input type="submit" value="탈퇴하기">
+<script>
+
+function button_event(){
+
+if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+    document.form.submit();
+
+}else{   //취소
+    return;
+}
+}
+
+</script>
+    <form action="delete.do" method="get">
+        
+        <input type="submit" value="회원탈퇴" onclick="button_event();">
     </form>
+
 
     
 
