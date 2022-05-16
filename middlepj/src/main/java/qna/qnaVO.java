@@ -11,14 +11,13 @@ public class qnaVO {
 	private String qnaTitle;
 	private String qnaContent;
 	private String id;
-	private int qnaAvailable;
 	
 	public qnaVO () {
 		
 	}
 
 	public qnaVO(String qnaDate, int qnaNo, String qnaPw, String qnaCategory, String productCode, String qnaWrite,
-			String qnaTitle, String qnaContent, String id, int qnaAvailable) {
+			String qnaTitle, String qnaContent, String id) {
 		super();
 		this.qnaDate = qnaDate;
 		this.qnaNo = qnaNo;
@@ -29,7 +28,6 @@ public class qnaVO {
 		this.qnaTitle = qnaTitle;
 		this.qnaContent = qnaContent;
 		this.id = id;
-		this.qnaAvailable = qnaAvailable;
 	}
 
 	public String getQnaDate() {
@@ -104,19 +102,12 @@ public class qnaVO {
 		this.id = id;
 	}
 
-	public int getQnaAvailable() {
-		return qnaAvailable;
-	}
-
-	public void setQnaAvailable(int qnaAvailable) {
-		this.qnaAvailable = qnaAvailable;
-	}
 
 	@Override
 	public String toString() {
 		return "qnaVO [qnaDate=" + qnaDate + ", qnaNo=" + qnaNo + ", qnaPw=" + qnaPw + ", qnaCategory=" + qnaCategory
 				+ ", productCode=" + productCode + ", qnaWrite=" + qnaWrite + ", qnaTitle=" + qnaTitle + ", qnaContent="
-				+ qnaContent + ", id=" + id + ", qnaAvailable=" + qnaAvailable + "]";
+				+ qnaContent + ", id=" + id + "]";
 	}
 	
 }
