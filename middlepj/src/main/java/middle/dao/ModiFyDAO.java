@@ -16,6 +16,40 @@ public class ModiFyDAO extends DAO {
 	Connection conn; // sql 연결
 	ResultSet rs;
 	PreparedStatement psmt; // 쿼리실행
+	public int userCheck(String id, String pw) {
+		conn=getConnect();
+		
+		String sql = "select*from user_info where id = ? and pw = ? ";
+		
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, id);
+				psmt.setString(2, pw);
+				rs=psmt.executeQuery();
+				if(rs.next()) {
+
+	             if(rs.getString(1).equals(pw)) {
+
+	                  return 1; // 로그인 성공
+
+	                } else 
+
+	                  return 0; // 비밀번호 불일치
+
+	            }
+				 return -1; //아이디가 없음
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				
+			}finally {
+				disconnect();
+				
+			}return -2;			
+
+}
+		
+	
 	public void insertUser(UserVO1 vo) {
 		conn=getConnect();
 		String sql = "insert into user_info(id, pw, name, tel, email, address) "

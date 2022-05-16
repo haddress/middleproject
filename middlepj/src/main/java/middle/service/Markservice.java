@@ -30,9 +30,9 @@ public class Markservice {
 	public void addUser(UserVO1 vo) {
 		dao.insertUser(vo);
 	}
-	public boolean login(String id) {
-		return true;
+	public int checkUser(String id, String pw) {
+		return dao.userCheck(id,pw);
 	}
-	
+
 	
 }
