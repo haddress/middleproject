@@ -17,20 +17,18 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		charset = config.getInitParameter("charset");
 		list = new HashMap<String, Control>();
-		
-//		list.put("/productInsert.do", new ProductInsertControl());
-//		list.put("/productList.do", new ProductListControl());
-//		list.put("/detailProduct.do", new DetailProductControl());
-//
-//		list.put("/CateList.do", new CateListControl());	
-		
+			
 		list.put("/delete.do", new UserDeleteControl());
 		list.put("/modify.do", new UserModifyControl());
 		list.put("/addUser.do", new addUserControl());
 		list.put("/login.do", new loginControl());
-		// json 관련 등록
-//		list.put("/productListJson.do", new ProductListJson());
-//		list.put("/productInsertJson.do", new ProductInsertJson());
+		
+		// 상품
+		list.put("/CateList.do", new CateListControl()); // 카테고리별 목록
+		list.put("/productDetail.do", new ProDetailControl()); // 한건상세
+		list.put("/newList.do", new NewListControl()); // 최신상품 목록
+		list.put("/review.do", new ProReviewControl()); // 상품리뷰
+		
 		
 	}
 	@Override
