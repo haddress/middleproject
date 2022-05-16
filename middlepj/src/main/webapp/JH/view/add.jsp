@@ -10,7 +10,7 @@
 <body>
 
     <h3>회원가입</h3>
-    <form action="../addUser.do" method="post">
+    <form action="/addUser.do" method="post">
         Id: <input type="text" name="id"><br>
         pw: <input type="password" name="pw"><br>
         name: <input type="text" name="name"><br>
@@ -20,7 +20,7 @@
         <input type="submit" value="회원가입">
     </form>
     
-    <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
+    <a href="/middlepj/hyunju/main.jsp">첫페이지</a>
 
 </body>
 
