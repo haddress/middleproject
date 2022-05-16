@@ -98,6 +98,7 @@ public class qnaDAO extends DAO{
 //	 }
 	public List<qnaVO> getList() {
 		conn = getConnect();
+		getConnect();
 		List<qnaVO> list = new ArrayList<qnaVO> ();
 		try {
 			psmt = conn.prepareStatement("select*from qna order by qna_no desc");
