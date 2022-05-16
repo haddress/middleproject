@@ -22,6 +22,7 @@ public class DAO {
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.58:1521:xe", "hr", "hr");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
+			System.out.println("실패");
 		}
 		System.out.println("연결성공");
 		return conn;
