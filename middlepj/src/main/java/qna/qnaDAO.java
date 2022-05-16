@@ -50,9 +50,9 @@ public class qnaDAO extends DAO{
 		 return -1;
 	 }
 	
-	 public int write(String qnaTitle, String qnaContent, String id, qnaVO qna) {
+	 public void write(String qnaTitle, String qnaContent, String id, qnaVO qna) {
 		 conn = getConnect();
-		 String sql = "insert into qna(qna_no,product_code,qna_category,qna_writer,qna_title,qna_content,qna_date,id,qna_available) values(?,?,?,?,?,?,?,?,?)";
+		 String sql = "insert into qna(qna_date,qna_no,qna_pw,qna_category,product_code,qna_writer,qna_title,qna_content,id) values(?,?,?,?,?,?,?,?,?)";
 		 try {
 			 psmt.setInt(1, getNext());
 			 psmt.setString(2, qna.getProductCode());
@@ -62,13 +62,12 @@ public class qnaDAO extends DAO{
 			 psmt.setString(6, qnaContent);
 			 psmt.setString(7, getDate());
 			 psmt.setString(8, id);
-			 psmt.setInt(9, 1);
 			 int r = psmt.executeUpdate();
 			 System.out.println(r + "건 입력되었습니다");
 		 }catch(SQLException e) {
 			 e.printStackTrace();
 		 }finally {
-			 return -1;
+			 disconnect();
 		 }
 	 }
 	 
@@ -101,7 +100,7 @@ public class qnaDAO extends DAO{
 		conn = getConnect();
 		List<qnaVO> list = new ArrayList<qnaVO> ();
 		try {
-			psmt = conn.prepareStatement("select*from qna where qna_available = 1 order by qna_no desc");
+			psmt = conn.prepareStatement("select*from qna order by qna_no desc");
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				qnaVO qnavo = new qnaVO();
