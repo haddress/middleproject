@@ -2,15 +2,14 @@ package middle.web;
 
 import java.io.IOException;
 import java.util.HashMap;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import middle.web.*;
-
+@WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
 	HashMap<String, Control> list = null;
 	String charset = null;
@@ -19,18 +18,19 @@ public class FrontController extends HttpServlet {
 		charset = config.getInitParameter("charset");
 		list = new HashMap<String, Control>();
 		
-		list.put("/productInsert.do", new ProductInsertControl());
-		list.put("/productList.do", new ProductListControl());
-		list.put("/detailProduct.do", new DetailProductControl());
-
-		list.put("/CateList.do", new CateListControl());	
+//		list.put("/productInsert.do", new ProductInsertControl());
+//		list.put("/productList.do", new ProductListControl());
+//		list.put("/detailProduct.do", new DetailProductControl());
+//
+//		list.put("/CateList.do", new CateListControl());	
 		
 		list.put("/delete.do", new UserDeleteControl());
 		list.put("/modify.do", new UserModifyControl());
 		list.put("/addUser.do", new addUserControl());
+		list.put("/login.do", new loginControl());
 		// json 관련 등록
-		list.put("/productListJson.do", new ProductListJson());
-		list.put("/productInsertJson.do", new ProductInsertJson());
+//		list.put("/productListJson.do", new ProductListJson());
+//		list.put("/productInsertJson.do", new ProductInsertJson());
 		
 	}
 	@Override

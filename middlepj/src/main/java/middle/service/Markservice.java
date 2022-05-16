@@ -10,6 +10,11 @@ import middle.vo.UserVO1;
 
 public class Markservice {
 	ModiFyDAO dao;
+	
+	public Markservice() {
+		dao = new ModiFyDAO();
+	}
+	
 	public void Userupdate(UserVO1 vo) {
 		dao.updateUser(vo);
 	}
@@ -24,6 +29,9 @@ public class Markservice {
 	}
 	public void addUser(UserVO1 vo) {
 		dao.insertUser(vo);
+	}
+	public boolean login(String id) {
+		return true;
 	}
 	
 	
