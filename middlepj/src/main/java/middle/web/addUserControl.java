@@ -13,6 +13,7 @@ public class addUserControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Markservice service = new Markservice();
 		String Uid = request.getParameter("Uid");
 		String Upw = request.getParameter("Upw");
 		String Uname = request.getParameter("Uname");
@@ -27,10 +28,15 @@ public class addUserControl implements Control {
 		vo.setUtel(Utel);
 		vo.setUemail(Uemail);
 		vo.setUadress(Uaddress);
-		Markservice service = new Markservice();
-		service.addUser(vo);		
 		
-		request.getRequestDispatcher("").forward(request, response);
+		
+
+		
+		service.addUser(vo);
+		System.out.println(vo.toString());
+		request.setAttribute("Uid", Uid);
+		
+		request.getRequestDispatcher("result/addoutput.jsp").forward(request, response);
 	}
 
 }

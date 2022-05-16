@@ -6,20 +6,20 @@ public class UserVO1 {
 	private String Uname;
 	private String Utel;
 	private String Uemail;
-	private String Uadress;
+	private String Uaddress;
 	
 	public UserVO1() {
 		
 	}
 	
-	public UserVO1(String uid, String upw, String uname, String utel, String uemail, String uadress) {
+	public UserVO1(String uid, String upw, String uname, String utel, String uemail, String uaddress) {
 		super();
 		Uid = uid;
 		Upw = upw;
 		Uname = uname;
 		Utel = utel;
 		Uemail = uemail;
-		Uadress = uadress;
+		Uaddress = uaddress;
 	}
 	public String getUid() {
 		return Uid;
@@ -51,16 +51,16 @@ public class UserVO1 {
 	public void setUemail(String uemail) {
 		Uemail = uemail;
 	}
-	public String getUadress() {
-		return Uadress;
+	public String getUaddress() {
+		return Uaddress;
 	}
 	public void setUadress(String uadress) {
-		Uadress = uadress;
+		Uaddress = uadress;
 	}
 	@Override
 	public String toString() {
 		return "UserVO [Uid=" + Uid + ", Upw=" + Upw + ", Uname=" + Uname + ", Utel=" + Utel + ", Uemail=" + Uemail
-				+ ", Uadress=" + Uadress + "]";
+				+ ", Uadress=" + Uaddress + "]";
 	}
 	
 }

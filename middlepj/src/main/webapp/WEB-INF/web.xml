@@ -3,11 +3,11 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
-	<display-name>0503</display-name>
+	<display-name>middlepj</display-name>
 
 	<servlet>
 		<servlet-name>front</servlet-name>
-		<servlet-class>co.dev.web.FrontController</servlet-class>
+		<servlet-class>middle.web.FrontController</servlet-class>
 		<init-param> <!-- 한글변환 -->
 			<param-name>charset</param-name>
 			<param-value>UTF-8</param-value>

@@ -27,7 +27,7 @@ public class ModiFyDAO extends DAO {
 			psmt.setString(3, vo.getUname());
 			psmt.setString(4, vo.getUtel());
 			psmt.setString(5, vo.getUemail());
-			psmt.setString(6, vo.getUadress());
+			psmt.setString(6, vo.getUaddress());
 
 			
 			int r = psmt.executeUpdate();
@@ -75,7 +75,7 @@ public class ModiFyDAO extends DAO {
 			psmt.setString(1, vo.getUpw());
 			psmt.setString(2, vo.getUtel());
 			psmt.setString(3, vo.getUemail());
-			psmt.setString(4, vo.getUadress());
+			psmt.setString(4, vo.getUaddress());
 			psmt.setString(5, vo.getUid());
 			psmt.executeUpdate();
 		} catch (SQLException e) {
@@ -113,6 +113,7 @@ public class ModiFyDAO extends DAO {
 				vo.setUorderCode(rs.getString("order_name"));
 				vo.setUorderTel(rs.getString("order_tel"));
 				list.add(vo);
+				System.out.println("성");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

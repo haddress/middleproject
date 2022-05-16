@@ -10,7 +10,7 @@
 <body>
 
     <h3>회원가입</h3>
-    <form action="/addUser.do" method="post">
+    <form action="../addUser.do" method="post">
         Id: <input type="text" name="Uid"><br>
         pw: <input type="password" name="Upw"><br>
         name: <input type="text" name="Uname"><br>
