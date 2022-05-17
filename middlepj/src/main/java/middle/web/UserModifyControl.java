@@ -11,7 +11,7 @@ import middle.vo.UserVO1;
 import middle.web.Control;
 
 public class UserModifyControl implements Control {
-
+	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

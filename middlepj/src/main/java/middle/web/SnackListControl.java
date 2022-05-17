@@ -10,17 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import middle.service.ProductService;
 import middle.vo.ProductVO;
 
-public class CateListControl implements Control {
+public class SnackListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String category = request.getParameter("category");
-		
 		ProductService service = new ProductService();
-		List<ProductVO> list = service.cateList(category);
+		List<ProductVO> list = service.snackList();
 		
-		request.setAttribute("catelist", list);
+		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("view/ProCateList.jsp").forward(request, response);
 		
