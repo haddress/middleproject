@@ -22,7 +22,7 @@ public class FrontController extends HttpServlet {
 		list.put("/modify.do", new UserModifyControl());
 		list.put("/addUser.do", new addUserControl());
 		list.put("/login.do", new loginControl());
-		
+		list.put("/qna.do", new qnaListControl());
 		// 상품
 		list.put("/CateList.do", new CateListControl()); // 카테고리별 목록
 		list.put("/productDetail.do", new ProDetailControl()); // 한건상세
