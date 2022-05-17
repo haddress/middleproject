@@ -15,7 +15,7 @@
 			<option value="toy">장난감
 			<option value="goods">실내용품
 			<option value="wash">목욕/미용
-		</select>
+		</select><br>
 		상품명: <input type="text" name="pname"><br>
 		상품가격: <input type="text" name="pprice"><br>
 		상품수량: <input type="number" name="pamount"><br>

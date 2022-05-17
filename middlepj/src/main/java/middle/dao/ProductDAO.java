@@ -22,14 +22,12 @@ public class ProductDAO extends DAO {
 		String sql = "insert into product(product_code,product_category,product_name,product_price,product_amount,product_exp,product_img,product_date) values(TO_CHAR(TRUNC(DBMS_RANDOM.VALUE(10000,99999))),?,?,?,?,?,?,systimestamp)";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, product.getProductCode());
-			psmt.setString(2, product.getProductCate());
-			psmt.setString(3, product.getProductName());
-			psmt.setInt(4, product.getProductPrice());
-			psmt.setInt(5, product.getProductAmount());
-			psmt.setString(6, product.getProductExp());
-			psmt.setString(7, product.getProductImg());
-			psmt.setString(7, product.getProductDate());
+			psmt.setString(1, product.getProductCate());
+			psmt.setString(2, product.getProductName());
+			psmt.setInt(3, product.getProductPrice());
+			psmt.setInt(4, product.getProductAmount());
+			psmt.setString(5, product.getProductExp());
+			psmt.setString(6, product.getProductImg());
 
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건의 상품이 등록되었습니다.");

@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import middle.service.ProductService;
+import middle.vo.ProductVO;
+
 public class ProAddControl implements Control {
 
 	@Override
@@ -23,7 +26,27 @@ public class ProAddControl implements Control {
 		
 		String name = multi.getParameter("pname");
 		String category = multi.getParameter("pcate");
-		String price = multi.getParameter("pprice");
+		int price = Integer.parseInt(multi.getParameter("pprice"));
+		int amount = Integer.parseInt(multi.getParameter("pamount"));
+		String exp = multi.getParameter("pexp");
+		String img = multi.getFilesystemName("pimg");
+		
+		ProductVO vo = new ProductVO();
+		vo.setProductName(name);
+		vo.setProductCate(category);
+		vo.setProductPrice(price);
+		vo.setProductAmount(amount);
+		vo.setProductExp(exp);
+		vo.setProductImg(img);
+		
+		ProductService service = new ProductService();
+		service.productInsert(vo);
+		
+		request.setAttribute("name", name);
+		request.setAttribute("category", category);
+		
+		request.getRequestDispatcher("view/ProAddOut.jsp").forward(request, response);
+		
 	}
 
 }
