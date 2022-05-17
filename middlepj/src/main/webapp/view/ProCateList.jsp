@@ -1,15 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="middle.dao.ProductDAO"%>
-<%@ page import="middle.vo.ProductVO"%>
-<%@ page import="java.util.List" %>
+<%@page import="middle.vo.ProductVO" %>
+<%@page import="java.util.List"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <body>
 <div id="container">
 <!-- Header -->
@@ -20,17 +15,26 @@
 		<br>
 		
 	<c:choose>
-		<c:when test="${empty catelist }"><h2>상품정보가 없습니다.</h2></c:when>
+		<c:when test="${empty list }"><h4>상품정보가 없습니다.</h4></c:when>
 		<c:otherwise>
-			<div class="CateListOut">
-				<c:forEach items="${catelist }" var="product">
-					<div class="product">
-						<p><a href="productDetail.do?product_code=${product.product_code}">${product.product_img }</a></p>
-						<h4>${product.product_name }</h4>
-						<p>${product.product_price }원</p>
-					</div>
+				<c:set var="i" value="0"/>
+				<c:set var="j" value="4"/>
+				<table width="900">
+				<c:forEach items="${list }" var="product">
+					<c:if test="${i%j==0 }">
+					<tr>
+					</c:if>
+						<td align="center"><a href="productDetail.do?product_code=${product.productCode}" style="text-decoration:none; color:black">
+								${product.productImg }<br>
+								${product.productName }<br>
+								${product.productPrice }원<br>
+						</a></td>
+					<c:if test="${i%j==j-1 }"	>
+					</tr>	
+					</c:if>
+					<c:set var="i" value="${i+1 }"/>
 				</c:forEach>
-			</div>
+				</table>
 		</c:otherwise>
 	</c:choose>
 	<br>
@@ -42,40 +46,6 @@
 		</div>
 		
 	</div>
-
-<%-- 	<table width="900" border="1" bordercolor="gray">
-		<tr height="100">
-			<td align="center"colspan="3">
-				<font size="7" color="gray">${temp }</font>
-			</td>
-		</tr> --%>
-		
-<%-- <%
-	ProductDAO dao = new ProductDAO();
-	List<ProductVO> list = dao.listProduct(getInitParameter("category"));
-	int j = 0;
-	for(int i = 0; i < list.size();i++){
-		ProductVO vo = list.get(i);
-		if(j%3==0){
-%>		
-		<tr height="220">
-
-<%
-		}
-%>
-		<td width="333" align="center">
-				<a href ="main.jsp?center=ProductDetail.do?productCode=<%=vo.getProduct_code()%>">
-				<img alt ="" src="images/<%=vo.getProduct_img()%>" width="300" height="200"> 
-				</a><p>
-				<font size ="3" color="gray"><b> 상품명 : <%=vo.getProduct_name()%></b></font></p>
-			</td>
-
-	<% 		
-			j = j+1;//j값을 가하여 하나의 행에 총 3개의 정보를 보여주기 위해서 증가
-		}
- 	%>
-	
-	</table> --%>
 
 </body>
 </html>
