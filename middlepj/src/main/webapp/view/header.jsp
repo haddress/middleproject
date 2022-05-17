@@ -43,7 +43,7 @@ nav ul {
 						<%
 							if(id.equals("guest")) {
 						%>
-							<li class="log"><a href="main.jsp?center=QNA.jsp" style="text-decoration:none">고객센터</a></li>
+							<li class="log"><a href="/middlepj/qna/qna.jsp" style="text-decoration:none">고객센터</a></li>
 							<li class="log"><a href="add.jsp" style="text-decoration:none">회원가입</a></li>
 							<li class="log"><a href="login.jsp" style="text-decoration:none">로그인</a></li>
 						<%

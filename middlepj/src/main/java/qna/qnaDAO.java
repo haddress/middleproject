@@ -54,7 +54,7 @@ public class qnaDAO extends DAO{
 		 conn = getConnect();
 		 String sql = "insert into qna(qna_date,qna_no,qna_pw,qna_category,product_code,qna_writer,qna_title,qna_content,id) values(?,?,?,?,?,?,?,?,?)";
 		 try {
-			 psmt.setInt(1, getNext());
+			 psmt.setString(1, qna.getQnaDate());
 			 psmt.setString(2, qna.getProductCode());
 			 psmt.setString(3, qna.getQnaCategory());
 			 psmt.setString(4, qna.getQnaWrite());
