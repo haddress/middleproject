@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="middle.dao.ProductDAO"%>
-<%@ page import="middle.vo.ProductVO"%>
-<%@ page import="java.util.List" %>
+<%@page import="middle.vo.ProductVO" %>
+<%@page import="java.util.List"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -20,17 +19,26 @@
 		<br>
 		
 	<c:choose>
-		<c:when test="${empty catelist }"><h2>상품정보가 없습니다.</h2></c:when>
+		<c:when test="${empty list }"><h4>상품정보가 없습니다.</h4></c:when>
 		<c:otherwise>
-			<div class="CateListOut">
-				<c:forEach items="${catelist }" var="product">
-					<div class="product">
-						<p><a href="productDetail.do?product_code=${product.product_code}">${product.product_img }</a></p>
-						<h4>${product.product_name }</h4>
-						<p>${product.product_price }원</p>
-					</div>
+				<c:set var="i" value="0"/>
+				<c:set var="j" value="4"/>
+				<table width="900">
+				<c:forEach items="${list }" var="product">
+					<c:if test="${i%j==0 }">
+					<tr>
+					</c:if>
+						<td align="center"><a href="productDetail.do?product_code=${product.productCode}" style="text-decoration:none; color:black">
+								${product.productImg }<br>
+								${product.productName }<br>
+								${product.productPrice }원<br>
+						</a></td>
+					<c:if test="${i%j==j-1 }"	>
+					</tr>	
+					</c:if>
+					<c:set var="i" value="${i+1 }"/>
 				</c:forEach>
-			</div>
+				</table>
 		</c:otherwise>
 	</c:choose>
 	<br>
