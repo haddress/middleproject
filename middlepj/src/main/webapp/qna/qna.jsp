@@ -10,6 +10,7 @@
 <body>
  <c:choose> 
 	<c:when test="${empty list }"><h3>문의글 정보가 없습니다</h3></c:when>
+	<h6>아</h6>
 	<c:otherwise>
 	<h3>고객센터</h3> 
 	<table border="1">
