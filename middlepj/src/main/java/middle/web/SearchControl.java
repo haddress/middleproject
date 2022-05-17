@@ -6,6 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import middle.service.Markservice;
+import middle.vo.UserVO1;
+
 
 public class SearchControl implements Control {
 
@@ -16,15 +19,14 @@ public class SearchControl implements Control {
 
 		String Uid = request.getParameter("Uid");
 		String job = request.getParameter("job");
+		Markservice service = new Markservice();
+		UserVO1 vo = service.findUser(Uid);
 		// 조회 도서코드가 없을 경우 결과를 보여주는 페이지 지정.
 
 		// 정상적인 처리가 진행될 경우 페이지 지정.
 		if(job.equals("modify")) {
 			path = "mok/modify.jsp";
 		}else if(job.equals("delete")) {
-			
-			
-			
 			path = "mok/delete.jsp";
 		}
 		

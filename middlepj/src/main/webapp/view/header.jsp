@@ -50,9 +50,11 @@ nav ul {
 							} else {
 						%>	
 							<li class="log"><%=id %> 님 반갑습니다.</li>
-							<li class="log"><a href="index.jsp?center=Mypage.jsp" style="text-decoration:none">마이페이지</a></li>
-							<li class="log"><a href="index.jsp?center=Logout.jsp" style="text-decoration:none">로그아웃</a><li>
+
+							<li class="log"><a href="../mypage.do" style="text-decoration:none">마이페이지</a></li>
+							<li class="log"><a href="../logout.do" style="text-decoration:none">로그아웃</a><li>
 							<li class="log"><a href="index.jsp?center=QNA.jsp" style="text-decoration:none">고객센터</a><li>
+
 						<%
 							}
 						%>
