@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>write.jsp</title>
+<title>qnaWrite.jsp</title>
 </head>
 <body>
   <form method="post" action="writeAction.jsp">
 	<table border="1">
 		<thead>
 			<tr>
-				<th>게시판 글쓰기 양식</th>
+				<th>고객센터 문의하기</th>
 			</tr>
 		</thead>
 		<tbody>

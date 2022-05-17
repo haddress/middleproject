@@ -1,4 +1,4 @@
-package qna;
+package middle.vo;
 
 public class qnaVO {
 
