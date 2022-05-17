@@ -33,6 +33,9 @@ public class Markservice {
 	public int checkUser(String id, String pw) {
 		return dao.userCheck(id,pw);
 	}
+	public UserVO1 findUser(String Uid) {
+		return dao.userFind(Uid);
+	}
 
 	
 }

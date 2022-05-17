@@ -7,6 +7,8 @@
 <title>수정완료페이지</title>
 </head>
 <body>
+
+
 <script>
 
 function button_event(){

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="../login.do" method="post">
+<form action="logincheck.jsp" method="post">
         Id: <input type="text" name="Uid"><br>
         pw: <input type="password" name="Upw"><br>
         <input type = "submit" value ="로그인">
@@ -22,6 +22,6 @@
 
 
 
-<a href="main.jsp">첫페이지</a>
+<a href="${pageContext.servletContext.contextPath }/view/main.jsp">첫페이지</a>
 </body>
 </html>
