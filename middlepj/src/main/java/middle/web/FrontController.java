@@ -32,6 +32,10 @@ public class FrontController extends HttpServlet {
 //		list.put("/productListJson.do", new ProductListJson());
 //		list.put("/productInsertJson.do", new ProductInsertJson());
 		
+		
+		//관리자 메뉴입니다	
+		list.put("/userList.do", new AdminUserListControl());
+		list.put("/searchUser.do", new AdminUserSearchControl());
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
