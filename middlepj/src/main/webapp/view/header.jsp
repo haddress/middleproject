@@ -61,10 +61,10 @@ nav ul {
 			<br>
 			<nav id="category">
 				<ul>
-					<li class="cate"><a href="main.jsp?center=CateList.do?category=snack" style="text-decoration:none">간식</a></li>
-					<li class="cate"><a href="main.jsp?center=CateList.do?category=toy" style="text-decoration:none">장난감</a></li>
-					<li class="cate"><a href="main.jsp?center=CateList.do?category=goods" style="text-decoration:none">실내용품</a></li>
-					<li class="cate"><a href="main.jsp?center=CateList.do?category=wash" style="text-decoration:none">목욕/미용</a></li>
+					<li class="cate"><a href="ProCateList.jsp?category=snack" style="text-decoration:none">간식</a></li>
+					<li class="cate"><a href="ProCateList.jsp?category=toy" style="text-decoration:none">장난감</a></li>
+					<li class="cate"><a href="ProCateList.jsp?category=goods" style="text-decoration:none">실내용품</a></li>
+					<li class="cate"><a href="ProCateList.jsp?category=wash" style="text-decoration:none">목욕/미용</a></li>
 				</ul>
 			</nav>
 		
