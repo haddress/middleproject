@@ -7,10 +7,7 @@
 <title>Dobby marCat</title>
 <style>
 #head {
-
-	width: 1000px;
-	margin: 0 auto;
-
+   width: 1000px;
 }
 nav ul {
    list-style: none;
@@ -31,10 +28,12 @@ nav ul {
 <body>
 
       <%
-         String id = (String) session.getAttribute("id");
+
+         String Uid = (String) session.getAttribute("Uid");
       
-         if(id==null) {
-            id="guest";
+         if(Uid==null) {
+            Uid="guest";
+
          }
       %>
       
@@ -42,21 +41,22 @@ nav ul {
       
          <nav id="info">
             <ul>
-               <li id="home"><a href="<%=request.getContextPath() %>/main.jsp" style="text-decoration:none">홈</a></li>
+
+               <li id="home"><a href="<%=request.getContextPath() %>/index.jsp" style="text-decoration:none">홈</a></li>
                   <%
-                     if(id.equals("guest")) {
+                     if(Uid.equals("guest")) {
                   %>
                      <li class="log"><a href="qna.do" style="text-decoration:none">고객센터</a></li>
-                     <li class="log"><a href="add.jsp" style="text-decoration:none">회원가입</a></li>
-                     <li class="log"><a href="login.jsp" style="text-decoration:none">로그인</a></li>
+                     <li class="log"><a href="<%=request.getContextPath() %>/view/add.jsp" style="text-decoration:none">회원가입</a></li>
+                     <li class="log"><a href="<%=request.getContextPath() %>/view/login.jsp" style="text-decoration:none">로그인</a></li>
                   <%
                      } else {
                   %>   
-                     <li class="log"><%=id %> 님 반갑습니다.</li>
+                     <li class="log"><%=Uid %> 님 반갑습니다.</li>
 
-                     <li class="log"><a href="../mypage.do" style="text-decoration:none">마이페이지</a></li>
-                     <li class="log"><a href="../logout.do" style="text-decoration:none">로그아웃</a><li>
-                     <li class="log"><a href="index.jsp?center=QNA.jsp" style="text-decoration:none">고객센터</a><li>
+                     <li class="log"><a href="<%=request.getContextPath() %>/mypage.do" style="text-decoration:none">마이페이지</a></li>
+                     <li class="log"><a href="<%=request.getContextPath() %>/logout.do" style="text-decoration:none">로그아웃</a><li>
+                     <li class="log"><a href="qna.do" style="text-decoration:none">고객센터</a><li>
 
                   <%
                      }
@@ -74,4 +74,6 @@ nav ul {
             </ul>
          </nav>
       
+
       </div>
+

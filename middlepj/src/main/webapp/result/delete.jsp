@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>탈퇴 완료</h3>
+<form action="${pageContext.servletContext.contextPath }/delete.do" method="get">
+        ${Uid }
+        <input type="submit" value="찐탈퇴">
+    </form>
 </body>
 </html>
