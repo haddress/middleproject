@@ -7,26 +7,29 @@
 <title>Dobby marCat</title>
 <style>
 #head {
+
 	width: 1000px;
 	margin: 0 auto;
+
 }
 nav ul {
-	list-style: none;
+   list-style: none;
 }
 #home {
-	float: left;
+   float: left;
 }
 .log {
-	float: right;
-	margin-right: 10px;
+   float: right;
+   margin-right: 10px;
 }
 .cate {
-	float: left;
-	margin: 0 5px;
+   float: left;
+   margin: 0 5px;
 }
 </style>
 </head>
 <body>
+
 
 		<%
 			String id = (String) session.getAttribute("id");
@@ -81,3 +84,4 @@ nav ul {
 			</nav>
 		
 		</div>
+
