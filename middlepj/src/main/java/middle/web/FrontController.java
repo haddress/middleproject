@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
+
    HashMap<String, Control> list = null;
    String charset = null;
    @Override
@@ -27,6 +28,7 @@ public class FrontController extends HttpServlet {
       
       // 고객센터
       list.put("/qna.do", new qnaListControl());
+      list.put("/detail.do", new qnaDetailControl());
 
       // 상품
       list.put("/productAdd.do", new ProAddControl()); // 관리자 상품등록
@@ -57,3 +59,4 @@ public class FrontController extends HttpServlet {
    }
    
 }
+

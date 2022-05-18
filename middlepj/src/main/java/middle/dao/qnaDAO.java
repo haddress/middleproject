@@ -143,29 +143,7 @@ public class qnaDAO extends DAO{
 	ResultSet rs;
 	 PreparedStatement psmt; 
 	 
-//	 public void write(String qnaTitle, String qnaContent, String id, qnaVO qna) {
-//		 conn = getConnect();
-//		 String sql = "insert into qna(qna_date,qna_no,qna_pw,qna_category,product_code,qna_writer,qna_title,qna_content,id) values(?,?,?,?,?,?,?,?,?)";
-//		 try {
-//			 psmt.setString(1, qna.getQnaDate());
-//			 psmt.setInt(2, qna.getQnaNo());
-//			 psmt.setString(3, qna.getQnaPw());
-//			 psmt.setString(4, qna.getQnaCategory());
-//			 psmt.setString(5, qna.getProductCode());
-//			 psmt.setString(6, qna.getQnaWrite());
-//			 psmt.setString(7, qnaTitle);
-//			 psmt.setString(8, qnaContent);
-//			 psmt.setString(9, id);
-//			 int r = psmt.executeUpdate();
-//			 System.out.println(r + "건 입력되었습니다");
-//		 }catch(SQLException e) {
-//			 e.printStackTrace();
-//		 }finally {
-//			 disconnect();
-//		 }
-//	 }
-//	 
-
+	 //문의글 전체리스트
 	public List<qnaVO> getList() {
 		conn = getConnect();
 		getConnect();
@@ -195,10 +173,44 @@ public class qnaDAO extends DAO{
 		}
 		return list;
 	}
-
+	
+	//문의번호 클릭시 문의글 상세보기
+	public qnaVO qnaDetail(int qnaNo) {
+		conn = getConnect();
+		getConnect();
+		String sql = "select q.qna_no, q.qan_date, p.product_code, q.qna_writer, q.qna_title, q.qna_content\r\n"
+				+ "from qna q join product p\r\n"
+				+ "on(q.product_code = p.product_code)\r\n"
+				+ "where q.qna_no = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, qnaNo);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				qnaVO vo = new qnaVO();
+				vo.setQnaNo(rs.getInt("qna_no"));
+				vo.setQnaDate(rs.getString("qan_date"));
+				vo.setProductCode(rs.getString("product_code"));
+				vo.setQnaWrite(rs.getString("qna_writer"));
+				vo.setQnaTitle(rs.getString("qna_title"));
+				vo.setQnaContent(rs.getString("qna_content"));
+				return vo;
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}finally {
+				disconnect();
+			}
+		return null;
+	}
+	
+	//글쓰기
 	public void writeQna(qnaVO qna) {
 		conn = getConnect();
 		getConnect();
 		String sql = "";
 	}
+	
+	
 }

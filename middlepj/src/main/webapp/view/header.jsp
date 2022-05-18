@@ -28,10 +28,12 @@ nav ul {
 <body>
 
       <%
+
          String Uid = (String) session.getAttribute("Uid");
       
          if(Uid==null) {
             Uid="guest";
+
          }
       %>
       
@@ -39,12 +41,12 @@ nav ul {
       
          <nav id="info">
             <ul>
+
                <li id="home"><a href="<%=request.getContextPath() %>/index.jsp" style="text-decoration:none">홈</a></li>
                   <%
                      if(Uid.equals("guest")) {
                   %>
-                     <li class="log"><a href="/middlepj/qna/qna.jsp" style="text-decoration:none">고객센터</a></li>
-                     <li class="log"><a href="../qna.do" style="text-decoration:none">고객센터</a></li>
+                     <li class="log"><a href="qna.do" style="text-decoration:none">고객센터</a></li>
                      <li class="log"><a href="<%=request.getContextPath() %>/view/add.jsp" style="text-decoration:none">회원가입</a></li>
                      <li class="log"><a href="<%=request.getContextPath() %>/view/login.jsp" style="text-decoration:none">로그인</a></li>
                   <%
@@ -54,7 +56,7 @@ nav ul {
 
                      <li class="log"><a href="<%=request.getContextPath() %>/mypage.do" style="text-decoration:none">마이페이지</a></li>
                      <li class="log"><a href="<%=request.getContextPath() %>/logout.do" style="text-decoration:none">로그아웃</a><li>
-                     <li class="log"><a href="index.jsp?center=QNA.jsp" style="text-decoration:none">고객센터</a><li>
+                     <li class="log"><a href="qna.do" style="text-decoration:none">고객센터</a><li>
 
                   <%
                      }
@@ -72,4 +74,6 @@ nav ul {
             </ul>
          </nav>
       
+
       </div>
+
