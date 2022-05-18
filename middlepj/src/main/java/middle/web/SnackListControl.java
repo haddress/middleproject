@@ -20,7 +20,7 @@ public class SnackListControl implements Control {
 		
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("view/ProCateList.jsp").forward(request, response);
+		request.getRequestDispatcher("result/ProCateList.jsp").forward(request, response);
 		
 	}
 
