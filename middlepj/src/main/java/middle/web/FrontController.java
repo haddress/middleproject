@@ -36,7 +36,7 @@ public class FrontController extends HttpServlet {
 		list.put("/GoodsList.do", new GoodsListControl()); // 실내용품 카테고리
 		list.put("/WashList.do", new WashListControl()); // 목욕/미용 카테고리
 		list.put("/productDetail.do", new ProDetailControl()); // 한건상세
-		list.put("/newList.do", new NewListControl()); // 최신상품 목록
+		list.put("/mainList.do", new NewListControl()); // 최신상품 목록
 		list.put("/review.do", new ProReviewControl()); // 상품리뷰
 		
 		
@@ -44,6 +44,7 @@ public class FrontController extends HttpServlet {
 		//관리자 메뉴입니다	
 		list.put("/userList.do", new AdminUserListControl());
 		list.put("/searchUser.do", new AdminUserSearchControl());
+		
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

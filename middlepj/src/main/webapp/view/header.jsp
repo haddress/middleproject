@@ -7,7 +7,10 @@
 <title>Dobby marCat</title>
 <style>
 #head {
-   width: 1000px;
+
+	width: 1000px;
+	margin: 0 auto;
+
 }
 nav ul {
    list-style: none;

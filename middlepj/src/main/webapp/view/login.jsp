@@ -22,6 +22,6 @@
 
 
 
-<a href="${pageContext.servletContext.contextPath }/view/main.jsp">첫페이지</a>
+<a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 </body>
 </html>

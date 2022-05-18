@@ -6,8 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import JB.AdminService;
-import JB.AdminVO;
+import middle.service.Markservice;
 import middle.vo.UserVO1;
 
 public class AdminUserSearchControl implements Control {
@@ -15,16 +14,13 @@ public class AdminUserSearchControl implements Control {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uid = null;
-		uid = request.getParameter("Uid");
-		String job = request.getParameter("job");
-
-		String path = ""; // /result/adminSearchOutput.jsp
+		System.out.println("dddd");
+		uid = request.getParameter("id");
 		
-		if(job.equals("search")) {
-			path = "view/adminSearch.jsp";
-		} else if(job.equals("add")) {
-			path = "view/adminAdd.jsp";
-		}
+
+		String path = "/result/adminSearchOutput.jsp"; // /result/adminSearchOutput.jsp
+		
+		
 		
 		if (uid.isBlank()) {
 			request.setAttribute("error", "아이디를 입력하세요.");
@@ -32,14 +28,17 @@ public class AdminUserSearchControl implements Control {
 			return;
 		}
 		
-		AdminService service = new AdminService();
-		UserVO1 vo = service.findUser(uid);
+		Markservice service = new Markservice();
+		UserVO1 vo = service.ussear(uid);
 		
-		request.setAttribute("", vo);
-		if (job.equals("search")) {
-			request.setAttribute("result", vo);
-			path = "result/searchOutput.jsp";
+		if(vo == null) {
+			request.setAttribute("result", "조회된 정보 없음");
 		}
+		
+		request.setAttribute("vo", vo);
+		
+		
+		
 
 		request.getRequestDispatcher(path).forward(request, response);
 	}
