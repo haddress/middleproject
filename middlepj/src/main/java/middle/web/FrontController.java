@@ -21,7 +21,9 @@ public class FrontController extends HttpServlet {
 		list.put("/delete.do", new UserDeleteControl());
 		list.put("/modify.do", new UserModifyControl());
 		list.put("/addUser.do", new addUserControl());
-		//list.put("/login.do", new loginControl());
+
+		list.put("/logout.do", new logoutControl());
+
 		list.put("/mypage.do", new Orderlist());
 		list.put("/search.do", new SearchControl());
 		
@@ -35,7 +37,7 @@ public class FrontController extends HttpServlet {
 		list.put("/GoodsList.do", new GoodsListControl()); // 실내용품 카테고리
 		list.put("/WashList.do", new WashListControl()); // 목욕/미용 카테고리
 		list.put("/productDetail.do", new ProDetailControl()); // 한건상세
-		list.put("/newList.do", new NewListControl()); // 최신상품 목록
+		list.put("/mainList.do", new NewListControl()); // 최신상품 목록
 		list.put("/review.do", new ProReviewControl()); // 상품리뷰
 		
 		

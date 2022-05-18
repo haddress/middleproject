@@ -7,7 +7,10 @@
 <title>Dobby marCat</title>
 <style>
 #head {
-   width: 1000px;
+
+	width: 1000px;
+	margin: 0 auto;
+
 }
 nav ul {
    list-style: none;
@@ -27,49 +30,58 @@ nav ul {
 </head>
 <body>
 
-      <%
-         String id = (String) session.getAttribute("id");
-      
-         if(id==null) {
-            id="guest";
-         }
-      %>
-      
-      <div id="head">
-      
-         <nav id="info">
-            <ul>
-               <li id="home"><a href="<%=request.getContextPath() %>/index.jsp" style="text-decoration:none">홈</a></li>
-                  <%
-                     if(id.equals("guest")) {
-                  %>
-                     <li class="log"><a href="/middlepj/qna/qna.jsp" style="text-decoration:none">고객센터</a></li>
-                     <li class="log"><a href="../qna.do" style="text-decoration:none">고객센터</a></li>
-                     <li class="log"><a href="add.jsp" style="text-decoration:none">회원가입</a></li>
-                     <li class="log"><a href="login.jsp" style="text-decoration:none">로그인</a></li>
-                  <%
-                     } else {
-                  %>   
-                     <li class="log"><%=id %> 님 반갑습니다.</li>
 
-                     <li class="log"><a href="../mypage.do" style="text-decoration:none">마이페이지</a></li>
-                     <li class="log"><a href="../logout.do" style="text-decoration:none">로그아웃</a><li>
-                     <li class="log"><a href="index.jsp?center=QNA.jsp" style="text-decoration:none">고객센터</a><li>
+		<%
+			String id = (String) session.getAttribute("id");
+		
+			if(id==null) {
+				id="guest";
+			}
+		%>
+		
+		<div id="head">
+		
+			<nav id="info">
+				<ul>
+					<li id="home"><a href="<%=request.getContextPath() %>/index.jsp" style="text-decoration:none">홈</a></li>
+						<%
+							if(id.equals("guest")) {
+						%>
+							<li class="log"><a href="/middlepj/qna/qna.jsp" style="text-decoration:none">고객센터</a></li>
+							<li class="log"><a href="../qna.do" style="text-decoration:none">고객센터</a></li>
+							<li class="log"><a href="add.jsp" style="text-decoration:none">회원가입</a></li>
+							<li class="log"><a href="login.jsp" style="text-decoration:none">로그인</a></li>
+						<%
+							} else if(id.equals("admin")) {
+						%>	
+							<li class="log">관리자로 로그인하셨습니다.</li>
 
-                  <%
-                     }
-                  %>
-            </ul>
-         </nav>
-         <br>
-         
-         <nav id="category">
-            <ul>
-               <li class="cate"><a href="${pageContext.request.contextPath}/SnackList.do" style="text-decoration:none; color:black">간식</a></li>
-               <li class="cate"><a href="${pageContext.request.contextPath}/ToyList.do" style="text-decoration:none; color:black">장난감</a></li>
-               <li class="cate"><a href="${pageContext.request.contextPath}/GoodsList.do" style="text-decoration:none; color:black">실내용품</a></li>
-               <li class="cate"><a href="${pageContext.request.contextPath}/WashList.do" style="text-decoration:none; color:black">목욕/미용</a></li>
-            </ul>
-         </nav>
-      
-      </div>
+							<li class="log"><a href="#" style="text-decoration:none">관리자페이지</a></li>
+							<li class="log"><a href="../logout.do" style="text-decoration:none">로그아웃</a><li>
+						<%
+							}	else {
+						%>
+							<li class="log"><%=id %> 님 반갑습니다.</li>
+
+							<li class="log"><a href="../mypage.do" style="text-decoration:none">마이페이지</a></li>
+							<li class="log"><a href="../logout.do" style="text-decoration:none">로그아웃</a><li>
+							<li class="log"><a href="index.jsp?center=QNA.jsp" style="text-decoration:none">고객센터</a><li>
+
+						<%
+							}
+						%>
+				</ul>
+			</nav>
+			<br>
+			
+			<nav id="category">
+				<ul>
+					<li class="cate"><a href="${pageContext.request.contextPath}/SnackList.do" style="text-decoration:none; color:black">간식</a></li>
+					<li class="cate"><a href="${pageContext.request.contextPath}/ToyList.do" style="text-decoration:none; color:black">장난감</a></li>
+					<li class="cate"><a href="${pageContext.request.contextPath}/GoodsList.do" style="text-decoration:none; color:black">실내용품</a></li>
+					<li class="cate"><a href="${pageContext.request.contextPath}/WashList.do" style="text-decoration:none; color:black">목욕/미용</a></li>
+				</ul>
+			</nav>
+		
+		</div>
+

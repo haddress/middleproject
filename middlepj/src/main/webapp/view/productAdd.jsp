@@ -11,10 +11,10 @@
 	<form action="../productAdd.do" method="post" enctype="multipart/form-data">
 		상품카테고리: 
 		<select name="pcate">
-			<option value="snack">간식
-			<option value="toy">장난감
-			<option value="goods">실내용품
-			<option value="wash">목욕/미용
+			<option value="간식">간식
+			<option value="장난감">장난감
+			<option value="실내용품">실내용품
+			<option value="목욕/미용">목욕/미용
 		</select><br>
 		상품명: <input type="text" name="pname"><br>
 		상품가격: <input type="text" name="pprice"><br>
