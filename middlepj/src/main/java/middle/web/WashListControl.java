@@ -7,20 +7,21 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import middle.service.qnaService;
-import middle.vo.qnaVO;
+import middle.service.ProductService;
+import middle.vo.ProductVO;
 
-public class qnaListControl implements Control {
+public class WashListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.print("aa");
-		qnaService service = new qnaService();
-		List<qnaVO> list = service.qnaList();
+		
+		ProductService service = new ProductService();
+		List<ProductVO> list = service.washList();
 		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("view/qna.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("view/ProCateList.jsp").forward(request, response);
 	}
-	
+
 }

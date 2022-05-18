@@ -1,5 +1,6 @@
 package middle.dao;
 
+import java.awt.print.Printable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,44 +17,40 @@ public class ModiFyDAO extends DAO {
 	Connection conn; // sql 연결
 	ResultSet rs;
 	PreparedStatement psmt; // 쿼리실행
-	public int userCheck(String id, String pw) {
-		conn=getConnect();
-		
-		String sql = "select*from user_info where id = ? and pw = ? ";
-		
-			try {
-				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, id);
-				psmt.setString(2, pw);
-				rs=psmt.executeQuery();
-				if(rs.next()) {
 
-	             if(rs.getString(1).equals(pw)) {
-
-	                  return 1; // 로그인 성공
-
-	                } else 
-
-	                  return 0; // 비밀번호 불일치
-
-	            }
-				 return -1; //아이디가 없음
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-				
-			}finally {
-				disconnect();
-				
-			}return -2;			
-
-}
-		
 	
+	public UserVO1 userFind(String Uid) {
+		return null;
+	}
+	public int userCheck(String id, String pw) {
+		conn = getConnect();
+
+		String sql = "select*from user_info where id = ? and pw = ? ";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+
+			int r = psmt.executeUpdate();
+			
+			if(r>0)
+				return 1; // 로그인 성공
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			disconnect();
+
+		}
+		return 0;// 실패
+
+	}
+
 	public void insertUser(UserVO1 vo) {
-		conn=getConnect();
-		String sql = "insert into user_info(id, pw, name, tel, email, address) "
-				+ "values (?, ?, ?, ?, ?, ?)";
+		conn = getConnect();
+		String sql = "insert into user_info(id, pw, name, tel, email, address) " + "values (?, ?, ?, ?, ?, ?)";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getUid());
@@ -63,18 +60,17 @@ public class ModiFyDAO extends DAO {
 			psmt.setString(5, vo.getUemail());
 			psmt.setString(6, vo.getUaddress());
 
-			
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 입력성공");
-			
+
 		} catch (SQLException e) {
-		
+
 			e.printStackTrace();
-		}finally {
+		} finally {
 			disconnect();
-			
+
 		}
-		
+
 	}
 
 	public UserVO1 searUs(String id) { // 회원정보
@@ -131,23 +127,26 @@ public class ModiFyDAO extends DAO {
 		}
 	}
 
-	public List<UserOrderVO> Orderlist(String id) { //구매내역
+	public List<UserOrderVO> Orderlist(String id) { // 구매내역
 		conn = getConnect();
 		List<UserOrderVO> list = new ArrayList<UserOrderVO>();
+		System.out.println("성");
 		try {
-			psmt = conn.prepareStatement("select user_order.order_code, user_order.order_name, user_order.order_tel, user_order.id\r\n"
-					+ "from user_info , user_order  \r\n"
-					+ "where user_info.id=user_order.id\r\n"
-					+ "and user_info.id = ?");
+			psmt = conn.prepareStatement(
+					"select user_order.order_code, user_order.order_name, user_order.order_tel, user_order.id\r\n"
+							+ "from user_info , user_order  \r\n" + "where user_info.id=user_order.id\r\n"
+							+ "and user_info.id = ?");
 			psmt.setString(1, id);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				UserOrderVO vo = new UserOrderVO();
-				vo.setUorderName(rs.getString("order_code"));
-				vo.setUorderCode(rs.getString("order_name"));
+				vo.setUorderName(rs.getString("order_name"));
+				vo.setUorderCode(rs.getString("order_code"));
 				vo.setUorderTel(rs.getString("order_tel"));
+				vo.setUorderAddress(rs.getString("order_address"));
+				vo.setUorderDate(rs.getString("order_date"));
 				list.add(vo);
-				System.out.println("성");
+				System.out.println("ㅁㅁㅁㅁ");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -156,6 +155,5 @@ public class ModiFyDAO extends DAO {
 		}
 		return list;
 	}
-
 
 }

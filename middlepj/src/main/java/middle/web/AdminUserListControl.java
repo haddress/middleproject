@@ -7,20 +7,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import middle.service.qnaService;
-import middle.vo.qnaVO;
+import JB.AdminService;
+import middle.vo.UserVO1;
 
-public class qnaListControl implements Control {
+public class AdminUserListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 AdminService service = new AdminService();
+		 List<UserVO1> list = service.Userlist();
+		 
+		 request.setAttribute("list", list);
+		 
+		 request.getRequestDispatcher("/result/adminListOutput.jsp").forward(request, response);
 
-		System.out.print("aa");
-		qnaService service = new qnaService();
-		List<qnaVO> list = service.qnaList();
-		
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("view/qna.jsp").forward(request, response);
 	}
-	
+
 }

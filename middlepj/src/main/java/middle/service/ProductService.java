@@ -14,32 +14,32 @@ public class ProductService {
 		dao.insertProduct(product);
 	}
 	
-//	// 간식 카테고리
-//	public List<ProductVO> snackList() {
-//		return dao.listSnack();
-//	}
-//	
-//	// 장난감 카테고리
-//	public List<ProductVO> toyList() {
-//		return dao.listToy();
-//	}
-//	
-//	// 실내용품
-//	public List<ProductVO> goodsList() {
-//		return dao.listGoods();
-//	}
-//	
-//	
-//	// 목욕/미용
-//	public List<ProductVO> washList() {
-//		return dao.listWash();
-//	}
-	
-	
-	// 카테고리별 보기
-	public List<ProductVO> cateList(String product_category) {
-		return dao.listProduct(product_category);
+	// 간식 카테고리
+	public List<ProductVO> snackList() {
+		return dao.listSnack();
 	}
+	
+	// 장난감 카테고리
+	public List<ProductVO> toyList() {
+		return dao.listToy();
+	}
+	
+	// 실내용품
+	public List<ProductVO> goodsList() {
+		return dao.listGoods();
+	}
+	
+	
+	// 목욕/미용
+	public List<ProductVO> washList() {
+		return dao.listWash();
+	}
+	
+	
+//	// 카테고리별 보기
+//	public List<ProductVO> cateList(String product_category) {
+//		return dao.listProduct(product_category);
+//	}
 	
 	
 	// 최신목록

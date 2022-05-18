@@ -22,14 +22,27 @@ public class FrontController extends HttpServlet {
 		list.put("/modify.do", new UserModifyControl());
 		list.put("/addUser.do", new addUserControl());
 		list.put("/login.do", new loginControl());
+		list.put("/mypage.do", new Orderlist());
+		list.put("/search.do", new SearchControl());
+		
+		// 고객센터
 		list.put("/qna.do", new qnaListControl());
+
 		// 상품
-		list.put("/CateList.do", new CateListControl()); // 카테고리별 목록
+		list.put("/productAdd.do", new ProAddControl()); // 관리자 상품등록
+		list.put("/SnackList.do", new SnackListControl()); // 간식 카테고리
+		list.put("/ToyList.do", new ToyListControl()); // 장난감 카테고리
+		list.put("/GoodsList.do", new GoodsListControl()); // 실내용품 카테고리
+		list.put("/WashList.do", new WashListControl()); // 목욕/미용 카테고리
 		list.put("/productDetail.do", new ProDetailControl()); // 한건상세
 		list.put("/newList.do", new NewListControl()); // 최신상품 목록
 		list.put("/review.do", new ProReviewControl()); // 상품리뷰
 		
 		
+		
+		//관리자 메뉴입니다	
+		list.put("/userList.do", new AdminUserListControl());
+		list.put("/searchUser.do", new AdminUserSearchControl());
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -8,7 +8,7 @@
 </head>
 <body>
  <h3>${error }</h3>
-    <h3>회원정보검색</h3>
+    <h3>회원검색</h3>
     <form action="../searchUser.do" method="get">
         <input type="text" name="id" id=""><br>
         <input type="hidden" name="job" value="search">
