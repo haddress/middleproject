@@ -1,4 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -16,10 +19,14 @@
 	<thead>
 		<tr>
 			<th>카테고리</th>
+			<th>문의번호</th>
+			<th>제목</th>
+
 			<th>번호</th>
 			<th>아이디</th>
 			<th>제목</th>
 			<th>내용</th>
+
 			<th>작성자</th>
 			<th>날짜</th>
 		</tr>
@@ -32,6 +39,8 @@
 		
 	 </tbody>
 	</table>
+
+	<a href="view/qnaWrite.jsp">글쓰기</a>
 	 </c:otherwise>
 	</c:choose>  
 	   

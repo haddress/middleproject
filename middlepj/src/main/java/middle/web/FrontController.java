@@ -21,13 +21,13 @@ public class FrontController extends HttpServlet {
 		list.put("/delete.do", new UserDeleteControl());
 		list.put("/modify.do", new UserModifyControl());
 		list.put("/addUser.do", new addUserControl());
-		list.put("/logout.do", new logoutControl());
+		list.put("/login.do", new loginControl());
 		list.put("/mypage.do", new Orderlist());
 		list.put("/search.do", new SearchControl());
 		
 		// 고객센터
 		list.put("/qna.do", new qnaListControl());
-		
+
 		// 상품
 		list.put("/productAdd.do", new ProAddControl()); // 관리자 상품등록
 		list.put("/SnackList.do", new SnackListControl()); // 간식 카테고리

@@ -14,7 +14,7 @@ public class qnaListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		System.out.print("aa");
 		qnaService service = new qnaService();
 		List<qnaVO> list = service.qnaList();

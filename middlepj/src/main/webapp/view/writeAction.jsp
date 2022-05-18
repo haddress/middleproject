@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
 <%@ page import="middle.dao.qnaDAO" %>
 <%@ page import="java.io.PrintWriter" %>
 <%
@@ -22,7 +23,7 @@ request.setCharacterEncoding("UTF-8");
   	} else {
   		middle.dao.qnaDAO dao = new middle.dao.qnaDAO();
   		
-  	}
+ }
  %>
 </body>
 </html>

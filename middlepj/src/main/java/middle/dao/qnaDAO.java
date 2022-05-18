@@ -1,3 +1,4 @@
+
 //package middle.dao;
 //
 //import java.sql.Connection;
@@ -125,7 +126,6 @@
 //	}
 //}
 
-
 package middle.dao;
 
 import java.sql.Connection;
@@ -138,12 +138,11 @@ import java.util.List;
 import middle.vo.qnaVO;
 
 public class qnaDAO extends DAO{
-
+	
 	Connection conn;
 	ResultSet rs;
 	 PreparedStatement psmt; 
-
-
+	 
 //	 public void write(String qnaTitle, String qnaContent, String id, qnaVO qna) {
 //		 conn = getConnect();
 //		 String sql = "insert into qna(qna_date,qna_no,qna_pw,qna_category,product_code,qna_writer,qna_title,qna_content,id) values(?,?,?,?,?,?,?,?,?)";
@@ -202,5 +201,4 @@ public class qnaDAO extends DAO{
 		getConnect();
 		String sql = "";
 	}
-
 }

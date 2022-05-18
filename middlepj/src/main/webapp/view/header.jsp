@@ -39,11 +39,18 @@ nav ul {
 		
 			<nav id="info">
 				<ul>
+
+					<li id="home"><a href="${pageContext.servletContext.contextPath }/view/main.jsp" style="text-decoration:none">홈</a></li>
+						<%
+							if(id.equals("guest")) {
+						%>
+
 					<li id="home"><a href="<%=request.getContextPath() %>/index.jsp" style="text-decoration:none">홈</a></li>
 						<%
 							if(id.equals("guest")) {
 						%>
 							<li class="log"><a href="/middlepj/qna/qna.jsp" style="text-decoration:none">고객센터</a></li>
+
 							<li class="log"><a href="../qna.do" style="text-decoration:none">고객센터</a></li>
 							<li class="log"><a href="add.jsp" style="text-decoration:none">회원가입</a></li>
 							<li class="log"><a href="login.jsp" style="text-decoration:none">로그인</a></li>
