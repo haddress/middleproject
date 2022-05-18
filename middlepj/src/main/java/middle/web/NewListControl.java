@@ -22,6 +22,7 @@ public class NewListControl implements Control {
 		
 		request.setAttribute("list", list);
 		
+		
 		request.getRequestDispatcher("main.jsp").forward(request, response);
 	}
 

@@ -33,12 +33,14 @@
 			</tr>
 			<tr>
 				<td>${product.productName }</td>
-				<td><input type="number" name="pamount" value="1" style="width:40px;"></td>
-				<td>(수량계산한가격)</td>
+				<td><input type="number" name="pamount" id="pamount" value="1" style="width:40px;" onchange="change()">
+				<!-- <button id="up" onclick="up()">+</button>
+				<button id="down" onclick="down()">-</button></td> -->
+				<td><span id="totalprice"></span>원</td>
 			</tr>
 			<tr>
 				<td>TOTAL PRICE</td>
-				<td colspan="2">(수량계산한가격)(수량)</td>
+				<td colspan="2"><span id="totalprice2"></span>원 (<span id="totalcount"></span>개)</td>
 			</tr>
 			<tr>
 				<td colspan="3"><input type="button" value="구매하기"></td>
@@ -60,12 +62,51 @@
 </body>
 
 <script>
-	document.querySelector('input[name=pamount]').onchange = calPrice
-	
-	function calPrice() {
+
+document.addEventListener("DOMContentLoaded", change);
+
+	function change() {
+		let count = document.getElementById("pamount").value;
+		let price = "<c:out value='${product.productPrice }'/>";
+		
+		price = count * price;
+		document.getElementById("totalprice").innerText = price;
+		document.getElementById("totalprice2").innerText = price;
+		document.getElementById("totalcount").innerText = count;
 		
 		
 	}
+
+
+/*  	let Price = "<c:out value='${product.productPrice }'/>";
+ 	document.getElementById("totalprice").innerText = Price;
+	 	
+ 	
+	function up() {
+		var count = document.getElementById("pamount").value;
+		document.getElementById("pamount").value = parseInt(count) + 1; 
+		var Price = parseInt(count) * parseInt(Price);
+	}
+	
+	function down() { 
+		var count = document.getElementById("pamount").value;
+		if (count != 1) { 
+			document.getElementById("pamount").value = parseInt(count) - 1; 
+		} 
+		var Price = parseInt(count) * parseInt(Price);
+	}
+	
+	
+	
+	function change() {
+		var count = document.getElementById("pamount").value;
+		if (count < 0) {
+			count = 0;
+		}
+		var Price = parseInt(count) * parseInt(Price);
+		
+	} */
+
 	
 
 </script>
