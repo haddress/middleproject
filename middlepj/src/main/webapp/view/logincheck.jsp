@@ -12,15 +12,18 @@ Markservice service = new Markservice();
 service.checkUser(Uid, Upw);
 int r = service.checkUser(Uid, Upw);
 System.out.println(r);
-
 if(r==1) {
-	
-	session.setAttribute("id", Uid);
-	session.setAttribute("pass", Upw);
-	response.sendRedirect("main.jsp");
-}else if(r==0) {
-	out.println("<script>alert('아이디 비번확인');</script>");
-	response.sendRedirect("login.jsp");
+   session.setAttribute("Uid", Uid);
+   session.setAttribute("Upw", Upw);
+   response.sendRedirect("../index.jsp");
+}else if(r==0) {%>
+   <script>
+   alert("아이디, 비밀번호 확인");
+   history.back();
+   </script>   
+
+<%   
+   
 }
 %>
 <title>Insert title here</title>

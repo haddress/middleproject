@@ -14,18 +14,18 @@ import middle.web.Control;
 
 public class Orderlist implements Control {
 
-	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String Uid = request.getParameter("Uid");
-		HttpSession session=request.getSession();
-		Uid = (String) session.getAttribute(Uid);
-		Markservice service = new Markservice();
-		List<UserOrderVO> list = service.listOrder(Uid);
-		request.setAttribute("list", list);
-		System.out.println(list.toString());
-		request.getRequestDispatcher("/view/mypage.jsp").forward(request, response);
-		
-		
-	}
+   @Override
+   public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      
+      HttpSession session=request.getSession(true);
+      String Uid = (String) session.getAttribute("Uid");
+      Markservice service = new Markservice();
+      List<UserOrderVO> list = service.listOrder(Uid);
+      System.out.println(list.toString());
+      request.setAttribute("list", list);
+      request.getRequestDispatcher("/view/mypage.jsp").forward(request, response);
+      
+      
+   }
 
 }

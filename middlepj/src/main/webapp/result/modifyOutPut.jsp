@@ -7,24 +7,10 @@
 <title>수정완료페이지</title>
 </head>
 <body>
+수정완료
 
 
-<script>
+<a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 
-function button_event(){
-
-if (confirm("정말 탈퇴하시겠습니까??") == true){    //확인
-    document.form.submit();
-
-}else{   //취소
-    return;
-}
-}
-
-
-
-</script>
-
-<input type="button" value="회원탈퇴" onclick="button_event();">
 </body>
 </html>
