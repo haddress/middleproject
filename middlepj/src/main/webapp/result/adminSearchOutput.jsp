@@ -10,12 +10,13 @@
 <body>
 <h3>조회결과페이지</h3>
 	<c:if test="${!empty result }"><h4>${result }</h4></c:if>
-    <c:if test="${!empty book }">
-    <h4>${book.uid } / ${book.pwd } / ${book.uname }
-      / ${book.utel } / ${book.uemail }/ ${book.uaddress }
+    <c:if test="${!empty vo }">
+    <%-- markservice에 있는 유저 불러오기 기능에서, 아이디 표현이 없어서 없앰. ${vo.uid},${vo.upwd}--%>
+    <h4>유저아이디: ${vo.upw }  / 유저이름:${vo.uname }
+      / 유저전화번호: ${vo.utel } / 유저이메일: ${vo.uemail }/ 유저주소: ${vo.uaddress }
     </h4> 
   </c:if>
 
- <a href="${pageContext.servletContext.contextPath }/view/main.jsp">첫페이지</a>
+ <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 </body>
 </html>

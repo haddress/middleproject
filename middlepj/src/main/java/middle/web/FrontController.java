@@ -21,7 +21,7 @@ public class FrontController extends HttpServlet {
 		list.put("/delete.do", new UserDeleteControl());
 		list.put("/modify.do", new UserModifyControl());
 		list.put("/addUser.do", new addUserControl());
-		list.put("/login.do", new loginControl());
+		//list.put("/login.do", new loginControl());
 		list.put("/mypage.do", new Orderlist());
 		list.put("/search.do", new SearchControl());
 		
@@ -43,6 +43,7 @@ public class FrontController extends HttpServlet {
 		//관리자 메뉴입니다	
 		list.put("/userList.do", new AdminUserListControl());
 		list.put("/searchUser.do", new AdminUserSearchControl());
+		
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
