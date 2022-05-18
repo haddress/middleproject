@@ -14,6 +14,6 @@
 	out.print("<h3>"+ id + "님 환영합니다</h3>");
 	
 %>
-<a href="${pageContext.servletContext.contextPath }/view/main.jsp">첫페이지</a>
+<a href="${pageContext.servletContext.contextPath }/view/index.jsp">첫페이지</a>
 </body>
 </html>

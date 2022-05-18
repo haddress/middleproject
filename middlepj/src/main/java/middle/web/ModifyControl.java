@@ -21,15 +21,15 @@ public class ModifyControl implements Control {
 		String Uname = request.getParameter("Uname");
 		String Utel = request.getParameter("Utel");
 		String Uemail = request.getParameter("Uemail");
-		String Uadress = request.getParameter("Uadress");
-		
+		String Uaddress = request.getParameter("Uaddress");
+		System.out.println(Uid);
 		UserVO1 vo = new UserVO1();
 		vo.setUid(Uid);
-		vo.setUname(Upw);
+		vo.setUpw(Upw);
 		vo.setUname(Uname);
-		vo.setUname(Utel);
-		vo.setUname(Uemail);
-		vo.setUname(Uadress);
+		vo.setUtel(Utel);
+		vo.setUemail(Uemail);
+		vo.setUadress(Uaddress);
 		
 				
 		Markservice service = new Markservice();
@@ -37,7 +37,7 @@ public class ModifyControl implements Control {
 		request.setAttribute("Uid", Uid);
 				
 		
-		request.getRequestDispatcher("result/modifyOutput.jsp").forward(request, response);
+		request.getRequestDispatcher("result/modifyOutPut.jsp").forward(request, response);
 	}
 
 }

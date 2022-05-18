@@ -20,16 +20,17 @@ public class SearchControl implements Control {
 		String Uid = request.getParameter("Uid");
 		String job = request.getParameter("job");
 		Markservice service = new Markservice();
-		UserVO1 vo = service.findUser(Uid);
-		// 조회 도서코드가 없을 경우 결과를 보여주는 페이지 지정.
-
-		// 정상적인 처리가 진행될 경우 페이지 지정.
-		if(job.equals("modify")) {
-			path = "mok/modify.jsp";
-		}else if(job.equals("delete")) {
-			path = "mok/delete.jsp";
-		}
+		UserVO1 vo = service.ussear(Uid);
+		System.out.println(vo.toString());
 		
+		if(job.equals("modify")) {
+			request.setAttribute("Uid", Uid);
+			path = "result/modify.jsp";
+		}else if(job.equals("delete")) {
+			request.setAttribute("Uid", Uid);
+			path = "result/delete.jsp";
+		}
+		request.setAttribute("vo", vo);
 
 		request.getRequestDispatcher(path).forward(request, response);
 

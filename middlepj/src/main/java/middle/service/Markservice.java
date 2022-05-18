@@ -18,8 +18,8 @@ public class Markservice {
 	public void Userupdate(UserVO1 vo) {
 		dao.updateUser(vo);
 	}
-	public void Userdelete(String id) {
-		dao.deleteUser(id);
+	public void Userdelete(String Uid) {
+		dao.deleteUser(Uid);
 	}
 	public UserVO1 ussear(String id) {
 		return dao.searUs(id);

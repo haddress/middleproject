@@ -1,60 +1,63 @@
 package middle.vo;
 
 public class UserOrderVO {
-private String UorderCode;
-private String UorderDate;
-private String UorderAddress;
-private String UorderName;
-private String UorderTel;
-
-
+private String uorderCode;
+private String uorderDate;
+private String uorderAddress;
+private String uorderName;
+private String uorderTel;
 
 
 public UserOrderVO() {
+	
 }
+
 public UserOrderVO(String uorderCode, String uorderDate, String uorderAddress, String uorderName, String uorderTel) {
 	super();
-	UorderCode = uorderCode;
-	UorderDate = uorderDate;
-	UorderAddress = uorderAddress;
-	UorderName = uorderName;
-	UorderTel = uorderTel;
+	this.uorderCode = uorderCode;
+	this.uorderDate = uorderDate;
+	this.uorderAddress = uorderAddress;
+	this.uorderName = uorderName;
+	this.uorderTel = uorderTel;
 }
 public String getUorderCode() {
-	return UorderCode;
+	return uorderCode;
 }
 public void setUorderCode(String uorderCode) {
-	UorderCode = uorderCode;
+	this.uorderCode = uorderCode;
 }
 public String getUorderDate() {
-	return UorderDate;
+	return uorderDate;
 }
 public void setUorderDate(String uorderDate) {
-	UorderDate = uorderDate;
+	this.uorderDate = uorderDate;
 }
 public String getUorderAddress() {
-	return UorderAddress;
+	return uorderAddress;
 }
 public void setUorderAddress(String uorderAddress) {
-	UorderAddress = uorderAddress;
+	this.uorderAddress = uorderAddress;
 }
 public String getUorderName() {
-	return UorderName;
+	return uorderName;
 }
 public void setUorderName(String uorderName) {
-	UorderName = uorderName;
+	this.uorderName = uorderName;
 }
 public String getUorderTel() {
-	return UorderTel;
+	return uorderTel;
 }
 public void setUorderTel(String uorderTel) {
-	UorderTel = uorderTel;
+	this.uorderTel = uorderTel;
 }
+
 @Override
 public String toString() {
-	return "UserOrderVO [UorderCode=" + UorderCode + ", UorderDate=" + UorderDate + ", UorderAddress=" + UorderAddress
-			+ ", UorderName=" + UorderName + ", UorderTel=" + UorderTel + "]";
+	return "UserOrderVO [uorderCode=" + uorderCode + ", uorderDate=" + uorderDate + ", uorderAddress=" + uorderAddress
+			+ ", uorderName=" + uorderName + ", uorderTel=" + uorderTel + "]";
 }
+
+
 
 
 

@@ -19,9 +19,9 @@ public class FrontController extends HttpServlet {
 		list = new HashMap<String, Control>();
 			
 		list.put("/delete.do", new UserDeleteControl());
-		list.put("/modify.do", new UserModifyControl());
+		list.put("/modify.do", new ModifyControl());
 		list.put("/addUser.do", new addUserControl());
-		list.put("/login.do", new loginControl());
+		list.put("/logout.do", new logoutControl());
 		list.put("/mypage.do", new Orderlist());
 		list.put("/search.do", new SearchControl());
 		
