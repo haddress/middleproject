@@ -37,8 +37,9 @@ public class FrontController extends HttpServlet {
       list.put("/GoodsList.do", new GoodsListControl()); // 실내용품 카테고리
       list.put("/WashList.do", new WashListControl()); // 목욕/미용 카테고리
       list.put("/productDetail.do", new ProDetailControl()); // 한건상세
-      list.put("/newList.do", new NewListControl()); // 최신상품 목록
+      list.put("/mainList.do", new NewListControl()); // 최신상품 목록
       list.put("/review.do", new ProReviewControl()); // 상품리뷰
+      
       
       
       
