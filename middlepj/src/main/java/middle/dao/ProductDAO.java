@@ -44,7 +44,7 @@ public class ProductDAO extends DAO {
 	public List<ProductVO> listSnack() {
 		List<ProductVO> productList = new ArrayList<ProductVO>();
 		conn = getConnect();
-		String sql = "select * from product where product_category = 'snack'";
+		String sql = "select * from product where product_category = '간식'";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
@@ -73,7 +73,7 @@ public class ProductDAO extends DAO {
 	public List<ProductVO> listToy() {
 		List<ProductVO> productList = new ArrayList<ProductVO>();
 		conn = getConnect();
-		String sql = "select * from product where product_category = toy";
+		String sql = "select * from product where product_category = '장난감'";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
@@ -102,7 +102,7 @@ public class ProductDAO extends DAO {
 	public List<ProductVO> listGoods() {
 		List<ProductVO> productList = new ArrayList<ProductVO>();
 		conn = getConnect();
-		String sql = "select * from product where product_category = goods";
+		String sql = "select * from product where product_category = '실내용품'";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
@@ -131,7 +131,7 @@ public class ProductDAO extends DAO {
 	public List<ProductVO> listWash() {
 		List<ProductVO> productList = new ArrayList<ProductVO>();
 		conn = getConnect();
-		String sql = "select * from product where product_category = wash";
+		String sql = "select * from product where product_category = '목욕/미용'";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
@@ -190,8 +190,8 @@ public class ProductDAO extends DAO {
 	public List<ProductVO> listNew() {
 		conn = getConnect();
 		List<ProductVO> newList = new ArrayList<ProductVO>();
-		String sql = "select product_img, product_name, product_price" + "from" + "(select * from product"
-				+ "order by regdate DESC)" + "where rownum <=12";
+		String sql = "select * from (select * from product order by product_date DESC) "
+				+ "where rownum <=12";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();

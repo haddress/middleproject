@@ -45,7 +45,7 @@ public class ProAddControl implements Control {
 		request.setAttribute("name", name);
 		request.setAttribute("category", category);
 		
-		request.getRequestDispatcher("view/ProAddOut.jsp").forward(request, response);
+		request.getRequestDispatcher("result/ProAddOut.jsp").forward(request, response);
 		
 	}
 
