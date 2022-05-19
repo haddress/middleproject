@@ -43,7 +43,6 @@ public class FrontController extends HttpServlet {
       
       
       
-      
       //관리자 메뉴입니다   
       list.put("/userList.do", new AdminUserListControl()); //유저리스트
       list.put("/searchUser.do", new AdminUserSearchControl()); //유저단건검색
