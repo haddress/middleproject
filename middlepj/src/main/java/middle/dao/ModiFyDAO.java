@@ -137,19 +137,19 @@ public class ModiFyDAO extends DAO {
       List<UserOrderVO> list = new ArrayList<UserOrderVO>();
       try {
          psmt = conn.prepareStatement(
-               "select user_order.order_code 주문번호, user_order.order_date 구매날짜, user_order.order_address 주소,user_order.order_name 상품이름, user_order.order_tel 전화번호\r\n"
-               + "from user_order,user_info\r\n"
-               + "where user_order.id=user_info.id\r\n"
-               + "and user_order.id=? ");
+               "select product.product_img 상품사진, user_order.product_name 상품이름, user_order.order_name 구매자, user_order.product_price 상품금액,user_order.amount 수량, user_order.order_date 구매날짜\r\n"
+               + "from user_order, product\r\n"
+               + "where user_order.id=? and product.product_code=user_order.product_code");
          psmt.setString(1, id);
          rs = psmt.executeQuery();
          while (rs.next()) {
             UserOrderVO vo = new UserOrderVO();
-            vo.setUorderCode(rs.getString("주문번호"));
-            vo.setUorderDate(rs.getString("구매날짜"));
-            vo.setUorderAddress(rs.getString("주소"));
-            vo.setUorderName(rs.getString("상품이름"));
-            vo.setUorderTel(rs.getString("전화번호"));
+            vo.setUorderCode(rs.getString("상품사진"));
+            vo.setUorderDate(rs.getString("상품이름"));
+            vo.setUorderAddress(rs.getString("구매자"));
+            vo.setUorderName(rs.getString("상품금액"));
+            vo.setUorderTel(rs.getString("수량"));
+            vo.setUorderTel(rs.getString("구매날짜"));
             list.add(vo);
          }
       } catch (SQLException e) {
@@ -159,5 +159,52 @@ public class ModiFyDAO extends DAO {
       }
       return list;
    }
+   public void BuyUser(UserOrderVO vo) {
+	      conn = getConnect();
+	      String sql = "insert into user_order(order_code,id,product_code,product_price,product_name,order_date,order_address,order_name,order_tel,amount) \r\n"
+	      		+ "    values(order_code.NEXTVAL,?,?,?,?,sysdate,?,?,?,?)";
+	      try {
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, vo.getUid());
+	         psmt.setString(2, vo.getProductCode());
+	         psmt.setInt(3, vo.getProductPrice());
+	         psmt.setString(4, vo.getProductName());
+	         psmt.setString(5, vo.getUorderAddress());
+             psmt.setString(6, vo.getUorderName());
+	         psmt.setString(7, vo.getUorderTel());
+	         psmt.setInt(8, vo.getAmount());
+	         
+
+	         int r = psmt.executeUpdate();
+	         System.out.println(r + "건 입력성공");
+
+	      } catch (SQLException e) {
+
+	         e.printStackTrace();
+	      } finally {
+	         disconnect();
+
+	      }
+
+	   }
+   public void BuyReal(UserOrderVO vo) {
+	   conn = getConnect();
+	      String sql = "update user_order\r\n"
+	      		+ "set  order_address = ?, order_name = ?, order_tel = ?\r\n"
+	      		+ "where order_code=?";
+	      try {
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, vo.getUorderAddress());
+	         psmt.setString(2, vo.getUorderName());
+	         psmt.setString(3, vo.getUorderTel());
+	         psmt.setString(4, vo.getUorderCode());
+
+	         int r = psmt.executeUpdate();
+	          System.out.println(r +"수정");
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }
+   }
+   
 
 }

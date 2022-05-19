@@ -31,7 +31,6 @@ nav ul {
       <%
 
          String Uid = (String) session.getAttribute("Uid");
-      
          if(Uid==null) {
             Uid="guest";
 

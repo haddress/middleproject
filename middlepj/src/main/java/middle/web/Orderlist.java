@@ -19,9 +19,10 @@ public class Orderlist implements Control {
       
       HttpSession session=request.getSession(true);
       String Uid = (String) session.getAttribute("Uid");
+      System.out.println(Uid);
       Markservice service = new Markservice();
       List<UserOrderVO> list = service.listOrder(Uid);
-      System.out.println(list.toString());
+      
       request.setAttribute("list", list);
       request.getRequestDispatcher("/view/mypage.jsp").forward(request, response);
       

@@ -15,6 +15,7 @@ System.out.println(r);
 if(r==1) {
    session.setAttribute("Uid", Uid);
    session.setAttribute("Upw", Upw);
+   
    response.sendRedirect("../index.jsp");
 }else if(r==0) {%>
    <script>
