@@ -29,6 +29,7 @@ public class FrontController extends HttpServlet {
       // 고객센터
       list.put("/qna.do", new qnaListControl());
       list.put("/detail.do", new qnaDetailControl());
+      list.put("/qnaAdd.do", new qnaAddControl());
 
       // 상품
       list.put("/productAdd.do", new ProAddControl()); // 관리자 상품등록
@@ -45,10 +46,13 @@ public class FrontController extends HttpServlet {
       
       
       
-      
       //관리자 메뉴입니다   
-      list.put("/userList.do", new AdminUserListControl());
-      list.put("/searchUser.do", new AdminUserSearchControl());
+      list.put("/userList.do", new AdminUserListControl()); //유저리스트
+      list.put("/searchUser.do", new AdminUserSearchControl()); //유저단건검색
+      list.put("/productDel.do", new AdminProDelControl()); //상품삭제
+      list.put("/productMod.do", new AdminProModControl()); //상품정보수정
+      list.put("/productSearch.do", new AdminProSearchControl()); //상품단건검색
+      list.put("/listProduct.do", new AdminProListControl()); //상품리스트
    }
    @Override
    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
