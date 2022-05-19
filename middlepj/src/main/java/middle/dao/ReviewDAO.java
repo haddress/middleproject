@@ -15,11 +15,7 @@ public class ReviewDAO extends DAO {
 	// 리뷰쓰기
 	public void insertReview(ReviewVO review) {
 		conn = getConnect();
-		String sql = "insert into review "
-				+ "(review_code, order_code, product_code, writer, review_pw, review_title, review_content, review_date, review_img, review_star) "
-				+ "select ?, ?, ?, ?, ?, ?, ?, sysdate, ?, ? "
-				+ "from user_order "
-				+ "where id = 'user2'";
+		String sql = "";
 	}
 	
 	// 리뷰수정
