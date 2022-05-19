@@ -17,4 +17,9 @@ public class qnaService {
 	public qnaVO qnaDetail(int qnaNo) {
 		return qnadao.qnaDetail(qnaNo);
 	}
+	
+	//문의글 작성
+	public void addQna(qnaVO qna) {
+		qnadao.addQna(qna);
+	}
 }
