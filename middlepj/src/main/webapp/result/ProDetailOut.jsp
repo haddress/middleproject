@@ -6,13 +6,14 @@
 <head>
 <style>
 #container {
-	width: 1000px;
-	margin: 0 auto;
+   width: 1000px;
+   margin: 0 auto;
 }
 </style>
 </head>
 <body>
 <!-- Header -->
+
 		<div id="head">
 			<jsp:include page="/view/header.jsp"/>
 		</div>
@@ -66,18 +67,20 @@
 		</table>
 
 
-	</div>
-	
 
-	<!-- Footer -->
-		<div id="foot">
-			<jsp:include page="/view/footer.jsp"/>
-		</div>
+   </div>
+   
+
+   <!-- Footer -->
+      <div id="foot">
+         <jsp:include page="/view/footer.jsp"/>
+      </div>
 </body>
 
 <script>
 
 document.addEventListener("DOMContentLoaded", change);
+
 		let count, price;
 
 	function change() {
@@ -97,6 +100,7 @@ document.addEventListener("DOMContentLoaded", change);
 		document.querySelector('input[name=allpay]').value = price;
 		
 	}
+
 
 
 </script>

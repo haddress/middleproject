@@ -17,6 +17,10 @@
 		<br>
 <c:choose>
 	<c:when test="${empty qnadetail }"><h3>X.X</h3></c:when>
+	<c:when test="${empty Uid }">
+		<h3>회원만 볼 수 있습니다.</h3>
+		<p><a href="view/login.jsp">로그인하기</a></p>
+	</c:when>
 	<c:otherwise>
 		<table border="1">
 		<h3>문의글 상세보기</h3>
