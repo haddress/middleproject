@@ -144,12 +144,12 @@ public class ModiFyDAO extends DAO {
          rs = psmt.executeQuery();
          while (rs.next()) {
             UserOrderVO vo = new UserOrderVO();
-            vo.setUorderCode(rs.getString("상품사진"));
+            vo.setProductImg(rs.getString("상품사진"));
             vo.setUorderDate(rs.getString("상품이름"));
             vo.setUorderAddress(rs.getString("구매자"));
             vo.setUorderName(rs.getString("상품금액"));
             vo.setUorderTel(rs.getString("수량"));
-            vo.setUorderTel(rs.getString("구매날짜"));
+            vo.setUorderDate(rs.getString("구매날짜"));
             list.add(vo);
          }
       } catch (SQLException e) {
