@@ -191,7 +191,7 @@ public class ProductDAO extends DAO {
 		conn = getConnect();
 		List<ProductVO> newList = new ArrayList<ProductVO>();
 		String sql = "select * from (select * from product order by product_date DESC) "
-				+ "where rownum <=12";
+				+ "where rownum <=9";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();

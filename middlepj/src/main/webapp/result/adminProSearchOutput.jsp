@@ -11,13 +11,12 @@
 <h3>조회결과페이지</h3>
 	<c:if test="${!empty result }"><h4>${result }</h4></c:if>
     <c:if test="${!empty vo }">
-    <%-- markservice에 있는 유저 불러오기 기능에서, 아이디 표현이 없어서 없앰. ${vo.uid},${vo.upwd}--%>
-    <h4>유저아이디: ${vo.upw }  / 유저이름:${vo.uname }
-      / 유저전화번호: ${vo.utel } / 유저이메일: ${vo.uemail }/ 유저주소: ${vo.uaddress }
+    
+    <h4>상품코드: ${vo.productCode}  / 상품카테고리:${vo.productCate}
+      / 상품이름: ${vo.productName} / 상품가격: ${vo.productPrice}/ 상품주문갯수: ${vo.productAmount}
+      / 상품회사: ${vo.productExp} / 상품이미지: ${vo.productImg}/ 상품주문날짜: ${vo.productDate}
     </h4> 
   </c:if>
 
-
- <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 </body>
 </html>
