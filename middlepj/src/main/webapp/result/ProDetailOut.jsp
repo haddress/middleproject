@@ -9,6 +9,24 @@
    width: 1000px;
    margin: 0 auto;
 }
+/*  input[type="radio"] {
+	display:none;
+}
+input[type="radio"] + label {
+	display:inline-block;
+	padding:0 222px;
+	background:#ddd;
+	cursor:pointer;
+}
+.conbox {
+	display:none;
+}
+input[id="tab1"]:checked ~ .con1 {
+	display:block;
+}
+input[id="tab2"]:checked ~ .con2 {
+	display:block;
+}*/
 </style>
 </head>
 <body>
@@ -66,8 +84,16 @@
 				<td colspan="4"></td>
 			</tr>
 		</table>
-
-
+				<%-- <input type="radio" id="tab1" name="tabmenu" checked>
+				<label for="tab1">DETAIL</label>
+				<input type="radio" id="tab2" name="tabmenu">
+				<label for="tab2">REVIEW</label>
+						
+			<div class="conbox con1">${product.productExp }</div>
+			<div class="conbox con2">
+				<jsp:include page="/view/login.jsp"/>
+			</div>
+			 --%>
 
    </div>
    
@@ -83,9 +109,8 @@
 
 document.addEventListener("DOMContentLoaded", change);
       let count, price;
+      
 
-
-		let count, price;
 
 	function change() {
 		count = document.getElementById("pamount").value;
@@ -109,7 +134,8 @@ document.addEventListener("DOMContentLoaded", change);
       document.querySelector('input[name=paycount]').value = count;
       document.querySelector('input[name=allpay]').value = price;
       
-   }
+    
+      
 
 
 </script>
