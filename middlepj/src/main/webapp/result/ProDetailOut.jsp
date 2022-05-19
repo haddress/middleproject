@@ -13,12 +13,13 @@
 </head>
 <body>
 <!-- Header -->
-
 		<div id="head">
 			<jsp:include page="/view/header.jsp"/>
 		</div>
 		<br>
 		<br>
+  
+  
 		
 	<div id="container">
 		<table border="1" width="1000">
@@ -71,6 +72,7 @@
    </div>
    
 
+
    <!-- Footer -->
       <div id="foot">
          <jsp:include page="/view/footer.jsp"/>
@@ -80,6 +82,8 @@
 <script>
 
 document.addEventListener("DOMContentLoaded", change);
+      let count, price;
+
 
 		let count, price;
 
@@ -101,6 +105,11 @@ document.addEventListener("DOMContentLoaded", change);
 		
 	}
 
+
+      document.querySelector('input[name=paycount]').value = count;
+      document.querySelector('input[name=allpay]').value = price;
+      
+   }
 
 
 </script>

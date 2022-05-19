@@ -14,8 +14,8 @@
         Id: <input type="text" name="Uid"><br>
         pw: <input type="password" name="Upw"><br>
         name: <input type="text" name="Uname"><br>
-        tel: <input type="text" name="Utel"><br>
-        email: <input type="text" name="Uemail"><br>
+        tel: <input type="tel" name="Utel"><br>
+        email: <input type="email" name="Uemail"><br>
         address: <input type="text" name="Uaddress"><br>      
         <input type="submit" value="회원가입">
     </form>

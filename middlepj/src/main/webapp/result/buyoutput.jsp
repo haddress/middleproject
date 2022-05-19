@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>${Uid }님 가입완료</h3>
+결제완료
+
 <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 </body>
 </html>

@@ -19,11 +19,11 @@ public class FrontController extends HttpServlet {
       charset = config.getInitParameter("charset");
       list = new HashMap<String, Control>();
          
-      list.put("/delete.do", new UserDeleteControl());
-      list.put("/modify.do", new ModifyControl());
-      list.put("/addUser.do", new addUserControl());
-      list.put("/logout.do", new logoutControl());
-      list.put("/mypage.do", new Orderlist());
+      list.put("/delete.do", new UserDeleteControl()); //삭제
+      list.put("/modify.do", new ModifyControl()); // 수정
+      list.put("/addUser.do", new addUserControl()); // 가입
+      list.put("/logout.do", new logoutControl()); // 로그아웃
+      list.put("/mypage.do", new Orderlist()); //마이페이지 구매내역
       list.put("/search.do", new SearchControl());
       
       // 고객센터
@@ -40,6 +40,9 @@ public class FrontController extends HttpServlet {
       list.put("/productDetail.do", new ProDetailControl()); // 한건상세
       list.put("/mainList.do", new NewListControl()); // 최신상품 목록
       list.put("/review.do", new ProReviewControl()); // 상품리뷰
+      list.put("/buy.do", new BuyControl()); // 구매하기
+      list.put("/realbuy.do",new RealBuyControl()); //진짜구매
+      list.put("/cancel.do", new CancelControl()); //취소하기
       
       
       
