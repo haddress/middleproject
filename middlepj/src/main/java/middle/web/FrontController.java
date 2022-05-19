@@ -29,6 +29,7 @@ public class FrontController extends HttpServlet {
       // 고객센터
       list.put("/qna.do", new qnaListControl());
       list.put("/detail.do", new qnaDetailControl());
+      list.put("/qnaAdd.do", new qnaAddControl());
 
       // 상품
       list.put("/productAdd.do", new ProAddControl()); // 관리자 상품등록
