@@ -18,6 +18,7 @@
 		<br>
  <c:choose> 
 	<c:when test="${empty list }"><h3>문의글 정보가 없습니다</h3></c:when>
+	<a href="view/qnaWrite.jsp?id=${Uid }">글쓰기</a>
 	<c:otherwise>
 	<h3>고객센터</h3> 
 	<table border="1">
