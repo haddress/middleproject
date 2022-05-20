@@ -5,15 +5,6 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-<<<<<<< HEAD
-
-public class ReviewAddControl implements Control {
-
-	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
-=======
 import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
@@ -59,7 +50,15 @@ public class ReviewAddControl implements Control {
 		
 		
 		request.getRequestDispatcher("result/ReviewAddOut.jsp").forward(request, response);
-
+		
+		
+		
+		
+		
+		
+		
+		
+	
 	}
 
 }

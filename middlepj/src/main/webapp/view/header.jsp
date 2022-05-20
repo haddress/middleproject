@@ -52,30 +52,9 @@ nav ul {
 	pading: 3px;
 	margin: 5px;
 }
-.dropdown{
-    position: relative;
-    display: inline-block;
-}
-.commu{
-    border: none;
-    font-size: 16px;
-    background: rgba( 255, 255, 255, 0 );
-}
-#drop-content{
-    position: absolute;
-    z-index: 1;
-}
-#drop-content a{
-    display:block;
-    color: black;
-    text-decoration: none;
-    pading: 3px;
-    margin: 5px;
-}
 </style>
 </head>
 <body>
-
 
 	<%
 	String Uid = (String) session.getAttribute("Uid");
@@ -91,10 +70,8 @@ nav ul {
 
 	<div id="head">
 
-
 		<nav id="info">
 			<ul>
-
 
 				<li id="home"><a
 					href="<%=request.getContextPath()%>/index.jsp"
@@ -112,18 +89,6 @@ nav ul {
 				} else if (Uid=="user") {
 				%>
 				<li class="log"><%=Uid%> 님 반갑습니다.</li>
-
-
-
-                  <%
-                     }
-                  %>
-            </ul>
-         </nav>
-         <br>
-         
-        
-      
 
 				<li class="log"><a
 					href="<%=request.getContextPath()%>/mypage.do"
@@ -156,7 +121,6 @@ nav ul {
 		</nav>
 		<br>
 
-
 		<nav id="category">
 			<ul>
 				<li class="cate"><a
@@ -172,8 +136,6 @@ nav ul {
 					href="${pageContext.request.contextPath}/WashList.do"
 					style="text-decoration: none; color: black">목욕/미용</a></li>
 				<li class="dropdown"><button onclick="dp_menu()" class="commu">커뮤니티</button>
-
-</body>
 
 					<div style="display: none;" id="drop-content">
 						<a href="${pageContext.request.contextPath}/review.do">리뷰</a> <a

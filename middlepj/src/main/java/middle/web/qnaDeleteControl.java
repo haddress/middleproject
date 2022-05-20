@@ -13,7 +13,6 @@ public class qnaDeleteControl implements Control{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-
 		int qnaNo = Integer.parseInt(request.getParameter("qnaNo"));
 		
 		qnaService qnadeleteservice = new qnaService();
@@ -21,7 +20,6 @@ public class qnaDeleteControl implements Control{
 		request.setAttribute("delete", "삭제되었습니다");
 		request.getSession().setAttribute("delete", "삭제되었습니다");
 		response.sendRedirect("qna.do");
-
 		
 	}
 
