@@ -130,8 +130,8 @@ public class AdminDAO extends DAO {
 	}
 	//상품정보수정
 	public void adminProMod (ProductVO pro) {
-		String sql = "update product set  product_category = '?', product_name ='?',\r\n"
-				+ "product_price = ?, product_amount = ?, product_exp = '?' where product_code =?;";
+		String sql = "update product set product_category = ?, product_name =?,\r\n"
+				+ "product_price = ?, product_amount = ?, product_exp = ? where product_code =?";
 		
 		
 		try {
@@ -154,5 +154,23 @@ public class AdminDAO extends DAO {
 		}
 		
 		
+	}
+	
+	
+	public void adminProDel (String productCode) {
+		String sql = "delete from product where product_code=?";
+		
+		try {
+			conn = getConnect();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, productCode);
+			int r = psmt.executeUpdate();
+			System.out.println(r + "건 삭제.");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
 	}
 }

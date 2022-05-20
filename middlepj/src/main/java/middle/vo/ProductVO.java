@@ -14,7 +14,12 @@ public class ProductVO extends DAO {
 	private String productImg;
 	private String productDate;
 	
+	public ProductVO() {
+		
+	}
 	
+	
+
 	public int getProductCode() {
 		return productCode;
 	}
@@ -63,6 +68,10 @@ public class ProductVO extends DAO {
 	public void setProductDate(String productDate) {
 		this.productDate = productDate;
 	}
+
+
+
+
 	
 	
 
