@@ -194,6 +194,7 @@ public class qnaDAO extends DAO{
 				vo.setQnaTitle(rs.getString("qna_title"));
 				vo.setQnaContent(rs.getString("qna_content"));
 				vo.setQnaDate(rs.getString("qan_date"));
+				vo.setQnaPw(rs.getString("qna_pw"));
 				return vo;
 				}
 			}catch(SQLException e) {
@@ -204,7 +205,7 @@ public class qnaDAO extends DAO{
 		return null;
 	}
 	
-	//글쓰기
+	//문의글쓰기
 	public void addQna(qnaVO qna) {
 		conn = getConnect();
 		getConnect();
@@ -228,5 +229,23 @@ public class qnaDAO extends DAO{
 		}
 	}
 	
+	//문의글 삭제
+	public void deleteQna(String id) {
+		conn = getConnect();
+		getConnect();
+		String sql = "delete from qna where id = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			
+			int r = psmt.executeUpdate();
+			System.out.println(r + "건 삭제되었습니다.");
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
 	
 }

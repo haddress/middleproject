@@ -90,10 +90,11 @@ nav ul {
                <li class="cate"><a href="${pageContext.request.contextPath}/GoodsList.do" style="text-decoration:none; color:black">실내용품</a></li>
                <li class="cate"><a href="${pageContext.request.contextPath}/WashList.do" style="text-decoration:none; color:black">목욕/미용</a></li>
                <li class="dropdown"><button onclick="dp_menu()" class="commu">커뮤니티</button>
-                  <div style="display:none;" id="drop-content">
-                     <a href="${pageContext.request.contextPath}/review.do">리뷰</a>
-                     <a href="${pageContext.request.contextPath}/qna.do">Q & A</a>
-                  </div>
+
+               	<div style="display:none;" id="drop-content">
+               		<a href="${pageContext.request.contextPath}/review.do">리뷰</a>
+               		<a href="${pageContext.request.contextPath}/qna.do">Q & A</a>
+               	</div>
                </li>
             </ul>
          </nav>
@@ -103,13 +104,15 @@ nav ul {
 
 </body>
 <script>
-   function dp_menu() {
-      let click = document.getElementById("drop-content");
-      if(click.style.display === "none") {
-         click.style.display = "block";
-      } else {
-         click.style.display = "none";
-      }
-      
-   }
+
+	function dp_menu() {
+		let click = document.getElementById("drop-content");
+		if(click.style.display === "none") {
+			click.style.display = "block";
+		} else {
+			click.style.display = "none";
+		}
+		
+	}
 </script>
+
