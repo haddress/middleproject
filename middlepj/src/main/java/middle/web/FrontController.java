@@ -45,7 +45,8 @@ public class FrontController extends HttpServlet {
       list.put("/cancel.do", new CancelControl()); //취소하기
       
       // 리뷰
-      list.put("/reviewAdd.do", new ReviewAddControl());
+      list.put("/reviewOrderList.do", new RevOrListControl()); // 세션 아이디가 구매한 상품 조회
+      list.put("/reviewAdd.do", new ReviewAddControl()); // 리뷰등록
       list.put("/review.do", new ReviewControl()); // 리뷰목록
       
       
