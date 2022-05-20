@@ -133,32 +133,34 @@ public class ModiFyDAO extends DAO {
    }
 
    public List<UserOrderVO> Orderlist(String id) { // 구매내역
-      conn = getConnect();
-      List<UserOrderVO> list = new ArrayList<UserOrderVO>();
-      try {
-         psmt = conn.prepareStatement(
-               "select product.product_img 상품사진, user_order.product_name 상품이름, user_order.order_name 구매자, user_order.product_price 상품금액,user_order.amount 수량, user_order.order_date 구매날짜\r\n"
-               + "from user_order, product\r\n"
-               + "where user_order.id=? and product.product_code=user_order.product_code");
-         psmt.setString(1, id);
-         rs = psmt.executeQuery();
-         while (rs.next()) {
-            UserOrderVO vo = new UserOrderVO();
-            vo.setProductImg(rs.getString("상품사진"));
-            vo.setUorderDate(rs.getString("상품이름"));
-            vo.setUorderAddress(rs.getString("구매자"));
-            vo.setUorderName(rs.getString("상품금액"));
-            vo.setUorderTel(rs.getString("수량"));
-            vo.setUorderDate(rs.getString("구매날짜"));
-            list.add(vo);
-         }
-      } catch (SQLException e) {
-         e.printStackTrace();
-      } finally {
-         disconnect();
-      }
-      return list;
-   }
+	      conn = getConnect();
+	      List<UserOrderVO> list = new ArrayList<UserOrderVO>();
+	      try {
+	         psmt = conn.prepareStatement("select product.product_img img, user_order.product_name pname, user_order.order_name oname, user_order.product_price price,user_order.amount am, user_order.order_date da, user_order.order_address adr, user_order.order_tel te\r\n"
+	               + "from user_order, product\r\n"
+	               + "where user_order.id=? and product.product_code=user_order.product_code");
+	         psmt.setString(1, id);
+	         rs = psmt.executeQuery();
+	         while (rs.next()) {
+	            UserOrderVO vo = new UserOrderVO();
+	            vo.setProductImg(rs.getString("img"));
+	            vo.setProductName(rs.getString("pname"));
+	            vo.setUorderName(rs.getString("oname"));
+	            vo.setProductPrice(rs.getInt("price"));
+	            vo.setAmount(rs.getInt("am"));
+	            vo.setUorderDate(rs.getString("da"));
+	            vo.setUorderAddress(rs.getString("adr"));
+	            vo.setUorderTel(rs.getString("te"));
+	            list.add(vo);
+	            System.out.println("조회");
+	         }
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         disconnect();
+	      }
+	      return list;
+	   }
    public void BuyUser(UserOrderVO vo) {
 	      conn = getConnect();
 	      String sql = "insert into user_order(order_code,id,product_code,product_price,product_name,order_date,order_address,order_name,order_tel,amount) \r\n"
