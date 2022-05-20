@@ -42,11 +42,5 @@ public class Markservice {
    public void RealBuy(UserOrderVO vo) {
 	   dao.BuyReal(vo);
    }
-   public void refund(String id, int code) {
-	   dao.fundre(id,code);
-   }
-   public UserVO1 check(String id, String pw) {
-	  return dao.ucheck(id,pw);
-   }
    
 }

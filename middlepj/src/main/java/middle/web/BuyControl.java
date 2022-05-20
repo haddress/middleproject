@@ -19,7 +19,7 @@ public class BuyControl implements Control {
 		Markservice service = new Markservice();
 		HttpSession session = request.getSession(true);
 		String Uid = (String) session.getAttribute("Uid");
-		int paypcode = Integer.parseInt(request.getParameter("paypcode"));
+		String paypcode = request.getParameter("paypcode");
 		String payname = request.getParameter("paypname");
 		int paycount = Integer.parseInt(request.getParameter("paycount"));
 		int allpay = Integer.parseInt(request.getParameter("allpay"));
@@ -32,7 +32,7 @@ public class BuyControl implements Control {
 		
 		UserOrderVO voo = new UserOrderVO();
 		voo.setUid(Uid);
-		voo.setProductCode(paypcode); //상품번호
+		voo.setProductCode(Integer.parseInt(paypcode)); //상품번호
 		voo.setProductPrice(allpay); // 총결제금액
 		voo.setProductName(payname); // 싱픔이름
 		voo.setAmount(paycount); // 상품수량

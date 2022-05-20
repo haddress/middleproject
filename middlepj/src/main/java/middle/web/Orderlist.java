@@ -17,10 +17,9 @@ public class Orderlist implements Control {
    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   HttpSession session = request.getSession(true);
 	String Uid = (String) session.getAttribute("Uid");
-      
-      Markservice service = new Markservice();
-      List<UserOrderVO> list = service.listOrder(Uid);
       System.out.println(Uid);
+      Markservice service = new Markservice();
+      List<UserOrderVO> list = service.listOrder(Uid);   
       request.setAttribute("list", list);
       request.getRequestDispatcher("view/mypage.jsp").forward(request, response);
       
