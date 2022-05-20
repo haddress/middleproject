@@ -14,7 +14,8 @@ public class logoutControl implements Control {
 
 		HttpSession session = request.getSession();
 		session.invalidate();
-		request.getRequestDispatcher("view/login.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 		
 	}
 
