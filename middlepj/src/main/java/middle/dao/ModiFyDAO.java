@@ -17,7 +17,33 @@ public class ModiFyDAO extends DAO {
    Connection conn; // sql 연결
    ResultSet rs;
    PreparedStatement psmt; // 쿼리실행
+   
+   public UserVO1 ucheck(String id, String pw) {
+		conn = getConnect();
+		UserVO1 vo = null;
+		String sql = "select *\r\n"
+				+ "from user_info\r\n"
+				+ "where id = ? and pw = ? ";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1,id);
+			psmt.setString(2,pw);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				vo = new UserVO1();
+				vo.setUid(rs.getString("id"));
+				vo.setUpw(rs.getString("pw"));
 
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return vo;
+		
+		
+	}
    
    public UserVO1 userFind(String Uid) {
       return null;
@@ -136,9 +162,9 @@ public class ModiFyDAO extends DAO {
 	      conn = getConnect();
 	      List<UserOrderVO> list = new ArrayList<UserOrderVO>();
 	      try {
-	         psmt = conn.prepareStatement("select product.product_img img, user_order.product_name pname, user_order.order_name oname, user_order.product_price price,user_order.amount am, user_order.order_date da, user_order.order_address adr, user_order.order_tel te\r\n"
-	               + "from user_order, product\r\n"
-	               + "where user_order.id=? and product.product_code=user_order.product_code");
+	         psmt = conn.prepareStatement("select product.product_img img, user_order.product_name pname, user_order.order_name oname, user_order.product_price price,user_order.amount am, user_order.order_date da, user_order.order_address adr, user_order.order_tel te, user_order.order_code code,user_order.id id, user_order.product_code pcode \r\n"
+	         		+ "    from user_order, product\r\n"
+	         		+ "where user_order.id= ? and product.product_code=user_order.product_code");
 	         psmt.setString(1, id);
 	         rs = psmt.executeQuery();
 	         while (rs.next()) {
@@ -151,6 +177,9 @@ public class ModiFyDAO extends DAO {
 	            vo.setUorderDate(rs.getString("da"));
 	            vo.setUorderAddress(rs.getString("adr"));
 	            vo.setUorderTel(rs.getString("te"));
+	            vo.setUorderCode(rs.getInt("code"));
+	            vo.setUid(rs.getString("id"));
+	            vo.setProductCode(rs.getInt("pcode"));
 	            list.add(vo);
 	            System.out.println("조회");
 	         }
@@ -168,7 +197,7 @@ public class ModiFyDAO extends DAO {
 	      try {
 	         psmt = conn.prepareStatement(sql);
 	         psmt.setString(1, vo.getUid());
-	         psmt.setString(2, vo.getProductCode());
+	         psmt.setInt(2, vo.getProductCode());
 	         psmt.setInt(3, vo.getProductPrice());
 	         psmt.setString(4, vo.getProductName());
 	         psmt.setString(5, vo.getUorderAddress());
@@ -199,7 +228,7 @@ public class ModiFyDAO extends DAO {
 	         psmt.setString(1, vo.getUorderAddress());
 	         psmt.setString(2, vo.getUorderName());
 	         psmt.setString(3, vo.getUorderTel());
-	         psmt.setString(4, vo.getUorderCode());
+	         psmt.setInt(4, vo.getUorderCode());
 
 	         int r = psmt.executeUpdate();
 	          System.out.println(r +"수정");
@@ -207,6 +236,19 @@ public class ModiFyDAO extends DAO {
 	         e.printStackTrace();
 	      }
    }
-   
+   public void fundre(String id, int code) {
+	   conn= getConnect();
+	   String sql = "delete from user_order\r\n"
+	   		+ "where id = ? and order_code=?";
+	   try {
+		psmt=conn.prepareStatement(sql);
+		psmt.setString(1, id);
+		psmt.setInt(2, code);
+		psmt.executeUpdate();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	   
+   }
 
 }

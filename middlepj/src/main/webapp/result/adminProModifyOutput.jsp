@@ -10,7 +10,7 @@
 <body>
 <h3>수정결과페이지</h3>
 	<c:if test="${!empty result }"><h4>${result }</h4></c:if>
-	<h4>수정완료..check plz</h4>
+	<h4> 수정완료..check plz</h4>
 	<a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 </body>
 </html>

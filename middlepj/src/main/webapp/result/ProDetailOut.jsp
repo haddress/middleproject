@@ -9,7 +9,7 @@
    width: 1000px;
    margin: 0 auto;
 }
-/*  input[type="radio"] {
+input[type="radio"] {
 	display:none;
 }
 input[type="radio"] + label {
@@ -26,7 +26,7 @@ input[id="tab1"]:checked ~ .con1 {
 }
 input[id="tab2"]:checked ~ .con2 {
 	display:block;
-}*/
+}
 </style>
 </head>
 <body>
@@ -71,7 +71,7 @@ input[id="tab2"]:checked ~ .con2 {
 					</form>
 				</td>
 			</tr>
-			<tr>
+		<%-- 	<tr>
 				<td colspan="4">DETAIL</td>
 			</tr>
 			<tr>
@@ -82,9 +82,9 @@ input[id="tab2"]:checked ~ .con2 {
 			</tr>
 			<tr>
 				<td colspan="4"></td>
-			</tr>
+			</tr> --%>
 		</table>
-				<%-- <input type="radio" id="tab1" name="tabmenu" checked>
+				<input type="radio" id="tab1" name="tabmenu" checked>
 				<label for="tab1">DETAIL</label>
 				<input type="radio" id="tab2" name="tabmenu">
 				<label for="tab2">REVIEW</label>
@@ -93,7 +93,7 @@ input[id="tab2"]:checked ~ .con2 {
 			<div class="conbox con2">
 				<jsp:include page="/view/login.jsp"/>
 			</div>
-			 --%>
+			 
 
    </div>
    

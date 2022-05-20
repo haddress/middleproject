@@ -32,7 +32,7 @@
 	 </thead>
 	 <tbody>
 		 <c:forEach var="list" items="${list }" >
-			<tr><td>${list.qnaCategory }</td><td>${list.qnaNo }</td><td><a href="detail.do?qnaNo=${list.qnaNo }">${list.qnaTitle }</a></td><td>${list.qnaWrite }</td><td>${list.qnaDate }</td>
+			<tr><td>${list.qnaCategory }</td><td>${list.qnaNo }</td><td><a href="detail.do?qnaNo=${list.qnaNo }&id=${Uid }">${list.qnaTitle }</a></td><td>${list.qnaWrite }</td><td>${list.qnaDate }</td>
 			</tr>
 		</c:forEach>
 		

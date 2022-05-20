@@ -19,7 +19,7 @@ public class BuyControl implements Control {
 		Markservice service = new Markservice();
 		HttpSession session = request.getSession(true);
 		String Uid = (String) session.getAttribute("Uid");
-		String paypcode = request.getParameter("paypcode");
+		int paypcode = Integer.parseInt(request.getParameter("paypcode"));
 		String payname = request.getParameter("paypname");
 		int paycount = Integer.parseInt(request.getParameter("paycount"));
 		int allpay = Integer.parseInt(request.getParameter("allpay"));

@@ -27,12 +27,14 @@
                 <th>날짜</th>
                 <th>주소</th>
                 <th>전화번호</th>
+                <th>관리</th>
             </tr>
         </thead>
    <tbody>
       <c:forEach items="${list }" var="list">
         <tr>
-        <td><img src="upload/${list.productImg }" width="50"></td>
+        <form action="refund.do" method="post">
+        <td><img src="upload/${list.productImg }" width="100"></td>
         <td>${list.productName }</td>
         <td>${list.uorderName }</td>
         <td>${list.productPrice }</td>
@@ -40,7 +42,11 @@
         <td>${list.uorderDate }</td>
         <td>${list.uorderAddress }</td>
         <td>${list.uorderTel }</td>
+        <td><input type="submit" value="반품신청"></td>
+        <input type="hidden" name=id value=${list.uid }>
+        <input type="hidden" name=orderCode value=${list.uorderCode }>
         
+        </form>
         
         </tr>
         </c:forEach>

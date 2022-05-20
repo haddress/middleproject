@@ -30,5 +30,7 @@ public class AdminService {
 	public void adminProMod (ProductVO pro) {
 		dao.adminProMod(pro);
 	}
-
+	public void adminProDel (String productCode) {
+		dao.adminProDel(productCode);
+	}
 }
