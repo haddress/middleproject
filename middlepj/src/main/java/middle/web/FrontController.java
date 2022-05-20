@@ -44,6 +44,7 @@ public class FrontController extends HttpServlet {
       list.put("/buy.do", new BuyControl()); // 구매하기
       list.put("/realbuy.do",new RealBuyControl()); //진짜구매
       list.put("/cancel.do", new CancelControl()); //취소하기
+      list.put("/refund.do", new RefundControl());
       
       // 리뷰
       list.put("/reviewOrderList.do", new RevOrListControl()); // 세션 아이디가 구매한 상품 조회

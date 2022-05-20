@@ -19,7 +19,7 @@ public class RealBuyControl implements Control {
 		Markservice service = new Markservice();
 		HttpSession session = request.getSession(true);
 		String Uid = (String) session.getAttribute("Uid");
-		String paypcode = request.getParameter("paycode");
+		int paypcode = Integer.parseInt(request.getParameter("paycode"));
 		String productname = request.getParameter("productname");
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		int productprice = Integer.parseInt(request.getParameter("productprice"));
@@ -31,7 +31,7 @@ public class RealBuyControl implements Control {
 		
 		UserOrderVO voo = new UserOrderVO();
 		voo.setUid(Uid);
-		voo.setProductCode(Integer.parseInt(paypcode));
+		voo.setProductCode(paypcode);
 		voo.setProductPrice(productprice);
 		voo.setProductName(productname);
 		voo.setAmount(amount);
