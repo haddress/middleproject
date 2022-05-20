@@ -16,9 +16,16 @@
 		</div>
 		<br>
 		<br>
+		<c:if test="${!empty delete }">
+			<script>
+			alert(${delete });
+			</script>
+			<%request.getSession().removeAttribute("delete"); %>
+		</c:if>
  <c:choose> 
-	<c:when test="${empty list }"><h3>문의글 정보가 없습니다</h3></c:when>
+	<c:when test="${empty list }"><h3>문의글 정보가 없습니다</h3>
 	<a href="view/qnaWrite.jsp?id=${Uid }">글쓰기</a>
+	</c:when>
 	<c:otherwise>
 	<h3>고객센터</h3> 
 	<table border="1">
