@@ -22,4 +22,9 @@ public class qnaService {
 	public void addQna(qnaVO qna) {
 		qnadao.addQna(qna);
 	}
+	
+	//문의글 삭제
+	public void deleteQna(String id) {
+		qnadao.deleteQna(id);
+	}
 }

@@ -21,7 +21,7 @@
 		<h3>회원만 볼 수 있습니다.</h3>
 		<p><a href="view/login.jsp">로그인하기</a></p>
 	</c:when>
-	<c:otherwise>
+	<c:when test="${qnadetail.id == Uid }">
 		<table border="1">
 		<h3>문의글 상세보기</h3>
 			<tr>
@@ -29,17 +29,11 @@
 				<td>${qnadetail.qnaNo }</td>
 			</tr>
 			<tr>
-				<td>작성일</td>
-				<td>${qnadetail.qnaDate }</td>
+				<td>아이디</td>
+				<td>${qnadetail.id }</td>
 			</tr>
-			<tr>
-				<td>상품코드</td>
-				<td>${qnadetail.productCode }</td>
-			</tr>
-			<tr>
 				<td>작성자</td>
 				<td>${qnadetail.qnaWrite }</td>
-			</tr>
 			<tr>
 				<td>제목</td>
 				<td>${qnadetail.qnaTitle }</td>
@@ -47,9 +41,17 @@
 				<td>내용</td>
 				<td>${qnadetail.qnaContent }</td>
 			</tr>
+			<tr>
+				<td>작성일</td>
+				<td>${qnadetail.qnaDate }</td>
+			</tr>
 		</table>
+	</c:when>
+	<c:otherwise>
+		<h3>해당 문의글은 작성자만 볼 수 있습니다</h3>
 	</c:otherwise>
 </c:choose>		
+<input type="button" value="문의글 삭제">
 			
 		
 		
