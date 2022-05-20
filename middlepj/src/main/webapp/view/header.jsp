@@ -58,13 +58,14 @@ nav ul {
 
 	<%
 	String Uid = (String) session.getAttribute("Uid");
+	String check = null;
 	if (Uid == null) {
-		Uid = "guest";
+		check = "guest";
 
 	} else if (Uid == "admin") {
-		Uid = "admin";
+		check = "admin";
 	} else if (Uid != null){
-		Uid = "user";
+		check = "user";
 	}
 	%>
 
@@ -77,7 +78,7 @@ nav ul {
 					href="<%=request.getContextPath()%>/index.jsp"
 					style="text-decoration: none">홈</a></li>
 				<%
-				if (Uid =="guest") {
+				if (check =="guest") {
 				%>
 				<li class="log"><a
 					href="<%=request.getContextPath()%>/view/add.jsp"
@@ -86,7 +87,7 @@ nav ul {
 					href="<%=request.getContextPath()%>/view/login.jsp"
 					style="text-decoration: none">로그인</a></li>
 				<%
-				} else if (Uid=="user") {
+				} else if (check=="user") {
 				%>
 				<li class="log"><%=Uid%> 님 반갑습니다.</li>
 
@@ -98,7 +99,7 @@ nav ul {
 					style="text-decoration: none">로그아웃</a>
 				<li>
 					<%
-					} else if (Uid=="admin") {
+					} else if (check=="admin") {
 					%>
 				
 				<li class="log"><%=Uid%> 관리자님 반갑습니다.</li>
