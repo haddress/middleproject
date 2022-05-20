@@ -27,10 +27,11 @@ public class FrontController extends HttpServlet {
       list.put("/search.do", new SearchControl());
       
       // 고객센터
-      list.put("/qna.do", new qnaListControl());
-      list.put("/detail.do", new qnaDetailControl());
-      list.put("/qnaAdd.do", new qnaAddControl());
-      list.put("/delete.do", new qnaDeleteControl());
+      list.put("/qna.do", new qnaListControl()); //문의글 전체리스트
+      list.put("/detail.do", new qnaDetailControl()); //문의글 상세보기
+      list.put("/qnaAdd.do", new qnaAddControl()); //문의글쓰기
+      list.put("/qnaDelete.do", new qnaDeleteControl()); //문의글 삭제
+      list.put("/qnaUpdate.do", new qnaDeleteControl()); //문의글 수정
 
       // 상품
       list.put("/productAdd.do", new ProAddControl()); // 관리자 상품등록

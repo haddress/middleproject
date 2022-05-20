@@ -31,7 +31,7 @@ public class RealBuyControl implements Control {
 		
 		UserOrderVO voo = new UserOrderVO();
 		voo.setUid(Uid);
-		voo.setProductCode(paypcode);
+		voo.setProductCode(Integer.parseInt(paypcode));
 		voo.setProductPrice(productprice);
 		voo.setProductName(productname);
 		voo.setAmount(amount);

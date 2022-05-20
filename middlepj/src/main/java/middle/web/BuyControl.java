@@ -32,7 +32,7 @@ public class BuyControl implements Control {
 		
 		UserOrderVO voo = new UserOrderVO();
 		voo.setUid(Uid);
-		voo.setProductCode(paypcode); //상품번호
+		voo.setProductCode(Integer.parseInt(paypcode)); //상품번호
 		voo.setProductPrice(allpay); // 총결제금액
 		voo.setProductName(payname); // 싱픔이름
 		voo.setAmount(paycount); // 상품수량
