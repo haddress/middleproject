@@ -31,7 +31,7 @@ public class AdminProModControl implements Control {
 		}
 		System.out.println("비어잇는거통과");
 		ProductVO vo = new ProductVO();
-		vo.setProductCode(Integer.parseInt(productExp));
+		vo.setProductCode(Integer.parseInt(productCode));
 		vo.setProductCate(productCate);
 		vo.setProductName(productName);
 		vo.setProductPrice(Integer.parseInt(productPrice));

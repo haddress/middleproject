@@ -17,9 +17,7 @@ public class AdminProDelControl implements Control {
 		String productCode = request.getParameter("productCode");
 		
 		ProductVO vo = new ProductVO();
-
 		vo.setProductCode(Integer.parseInt(productCode));
-
 		
 		AdminService service = new AdminService();
 		service.adminProDel(productCode);
