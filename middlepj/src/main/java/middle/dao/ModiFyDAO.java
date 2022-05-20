@@ -18,31 +18,34 @@ public class ModiFyDAO extends DAO {
    ResultSet rs;
    PreparedStatement psmt; // 쿼리실행
    
-   public UserVO1 ucheck(String id, String pw) {
+   public int ucheck(String id, String pw) {
 		conn = getConnect();
-		UserVO1 vo = null;
-		String sql = "select *\r\n"
-				+ "from user_info\r\n"
-				+ "where id = ? and pw = ? ";
+		
+		int check=0;
+		String sql = "SELECT * FROM user_info WHERE id=? and pw=? ";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1,id);
 			psmt.setString(2,pw);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				vo = new UserVO1();
-				vo.setUid(rs.getString("id"));
-				vo.setUpw(rs.getString("pw"));
-
+				
+				if(id.equals("admin")&&id.equals("admin")) {
+						check=2; // 관리자로그인
+						System.out.println(check);
+				}else {
+					check = 3; // 아이디 비번확인
+				}
 				
 			}
+			
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return vo;
-		
-		
+		return check;
+				
 	}
    
    public UserVO1 userFind(String Uid) {
