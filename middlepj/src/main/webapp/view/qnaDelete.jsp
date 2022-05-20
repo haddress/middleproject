@@ -1,13 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<script>
-let delBtn = document.querySelector('input[type="button"]');
-delBtn.addEventListener('click',function(d) {
-	d.preventDefault();
-	
-})
-</script>
 <!DOCTYPE html>
 <html>
 <head>
