@@ -5,7 +5,7 @@ import middle.dao.DAO;
 // 상품판매VO 1
 public class ProductVO extends DAO {
 
-	private int productCode;
+	private String productCode;
 	private String productCate;
 	private String productName;
 	private int productPrice;
@@ -14,16 +14,11 @@ public class ProductVO extends DAO {
 	private String productImg;
 	private String productDate;
 	
-	public ProductVO() {
-		
-	}
 	
-	
-
-	public int getProductCode() {
+	public String getProductCode() {
 		return productCode;
 	}
-	public void setProductCode(int productCode) {
+	public void setProductCode(String productCode) {
 		this.productCode = productCode;
 	}
 	public String getProductCate() {
@@ -68,10 +63,6 @@ public class ProductVO extends DAO {
 	public void setProductDate(String productDate) {
 		this.productDate = productDate;
 	}
-
-
-
-
 	
 	
 

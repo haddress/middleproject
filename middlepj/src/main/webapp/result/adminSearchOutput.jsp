@@ -17,7 +17,6 @@
     </h4> 
   </c:if>
 
-
  <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 </body>
 </html>

@@ -2,7 +2,7 @@ package JB;
 
 import java.util.List;
 
-import middle.vo.ProductVO;
+
 import middle.vo.UserVO1;
 
 public class AdminService {
@@ -19,18 +19,14 @@ public class AdminService {
 	public UserVO1 findUser(String user){
 		return dao.selectUser(user);
 	}
-	
-	public ProductVO adminProSearch(String productcode) {
-		return dao.adminProSearch(productcode);
-	}
-	
-	public List<ProductVO> Prolist(){
-		return dao.Prolist();
-	}
-	public void adminProMod (ProductVO pro) {
-		dao.adminProMod(pro);
-	}
-	public void adminProDel (String productCode) {
-		dao.adminProDel(productCode);
-	}
+//	public void removeUser (String id){
+//		dao.deleteUser(id);
+//	}
+//	public void modifyProduct(){
+//		dao.
+//	}
+//	public void removeProduct(){
+//		dao.
+//	}
+
 }

@@ -36,11 +36,6 @@ public class Markservice {
    public UserVO1 findUser(String Uid) {
       return dao.userFind(Uid);
    }
-   public void Userbuy(UserOrderVO vo) {
-	   dao.BuyUser(vo);
-   }
-   public void RealBuy(UserOrderVO vo) {
-	   dao.BuyReal(vo);
-   }
+
    
 }

@@ -8,6 +8,5 @@
 </head>
 <body>
 <h3>${Uid }님 가입완료</h3>
-<a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 </body>
 </html>
