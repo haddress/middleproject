@@ -194,6 +194,7 @@ public class qnaDAO extends DAO{
 				vo.setQnaTitle(rs.getString("qna_title"));
 				vo.setQnaContent(rs.getString("qna_content"));
 				vo.setQnaDate(rs.getString("qan_date"));
+				vo.setQnaPw(rs.getString("qna_pw"));
 				return vo;
 				}
 			}catch(SQLException e) {

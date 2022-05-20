@@ -29,11 +29,13 @@
 	<c:when test="${empty Uid }"><h3>로그인 후 이용가능합니다.</h3>
 				<p><a href="view/login.jsp">로그인하기</a></p>
 	</c:when>
+
 	<c:when test="${qnadetail.id != Uid }">
 		${list.id }
 		<h3>작성자만 볼 수 있습니다.</h3>
 	</c:when>
 	<c:when test="${qnadetail.id == Uid }">
+
 		<h3>문의글 상세보기</h3>
 		<table border="1">
 			<tr>
@@ -66,6 +68,8 @@
 		<h3>해당 문의글은 작성자만 볼 수 있습니다</h3>
 	</c:otherwise>
 </c:choose>		
+
+<input type="button" value="문의글 삭제">
 
 			
 		

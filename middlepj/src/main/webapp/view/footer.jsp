@@ -22,7 +22,7 @@
 			<div class="footer-text">영업시간 : AM 10:00 ~ PM 18:00(주말 및 공휴일 휴무)</div>
 		</div>
 		<div class="footer-div2">
-			<div class="footer-text">회사명 : (주)DobbymarCat | 대표이사 : 예담 | 사업자등록번호 : 000-00-00000</div>
+			<div class="footer-text"><a href="https://map.naver.com/v5/search/%EC%98%88%EB%8B%B4%EC%A0%84%EB%AC%B8?c=14314472.5880998,4282615.5014897,15,0,0,0,dh" >회사명 : (주)DobbymarCat | 대표이사 : 예담 | 사업자등록번호 : 000-00-00000</a></div>
 			<div class="footer-text">주소 : (00000) 대구광역시 중구 남일동</div>
 		</div>
 		<div class="footer-link-company">
