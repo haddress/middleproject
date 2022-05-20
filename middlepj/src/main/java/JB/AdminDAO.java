@@ -81,7 +81,7 @@ public class AdminDAO extends DAO {
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				ProductVO vo = new ProductVO();
-				vo.setProductCode(rs.getString("product_code"));
+				vo.setProductCode(rs.getInt("product_code"));
 				vo.setProductCate(rs.getString("product_category"));
 				vo.setProductName(rs.getString("product_name"));
 				vo.setProductPrice(rs.getInt("product_price"));
@@ -111,7 +111,7 @@ public class AdminDAO extends DAO {
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				ProductVO vo = new ProductVO();
-				vo.setProductCode(rs.getString("product_code"));
+				vo.setProductCode(rs.getInt("product_code"));
 				vo.setProductCate(rs.getString("product_category"));
 				vo.setProductName(rs.getString("product_name"));
 				vo.setProductPrice(rs.getInt("product_price"));
@@ -142,7 +142,7 @@ public class AdminDAO extends DAO {
 			psmt.setInt(3, pro.getProductPrice());
 			psmt.setInt(4, pro.getProductAmount());
 			psmt.setString(5, pro.getProductExp());
-			psmt.setString(6, pro.getProductCode());
+			psmt.setInt(6, pro.getProductCode());
 			
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 수정.");

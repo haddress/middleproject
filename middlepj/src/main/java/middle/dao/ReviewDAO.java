@@ -22,8 +22,8 @@ public class ReviewDAO extends DAO {
 				+ "values(review_seq, ?, ?, ?, ?, ?, ?, sysdate, ?, ?)";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, review.getOrderCode());
-			psmt.setString(2, review.getProductCode());
+			psmt.setInt(1, review.getOrderCode());
+			psmt.setInt(2, review.getProductCode());
 			psmt.setString(3, review.getId());
 			psmt.setString(4, review.getReviewPass());
 			psmt.setString(5, review.getReviewTitle());

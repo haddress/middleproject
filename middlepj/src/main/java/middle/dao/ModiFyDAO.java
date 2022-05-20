@@ -168,7 +168,7 @@ public class ModiFyDAO extends DAO {
 	      try {
 	         psmt = conn.prepareStatement(sql);
 	         psmt.setString(1, vo.getUid());
-	         psmt.setString(2, vo.getProductCode());
+	         psmt.setInt(2, vo.getProductCode());
 	         psmt.setInt(3, vo.getProductPrice());
 	         psmt.setString(4, vo.getProductName());
 	         psmt.setString(5, vo.getUorderAddress());
