@@ -14,32 +14,11 @@ public class ProductService {
 		dao.insertProduct(product);
 	}
 	
-	// 간식 카테고리
-	public List<ProductVO> snackList() {
-		return dao.listSnack();
+	
+	// 카테고리별 보기
+	public List<ProductVO> cateList(String productCate) {
+		return dao.listProduct(productCate);
 	}
-	
-	// 장난감 카테고리
-	public List<ProductVO> toyList() {
-		return dao.listToy();
-	}
-	
-	// 실내용품
-	public List<ProductVO> goodsList() {
-		return dao.listGoods();
-	}
-	
-	
-	// 목욕/미용
-	public List<ProductVO> washList() {
-		return dao.listWash();
-	}
-	
-	
-//	// 카테고리별 보기
-//	public List<ProductVO> cateList(String product_category) {
-//		return dao.listProduct(product_category);
-//	}
 	
 	
 	// 최신목록
@@ -49,11 +28,14 @@ public class ProductService {
 	
 	
 	// 상품상세보기
-	public ProductVO DetailProduct(String product_code) {
-		return dao.productDetail(product_code);
+	public ProductVO DetailProduct(int productCode) {
+		return dao.productDetail(productCode);
 	}
 	
-	// 상품주문..?
+	// 상품이름으로 검색
+	public ProductVO productName(String productName) {
+		return dao.productName(productName);
+	}
 
 	
 	

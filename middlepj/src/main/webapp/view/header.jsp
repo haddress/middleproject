@@ -89,7 +89,7 @@ nav ul {
 				<%
 				} else if (check=="user") {
 				%>
-				<li class="log"><%=Uid%> 님 반갑습니다.</li>
+				<li class="log"><b><%=Uid%> </b>님 반갑습니다.</li>
 
 				<li class="log"><a
 					href="<%=request.getContextPath()%>/mypage.do"
@@ -125,16 +125,16 @@ nav ul {
 		<nav id="category">
 			<ul>
 				<li class="cate"><a
-					href="${pageContext.request.contextPath}/SnackList.do"
+					href="${pageContext.request.contextPath}/CateList.do?cate=snack"
 					style="text-decoration: none; color: black">간식</a></li>
 				<li class="cate"><a
-					href="${pageContext.request.contextPath}/ToyList.do"
+					href="${pageContext.request.contextPath}/CateList.do?cate=toy"
 					style="text-decoration: none; color: black">장난감</a></li>
 				<li class="cate"><a
-					href="${pageContext.request.contextPath}/GoodsList.do"
+					href="${pageContext.request.contextPath}/CateList.do?cate=goods"
 					style="text-decoration: none; color: black">실내용품</a></li>
 				<li class="cate"><a
-					href="${pageContext.request.contextPath}/WashList.do"
+					href="${pageContext.request.contextPath}/CateList.do?cate=wash"
 					style="text-decoration: none; color: black">목욕/미용</a></li>
 				<li class="dropdown"><button onclick="dp_menu()" class="commu">커뮤니티</button>
 

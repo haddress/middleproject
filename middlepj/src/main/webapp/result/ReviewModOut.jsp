@@ -19,9 +19,11 @@
 		<br>
 		<br>
 
+
 	<div id="container">
-		리뷰를 등록하였습니다.
+		리뷰를 수정하였습니다.
 	</div>
+
 
 	<!-- Footer -->
 		<div id="foot">
