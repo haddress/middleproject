@@ -14,7 +14,7 @@ import middle.vo.UserOrderVO;
 import middle.vo.UserVO1;
 
 public class ModiFyDAO extends DAO {
-   Connection conn; // sql 연결11
+   Connection conn; // sql 연결1
    ResultSet rs;
    PreparedStatement psmt; // 쿼리실행
    
