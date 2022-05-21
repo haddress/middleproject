@@ -3,7 +3,7 @@ package middle.vo;
 public class ReviewVO {
 	
 	private int reviewCode;
-	private int productCode;
+	private String productName;
 	private String id;
 	private String reviewPass;
 	private String reviewTitle;
@@ -19,11 +19,11 @@ public class ReviewVO {
 	public void setReviewCode(int reviewCode) {
 		this.reviewCode = reviewCode;
 	}
-	public int getProductCode() {
-		return productCode;
+	public String getProductName() {
+		return productName;
 	}
-	public void setProductCode(int productCode) {
-		this.productCode = productCode;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 	public String getId() {
 		return id;
@@ -67,5 +67,6 @@ public class ReviewVO {
 	public void setReviewStar(int reviewStar) {
 		this.reviewStar = reviewStar;
 	}
+	
 	
 }

@@ -35,11 +35,8 @@ public class FrontController extends HttpServlet {
 
       // 상품
       list.put("/productAdd.do", new ProAddControl()); // 관리자 상품등록
-      list.put("/SnackList.do", new SnackListControl()); // 간식 카테고리
-      list.put("/ToyList.do", new ToyListControl()); // 장난감 카테고리
-      list.put("/GoodsList.do", new GoodsListControl()); // 실내용품 카테고리
-      list.put("/WashList.do", new WashListControl()); // 목욕/미용 카테고리
-      list.put("/productDetail.do", new ProDetailControl()); // 한건상세
+      list.put("/CateList.do", new CateListControl()); // 카테고리별 목록
+      list.put("/productDetail.do", new ProDetailControl()); // 한건상세 + 상품리뷰리스트
       list.put("/mainList.do", new NewListControl()); // 최신상품 목록
       list.put("/buy.do", new BuyControl()); // 구매하기
       list.put("/realbuy.do",new RealBuyControl()); //진짜구매
@@ -49,7 +46,11 @@ public class FrontController extends HttpServlet {
       list.put("/reviewOrderList.do", new RevOrListControl()); // 세션 아이디가 구매한 상품 조회
       list.put("/reviewAdd.do", new ReviewAddControl()); // 리뷰등록
       list.put("/review.do", new ReviewControl()); // 리뷰목록
-      
+      list.put("/reviewDetail.do", new RevDetailControl()); // 리뷰상세보기
+      list.put("/reviewMoDe.do", new ReviewDeleteControl()); // 리뷰 삭제
+      list.put("/reviewModify.do", new ReviewModifyControl()); // 리뷰 수정
+      list.put("/productName.do", new ProNameSearchControl()); // 상품이름 검색
+
       
       
       //관리자 메뉴입니다   

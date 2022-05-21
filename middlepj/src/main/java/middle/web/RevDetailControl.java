@@ -1,7 +1,6 @@
 package middle.web;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,19 +9,25 @@ import javax.servlet.http.HttpServletResponse;
 import middle.service.ReviewService;
 import middle.vo.ReviewVO;
 
-public class ReviewControl implements Control {
+public class RevDetailControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 리뷰게시판
+		// 리뷰 상세보기
+		
+		int rcode = Integer.parseInt(request.getParameter("code"));
 		
 		ReviewService service = new ReviewService();
-		List<ReviewVO> list = service.reviewList();
+		ReviewVO vo = service.reviewDetail(rcode);
 		
-		request.setAttribute("review", list);
+		if (vo == null) {
+			request.setAttribute("result", "게시글을 찾을 수 없습니다.");
+		}
 		
-		request.getRequestDispatcher("result/ReviewOut.jsp").forward(request, response);
+		request.setAttribute("review", vo);
+		
+		request.getRequestDispatcher("result/ReviewDetailOut.jsp").forward(request, response);
 		
 	}
 

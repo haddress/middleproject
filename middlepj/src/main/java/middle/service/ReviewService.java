@@ -37,5 +37,14 @@ public class ReviewService {
 		
 	}
 	
+	// 리뷰 상세보기
+	public ReviewVO reviewDetail(int reviewCode) {
+		return dao.reviewDetail(reviewCode);
+	}
+	
+	// 해당 상품 리뷰리스트
+	public List<ReviewVO> productReview(String productName) {
+		return dao.productReview(productName);
+	}
 
 }

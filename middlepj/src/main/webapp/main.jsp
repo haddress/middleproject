@@ -11,6 +11,9 @@
    width: 1000px;
    margin: 0 auto;
 }
+h3 {
+	color: gray;
+}
 </style>
 </head>
 <body>
@@ -29,11 +32,12 @@
       
    <div id="container">
       <!-- 배너 -->
-      메인화면 배너
+      <img src="home/banner.jpeg" width="1000">
       
       <!-- 최신상품 리스트 -->
       <div id="newlist">
-      <h4 style="text-align:center;">신상품</h4>
+      <h3 style="text-align:center;">신상품</h3>
+      <hr>
       <c:choose>
       <c:when test="${empty list }"><h4>상품정보가 없습니다.</h4></c:when>
       <c:otherwise>

@@ -12,35 +12,25 @@ import middle.service.ReviewService;
 import middle.vo.ProductVO;
 import middle.vo.ReviewVO;
 
-public class ProDetailControl implements Control {
+public class ProNameSearchControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 상품 한 건 상세보기
-		
-		int pcode = Integer.parseInt(request.getParameter("productCode"));
+		// 상품이름으로 검색
+		String pname = request.getParameter("productName");
 		
 		ProductService service = new ProductService();
-		ProductVO vo = service.DetailProduct(pcode);
+		ProductVO vo = service.productName(pname);
 		
-		if (vo == null) {
-			request.setAttribute("result", "상품을 찾을 수 없습니다.");
-		}
 		request.setAttribute("product", vo);
-		
-		
-		// 해당 상품 리뷰
-		String pname = request.getParameter("productName");
 		
 		ReviewService rservice = new ReviewService();
 		List<ReviewVO> rvo = rservice.productReview(pname);
 		
 		request.setAttribute("review", rvo);
 		
-		
 		request.getRequestDispatcher("result/ProDetailOut.jsp").forward(request, response);
-		
 	}
 
 }

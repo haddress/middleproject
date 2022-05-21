@@ -62,7 +62,7 @@ input[id="tab2"]:checked ~ .con2 {
 			</tr>
 			<tr>
 				<td colspan="3">
-					<form action="buy.do" method="post">
+					<form action="buy.do" method="post" onsubmit="return idCheck();">
 						<input type="hidden" name="paypcode" value="${product.productCode }">
 						<input type="hidden" name="paypname" value="${product.productName }">
 						<input type="hidden" name="paycount">
@@ -71,18 +71,7 @@ input[id="tab2"]:checked ~ .con2 {
 					</form>
 				</td>
 			</tr>
-		<%-- 	<tr>
-				<td colspan="4">DETAIL</td>
-			</tr>
-			<tr>
-				<td colspan="4">${product.productExp }</td>
-			</tr>
-			<tr>
-				<td colspan="4">REVIEW</td>
-			</tr>
-			<tr>
-				<td colspan="4"></td>
-			</tr> --%>
+		
 		</table>
 				<input type="radio" id="tab1" name="tabmenu" checked>
 				<label for="tab1">DETAIL</label>
@@ -91,7 +80,29 @@ input[id="tab2"]:checked ~ .con2 {
 						
 			<div class="conbox con1">${product.productExp }</div>
 			<div class="conbox con2">
-				<jsp:include page="/view/login.jsp"/>
+				<table width="1000">
+					<tr>
+						<th>번호</th>
+						<th>이미지</th>
+						<th>상품명</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일</th>
+					</tr>
+					<c:forEach items="${review }" var="review">
+					<tr>
+						<td width="40">${review.reviewCode }</td>
+						<td width="110"><img src="reviewUpload/${review.reviewImg }" width="100"></td>
+						<td width="150">${review.productName }</td>
+						<td width="400"><a href="${pageContext.request.contextPath}/reviewDetail.do?code=${review.reviewCode }" style="text-decoration: none; color:black;">${review.reviewTitle }</a></td>
+						<td width="80">${review.id }</td>
+						<td>${review.reviewDate }</td>
+					</tr>
+					</c:forEach>
+					<tr>
+						<td colspan="6"><button type="button" onclick="location.href='${pageContext.request.contextPath}/review.do'">전체보기</button></td>
+					</tr>
+				</table>
 			</div>
 			 
 
@@ -135,7 +146,15 @@ document.addEventListener("DOMContentLoaded", change);
       document.querySelector('input[name=allpay]').value = price;
       
     
-      
+  	function idCheck() {
+		if('${Uid }' == '') {
+			alert('로그인이 필요합니다.');
+			return false;
+			history.back();
+		} else {
+			return true;
+		}
+	}   
 
 
 </script>
