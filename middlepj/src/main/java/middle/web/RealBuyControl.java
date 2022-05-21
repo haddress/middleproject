@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import middle.service.Markservice;
+import middle.vo.ProductVO;
 import middle.vo.UserOrderVO;
 import middle.vo.UserVO1;
 
@@ -38,10 +39,16 @@ public class RealBuyControl implements Control {
 		voo.setUorderName(ordername);
 		voo.setUorderAddress(address);
 		voo.setUorderTel(utel);
+		ProductVO po = new ProductVO();
+		if(po.getProductAmount()<=0) {
+			request.setAttribute("error", "상품이 품절되었습니다");
+			request.getRequestDispatcher("result/ProDetailOut.jsp").forward(request, response);
+			return;
+			}
+			service.Userbuy(voo);
+			service.amount(paypcode, amount);
+			request.getRequestDispatcher("result/buyoutput.jsp").forward(request, response);
 		
-		service.Userbuy(voo);		
-		
-		request.getRequestDispatcher("result/buyoutput.jsp").forward(request, response);
 	}
 
 }
