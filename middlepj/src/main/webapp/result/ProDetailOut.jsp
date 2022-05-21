@@ -92,7 +92,8 @@ input[id="tab2"]:checked ~ .con2 {
 				<table width="1000" id="review">
 					<tr>
 						<th>번호</th>
-						<th>이미지</th>
+						<th></th>
+						<th></th>
 						<th>상품명</th>
 						<th>제목</th>
 						<th>작성자</th>
@@ -102,6 +103,25 @@ input[id="tab2"]:checked ~ .con2 {
 					<tr>
 						<td width="40">${review.reviewCode }</td>
 						<td width="110"><img src="reviewUpload/${review.reviewImg }" width="100"></td>
+						<td>
+							<c:choose>
+								<c:when test="${review.reviewStar == 5}">
+									★★★★★
+								</c:when>
+								<c:when test="${review.reviewStar == 4}">
+									★★★★☆
+								</c:when>
+								<c:when test="${review.reviewStar == 3}">
+									★★★☆☆
+								</c:when>
+								<c:when test="${review.reviewStar == 2}">
+									★★☆☆☆
+								</c:when>
+								<c:when test="${review.reviewStar == 1}">
+									★☆☆☆☆
+								</c:when>
+							</c:choose>
+						</td>
 						<td width="150">${review.productName }</td>
 						<td width="400"><a href="${pageContext.request.contextPath}/reviewDetail.do?code=${review.reviewCode }" style="text-decoration: none; color:black;">${review.reviewTitle }</a></td>
 						<td width="80">${review.id }</td>
