@@ -27,6 +27,15 @@ input[id="tab1"]:checked ~ .con1 {
 input[id="tab2"]:checked ~ .con2 {
 	display:block;
 }
+#review tr th {
+	text-align:center;
+}
+#review tr td {
+	text-align:center;
+}
+.all {
+	float:left;
+}
 </style>
 </head>
 <body>
@@ -80,7 +89,7 @@ input[id="tab2"]:checked ~ .con2 {
 						
 			<div class="conbox con1">${product.productExp }</div>
 			<div class="conbox con2">
-				<table width="1000">
+				<table width="1000" id="review">
 					<tr>
 						<th>번호</th>
 						<th>이미지</th>
@@ -99,10 +108,8 @@ input[id="tab2"]:checked ~ .con2 {
 						<td>${review.reviewDate }</td>
 					</tr>
 					</c:forEach>
-					<tr>
-						<td colspan="6"><button type="button" onclick="location.href='${pageContext.request.contextPath}/review.do'">전체보기</button></td>
-					</tr>
 				</table>
+				<button type="button" id="all" onclick="location.href='${pageContext.request.contextPath}/review.do'">전체보기</button>
 			</div>
 			 
 
