@@ -41,7 +41,7 @@ public class RealBuyControl implements Control {
 		voo.setUorderTel(utel);
 		ProductVO po = new ProductVO();
 		if(po.getProductAmount()<=0) {
-			request.setAttribute("error", "상품이 품절되었습니다");
+			request.setAttribute("error", "상품이 품절되었습니다1");
 			request.getRequestDispatcher("result/ProDetailOut.jsp").forward(request, response);
 			return;
 			}
