@@ -48,5 +48,7 @@ public class Markservice {
    public int check(String id, String pw) {
 	  return dao.ucheck(id,pw);
    }
-   
+   public void amount(int pcode, int a) { //11
+	   dao.mount(pcode, a);
+   }
 }

@@ -14,7 +14,7 @@ import middle.vo.UserOrderVO;
 import middle.vo.UserVO1;
 
 public class ModiFyDAO extends DAO {
-   Connection conn; // sql 연결
+   Connection conn; // sql 연결11
    ResultSet rs;
    PreparedStatement psmt; // 쿼리실행
    
@@ -253,5 +253,19 @@ public class ModiFyDAO extends DAO {
 	}
 	   
    }
-
+   public void mount(int a, int pcode) {
+	   conn = getConnect();
+	   String sql = "update product\r\n"
+	   		+ "set product_amount = product_amount - ?\r\n"
+	   		+ "where product_code = ?" ;
+	   try {
+		psmt=conn.prepareStatement(sql);
+		psmt.setInt(1, a);
+		psmt.setInt(2, pcode);
+		int r = psmt.executeUpdate();
+		System.out.println(r+"수정");
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+   }
 }
