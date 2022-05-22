@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import middle.service.Markservice;
+import middle.service.ProductService;
+import middle.vo.ProductVO;
 import middle.vo.UserOrderVO;
 import middle.vo.UserVO1;
 
@@ -23,11 +25,13 @@ public class BuyControl implements Control {
 		String payname = request.getParameter("paypname");
 		int paycount = Integer.parseInt(request.getParameter("paycount"));
 		int allpay = Integer.parseInt(request.getParameter("allpay"));
-		
 		UserVO1 vo = service.ussear(Uid);
 		String address = vo.getUaddress();
 		String name = vo.getUname();
 		String tel = vo.getUtel();
+		
+		ProductService service1 = new ProductService();
+		ProductVO vo1 = service1.DetailProduct(paypcode);
 		
 		
 		UserOrderVO voo = new UserOrderVO();
@@ -40,6 +44,7 @@ public class BuyControl implements Control {
 		voo.setUorderAddress(address); // 주소
 		voo.setUorderTel(tel); //전화번호
 		request.setAttribute("voo", voo);
+		request.setAttribute("vo1", vo1 );
 		request.getRequestDispatcher("result/pay.jsp").forward(request, response);
 		 
 	}

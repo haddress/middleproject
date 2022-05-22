@@ -8,8 +8,8 @@
 </head>
 <body>
 <form action="${pageContext.servletContext.contextPath }/delete.do" method="get">
-        ${Uid }
-        <input type="submit" value="찐탈퇴">
+        탈퇴하시겠습니까?
+        <input type="submit" value="탈퇴">
     </form>
 </body>
 </html>

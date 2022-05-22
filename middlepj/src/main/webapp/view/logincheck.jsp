@@ -11,14 +11,14 @@
 String Upw = request.getParameter("Upw");
 
 Markservice service = new Markservice();
+int a = service.checku(Uid,Upw);
 
-
-if(service.checkUser(Uid, Upw) == 1){
+if(a == 1){
 	session.setAttribute("Uid", Uid);
 	session.setAttribute("Upw", Upw);
 	%><script>alert("로그인 성공!"); location.href="../index.jsp" </script>
 	<% 
-}else if(service.checkUser(Uid, Upw) == 2){
+}else if(a == 2){
 	session.setAttribute("Uid", Uid);
 	session.setAttribute("Upw", Upw);
 	%><script>alert("관리자 로그인"); location.href="../index.jsp" </script><%

@@ -1,6 +1,7 @@
 package middle.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ public class RealBuyControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		Markservice service = new Markservice();
 		HttpSession session = request.getSession(true);
 		String Uid = (String) session.getAttribute("Uid");
@@ -27,9 +28,9 @@ public class RealBuyControl implements Control {
 		String address = request.getParameter("address");
 		String ordername = request.getParameter("uordername");
 		String utel = request.getParameter("uordertel");
-		
-		
-		
+		int pamount = Integer.parseInt(request.getParameter("productamount"));
+		PrintWriter writer = response.getWriter();
+
 		UserOrderVO voo = new UserOrderVO();
 		voo.setUid(Uid);
 		voo.setProductCode(paypcode);
@@ -39,16 +40,16 @@ public class RealBuyControl implements Control {
 		voo.setUorderName(ordername);
 		voo.setUorderAddress(address);
 		voo.setUorderTel(utel);
-		ProductVO po = new ProductVO();
-		if(po.getProductAmount()<=0) {
-			request.setAttribute("error", "상품이 품절되었습니다11");
-			request.getRequestDispatcher("result/ProDetailOut.jsp").forward(request, response);
-			return;
-			}
-			service.Userbuy(voo);
-			service.amount(paypcode, amount);
-			request.getRequestDispatcher("result/buyoutput.jsp").forward(request, response);
-		
+
+		if (pamount <= 0) {
+			writer.println("<script>alert('상품품절'); location.href='index.jsp';</script>");
+			writer.close();
+
+		}
+		service.Userbuy(voo);
+		service.amount(paypcode, amount);
+		request.getRequestDispatcher("result/buyoutput.jsp").forward(request, response);
+
 	}
 
 }

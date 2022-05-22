@@ -31,6 +31,7 @@
             </tr>
         </thead>
    <tbody>
+   
       <c:forEach items="${list }" var="list">
         <tr>
         <form action="refund.do" method="post">

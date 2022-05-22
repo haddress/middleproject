@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-결제완료
+<h3>결제완료</h3>
 
 <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 </body>

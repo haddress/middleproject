@@ -62,11 +62,12 @@ nav ul {
 	if (Uid == null) {
 		check = "guest";
 
-	} else if (Uid == "admin") {
+	} else if (Uid.equals("admin")) {
 		check = "admin";
 	} else if (Uid != null){
 		check = "user";
 	}
+	
 	%>
 
 	<div id="head">
@@ -87,22 +88,9 @@ nav ul {
 					href="<%=request.getContextPath()%>/view/login.jsp"
 					style="text-decoration: none">로그인</a></li>
 				<%
-				} else if (check=="user") {
+				} else if (check=="admin") {
 				%>
-				<li class="log"><b><%=Uid%> </b>님 반갑습니다.</li>
-
-				<li class="log"><a
-					href="<%=request.getContextPath()%>/mypage.do"
-					style="text-decoration: none">마이페이지</a></li>
-				<li class="log"><a
-					href="<%=request.getContextPath()%>/logout.do"
-					style="text-decoration: none">로그아웃</a>
-				<li>
-					<%
-					} else if (check=="admin") {
-					%>
-				
-				<li class="log"><%=Uid%> 관리자님 반갑습니다.</li>
+								<li class="log"><%=Uid%> 관리자님 반갑습니다.</li>
 				<li class="log"><a
 					href="<%=request.getContextPath()%>/admin.jsp"
 					style="text-decoration: none">관리자페이지로 이동</a>
@@ -113,7 +101,22 @@ nav ul {
 				<li class="log"><a
 					href="<%=request.getContextPath()%>/logout.do"
 					style="text-decoration: none">로그아웃</a>
-				<li>
+				</li>
+				
+				
+					<%
+					} else if (check=="user") {
+					%>
+				<li class="log"><b><%=Uid%> </b>님 반갑습니다.</li>
+
+				<li class="log"><a
+					href="<%=request.getContextPath()%>/mypage.do"
+					style="text-decoration: none">마이페이지</a></li>
+				<li class="log"><a
+					href="<%=request.getContextPath()%>/logout.do"
+					style="text-decoration: none">로그아웃</a>
+				</li>
+
 					<%
 					}
 					%>

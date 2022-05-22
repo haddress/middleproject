@@ -28,11 +28,12 @@
 
 
 </script>
-<form action="${pageContext.servletContext.contextPath }/delete.do" method="get">
-
-<input type="submit" value="회원탈퇴">
-</form>
-
+<form action="${pageContext.servletContext.contextPath }/search.do" method="get">
+        
+        <input type="hidden" name="job" value="delete">
+        <input type="hidden" name="Uid" value="${Uid }">
+        <input type="submit" value="탈퇴">
+    </form>
    
 
 </body>
