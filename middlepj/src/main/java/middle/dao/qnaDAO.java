@@ -259,6 +259,7 @@ public class qnaDAO extends DAO{
 			psmt.setString(1, qnaNo.getQnaCategory());
 			psmt.setString(2, qnaNo.getQnaTitle());
 			psmt.setString(3, qnaNo.getQnaContent());
+			psmt.setInt(4, qnaNo.getQnaNo());
 			
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 수정되었습니다");

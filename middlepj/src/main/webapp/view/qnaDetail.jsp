@@ -13,6 +13,12 @@
 
 		}
 	}
+	function updateQna(no) {
+		var alert = confirm("수정페이지로 이동합니다");
+		if(alert) {
+			location.href = "qnaUpdate.do?qnaNo="+no;
+		}
+	}
 </script>
 
 <title>qnaDetail.jsp</title>
@@ -30,7 +36,6 @@
 				<p><a href="view/login.jsp">로그인하기</a></p>
 	</c:when>
 	<c:when test="${qnadetail.id != Uid }">
-		${list.id }
 		<h3>작성자만 볼 수 있습니다.</h3>
 	</c:when>
 	<c:when test="${qnadetail.id == Uid }">
@@ -60,7 +65,7 @@
 		</table>
 		
 			<button type="button" onclick="deleteQna('${qnadetail.qnaNo }');">문의글 삭제</button>
-			<button type="submit" onclick="location.href='view/qnaUpdate.jsp?qnaNo=${qnadetail.qnaNo}'">문의글 수정</button>
+			<button type="submit" onclick="updateQna('${qnadetail.qnaNo }');">문의글 수정</button>
 	</c:when>
 	<c:otherwise>
 		<h3>해당 문의글은 작성자만 볼 수 있습니다</h3>
