@@ -86,7 +86,9 @@ input[id="tab2"]:checked ~ .con2 {
 				<label for="tab1">DETAIL</label>
 				<input type="radio" id="tab2" name="tabmenu">
 				<label for="tab2">REVIEW</label>
-						
+			
+			<div>
+			</div>			
 			<div class="conbox con1">${product.productExp }</div>
 			<div class="conbox con2">
 				<table width="1000" id="review">
