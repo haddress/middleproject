@@ -76,6 +76,7 @@ input[id="tab2"]:checked ~ .con2 {
 						<input type="hidden" name="paypname" value="${product.productName }">
 						<input type="hidden" name="paycount">
 						<input type="hidden" name="allpay">
+						<input type="hidden" name="productamount" value="${product.productAmount }">
 						<input type="submit" value="구매하기">
 					</form>
 				</td>

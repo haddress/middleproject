@@ -22,22 +22,25 @@ public class ModiFyDAO extends DAO {
 		conn = getConnect();
 		
 		int check=0;
-		String sql = "SELECT * FROM user_info WHERE id=? and pw=? ";
+		String sql = "SELECT * FROM user_info WHERE id=? ";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1,id);
-			psmt.setString(2,pw);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
+				if(id.equals("admin")&&pw.equals("admin")) {
+					check=2; // 관리자로그인
+			}else if(rs.getString(1).equals(pw)) {
+				check=1; // 유저로그인
 				
-				if(id.equals("admin")&&id.equals("admin")) {
-						check=2; // 관리자로그인
-						System.out.println(check);
-				}else {
+		}	
+				
+				
+				else {
 					check = 3; // 아이디 비번확인
 				}
 				
-			}
+			}System.out.println(check);
 			
 			
 			
@@ -260,12 +263,15 @@ public class ModiFyDAO extends DAO {
 	   		+ "where product_code = ?" ;
 	   try {
 		psmt=conn.prepareStatement(sql);
-		psmt.setInt(1, a);
-		psmt.setInt(2, pcode);
+		psmt.setInt(1, pcode);
+		psmt.setInt(2, a);
+		
 		int r = psmt.executeUpdate();
 		System.out.println(r+"수정");
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
    }
+
+   
 }
