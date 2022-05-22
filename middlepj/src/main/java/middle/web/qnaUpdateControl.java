@@ -13,21 +13,21 @@ public class qnaUpdateControl implements Control{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		int qnaNo = Integer.parseInt(request.getParameter("qnaNo"));
-		String qnaCategory = request.getParameter("qnaCategory");
 		String qnaTitle = request.getParameter("qnaTitle");
 		String qnaContent = request.getParameter("qnaContent");
 		
 		qnaVO upVO = new qnaVO();
 		upVO.setQnaNo(qnaNo);
-		upVO.setQnaCategory(qnaCategory);
 		upVO.setQnaTitle(qnaTitle);
 		upVO.setQnaContent(qnaContent);
 		
 		qnaService updateservice = new qnaService();
 		updateservice.updateQna(upVO);
 		
-		request.getRequestDispatcher("view/qnaUpdate.jsp").forward(request, response);
+		request.setAttribute("upVO", upVO);
+		request.getRequestDispatcher("view/updateQnaOutput.jsp").forward(request, response);
 	}
 
 }

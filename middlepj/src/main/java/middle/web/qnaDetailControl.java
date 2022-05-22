@@ -13,15 +13,21 @@ public class qnaDetailControl implements Control{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	String path = "view/qnaDetail.jsp";
+	
+	String path = "";
 	int qnaNo = Integer.parseInt(request.getParameter("qnaNo"));
+	String job = request.getParameter("job");
 	
 	qnaService dservice = new qnaService();
 	qnaVO detail = dservice.qnaDetail(qnaNo);
+
 	
+
 	request.setAttribute("qnadetail", detail);
-	request.getRequestDispatcher(path).forward(request, response);
+	request.getRequestDispatcher("view/qnaDetail.jsp").forward(request, response);
 	
+	if(job.equals("update")) {
+		path = "view/qnaUpdate.jsp";
+	}
 	}
 }

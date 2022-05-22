@@ -6,6 +6,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style type="text/css">
+	#container {
+		width:1000px;
+		margin: 0 auto;
+	}
+	#h {
+		text-align:center;
+	}
+	.list {
+		width:70px;
+		margin-left:30px;
+	}
+</style>
 <title>qna.jsp</title>
 </head>
 <body>
@@ -27,8 +40,9 @@
 	<a href="view/qnaWrite.jsp?id=${Uid }">글쓰기</a>
 	</c:when>
 	<c:otherwise>
-	<h3>고객센터</h3> 
-	<table border="1">
+	<h3 id="h">고객센터</h3>
+	<div id="container">
+	<table width="1000">
 	<thead>
 		<tr>
 			<th>카테고리</th>
@@ -40,13 +54,13 @@
 	 </thead>
 	 <tbody>
 		 <c:forEach var="list" items="${list }" >
-			<tr><td>${list.qnaCategory }</td><td>${list.qnaNo }</td><td><a href="detail.do?qnaNo=${list.qnaNo }&id=${Uid }">${list.qnaTitle }</a></td><td>${list.qnaWrite }</td><td>${list.qnaDate }</td>
+			<tr><td class="list">${list.qnaCategory }</td><td>${list.qnaNo }</td><td><a href="detail.do?qnaNo=${list.qnaNo }&id=${Uid }">${list.qnaTitle }</a></td><td>${list.qnaWrite }</td><td>${list.qnaDate }</td>
 			</tr>
 		</c:forEach>
 		
 	 </tbody>
 	</table>
-
+	</div>
 	<a href="view/qnaWrite.jsp?id=${Uid }">글쓰기</a>
 	 </c:otherwise>
 	</c:choose>  

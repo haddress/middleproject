@@ -13,13 +13,23 @@
 
 		}
 	}
-	function updateQna(no) {
-		var alert = confirm("수정페이지로 이동합니다");
-		if(alert) {
-			location.href = "qnaUpdate.do?qnaNo="+no;
-		}
-	}
+	
 </script>
+<style type="text/css">
+	#container {
+		width:1000px;
+		margin: 0 auto;
+	}
+	button {
+		margin-bottom:10px;
+	}
+	input {
+		margin-bottom:10px;
+	}
+	#detail{
+		margin-bottom:10px;
+	}
+</style>
 
 <title>qnaDetail.jsp</title>
 </head>
@@ -40,7 +50,10 @@
 	</c:when>
 	<c:when test="${qnadetail.id == Uid }">
 		<h3>문의글 상세보기</h3>
-		<table border="1">
+		
+		<div id="container">
+		<form>
+		<table id="detail">
 			<tr>
 				<td>문의글 번호</td>
 				<td>${qnadetail.qnaNo }</td>
@@ -63,9 +76,14 @@
 				<td>${qnadetail.qnaDate }</td>
 			</tr>
 		</table>
-		
+		</form>
 			<button type="button" onclick="deleteQna('${qnadetail.qnaNo }');">문의글 삭제</button>
-			<button type="submit" onclick="updateQna('${qnadetail.qnaNo }');">문의글 수정</button>
+			<form action="${pageContext.servletContext.contextPath }/detail.do?${qnadetail.qnaNo }">
+				<input type="hidden" name="qnaNo" value="${qnadetail.qnaNo }">
+				<input type="hidden" name="job" value="update">
+				<input type="submit" value="수정">
+			</form>
+		</div>
 	</c:when>
 	<c:otherwise>
 		<h3>해당 문의글은 작성자만 볼 수 있습니다</h3>
