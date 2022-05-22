@@ -65,7 +65,11 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" style="padding:50px 50px 50px 0;">${review.reviewContent }
+				<td colspan="2" style="padding:50px 50px 20px 0;"><img src="reviewUpload/${review.reviewImg }" width="300">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="padding:0 50px 50px 0;">${review.reviewContent }
 				</td>
 			</tr>
 			<tr>
@@ -99,7 +103,15 @@
 	
 	function passCheck() {
 		
-		if(document.getElementById("pass").value == "") {
+		if('${Uid }' == '') {
+			alert('로그인이 필요합니다.');
+			return false;
+			history.back();
+		} else if('${Uid }' != '${review.id}') {
+			alert('권한이 없습니다.');
+			return false;
+			history.back();
+		} else if(document.getElementById("pass").value == "") {
 			alert('비밀번호를 입력해주세요.');
 			return false;
 			history.back();
