@@ -22,6 +22,8 @@
 
 	<div id="container">
 		리뷰를 수정하였습니다.
+		<hr>
+		<button type="button" onclick="location.href='${pageContext.request.contextPath}/review.do'">목록</button>
 	</div>
 
 

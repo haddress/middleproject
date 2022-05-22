@@ -36,10 +36,10 @@
 		</select><br>
 		<textarea name="rcontent" rows="5" cols="50" placeholder="리뷰 내용을 작성해주세요."></textarea><br>
 		첨부이미지: <input type="file" name="rimg"><br>
-		비밀번호: <input type="password" name="rpass" placeholder="4자리 숫자를 입력해주세요."><br>
+		비밀번호: <input type="password" name="rpass" maxlength="4" placeholder="4자리 숫자를 입력해주세요."><br>
 		<input type="hidden" name="rwriter" value="${Uid }">
 		<input type="submit" value="등록">
-		<button type="button" onclick="../review.do">취소</button>
+		<button type="button" onclick="location.href='${pageContext.request.contextPath}/review.do'">취소</button>
 	</form>
 	</div>
 

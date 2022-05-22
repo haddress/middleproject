@@ -32,7 +32,7 @@ h3 {
       
    <div id="container">
       <!-- 배너 -->
-      <img src="home/banner.jpeg" width="1000">
+      <img src="home/banner.jpg" width="1000">
       
       <!-- 최신상품 리스트 -->
       <div id="newlist">

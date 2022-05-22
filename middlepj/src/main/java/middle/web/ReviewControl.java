@@ -17,10 +17,14 @@ public class ReviewControl implements Control {
 		
 		// 리뷰게시판
 		
+		// 리뷰데이터 가져오기
 		ReviewService service = new ReviewService();
 		List<ReviewVO> list = service.reviewList();
 		
+
 		request.setAttribute("review", list);
+		
+		
 		
 		request.getRequestDispatcher("result/ReviewOut.jsp").forward(request, response);
 		

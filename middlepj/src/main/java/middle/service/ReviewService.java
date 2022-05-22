@@ -47,4 +47,9 @@ public class ReviewService {
 		return dao.productReview(productName);
 	}
 
+	// 전체 리뷰데이터 갯수
+	public int reviewCount() {
+		return dao.reviewCount();
+		;
+	}
 }
