@@ -1,3 +1,4 @@
+<%@page import="middle.service.ReviewService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -16,6 +17,9 @@ tr th {
 tr td {
 	text-align:center;
 }
+#title {
+	text-align:left;
+}
 </style>
 </head>
 <body>
@@ -25,6 +29,7 @@ tr td {
 		</div>
 		<br>
 		<br>
+		
 		
 		<div id="container">
 			<table width="1000">
@@ -61,12 +66,51 @@ tr td {
 							</c:choose>
 						</td>
 						<td width="150">${review.productName }</td>
-						<td width="400"><a href="${pageContext.request.contextPath}/reviewDetail.do?code=${review.reviewCode }" style="text-decoration: none; color:black;">${review.reviewTitle }</a></td>
+						<td width="400" id="title"><a href="${pageContext.request.contextPath}/reviewDetail.do?code=${review.reviewCode }" style="text-decoration: none; color:black;">${review.reviewTitle }</a></td>
 						<td width="80">${review.id }</td>
 						<td>${review.reviewDate }</td>
 					</tr>
 				</c:forEach>
 			</table>
+			
+			
+			<div class="pager">
+				<ul>
+				<c:if test="${ curPageNum > 5 && !empty kwd }">
+					<li><a href="/mysite/board?page=${ blockStartNum - 1 }&kwd=${ kwd }">◀</a></li>
+				</c:if>
+        
+				<c:if test="${ curPageNum > 5 }">
+				<li><a href="/mysite/board?page=${ blockStartNum - 1 }">◀</a></li>
+				</c:if>
+        
+				<c:forEach var="i" begin="${ blockStartNum }" end="${ blockLastNum }">
+					<c:choose>
+						<c:when test="${ i > lastPageNum }">
+							<li>${ i }</li>
+						</c:when>
+						<c:when test="${ i == curPageNum }">
+							<li class="selected">${ i }</li>
+						</c:when>
+						<c:when test="${ !empty kwd}">
+							<li><a href="/mysite/board?a=search&page=${ i }&kwd=${ kwd }">${ i }</a></li>
+ 						</c:when>
+						<c:otherwise>
+ 							<li><a href="/mysite/board?page=${ i }">${ i }</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+        
+				<c:if test="${ lastPageNum > blockLastNum && !empty kwd }">
+					<li><a href="/mysite/board?a=search&page=${ blockLastNum + 1 }&kwd=${ kwd }">▶</a></li>
+				</c:if>
+        
+				<c:if test="${ lastPageNum > blockLastNum }">
+					<li><a href="/mysite/board?page=${ blockLastNum + 1 }">▶</a></li>
+				</c:if>
+			</ul>
+			</div>  
+			
 			<form action="reviewOrderList.do" method="post" onsubmit="return idCheck();">
 				<input type="hidden" name="Uid" value="${Uid }"><input type="submit" value="리뷰쓰기">
 			</form>

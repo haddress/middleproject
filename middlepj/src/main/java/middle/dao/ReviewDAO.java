@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import middle.vo.UserOrderVO;
 public class ReviewDAO extends DAO {
 	
 	Connection conn;
+	Statement stmt;
 	PreparedStatement psmt;
 	ResultSet rs;
 	
@@ -204,6 +206,22 @@ public class ReviewDAO extends DAO {
 			disconnect();
 		}
 		return list;
+	}
+	
+	// 전체 리뷰데이터 갯수
+	public int reviewCount() {
+		conn = getConnect();
+		String sql = "select count(*) total from review";
+		try {
+			rs = stmt.executeQuery(sql);
+			rs.next();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return 0;
+		
 	}
 
 }

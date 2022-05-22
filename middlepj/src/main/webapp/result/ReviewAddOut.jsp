@@ -21,6 +21,8 @@
 
 	<div id="container">
 		리뷰를 등록하였습니다.
+		<hr>
+		<button type="button" onclick="location.href='${pageContext.request.contextPath}/review.do'">목록</button>
 	</div>
 
 	<!-- Footer -->
