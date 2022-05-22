@@ -251,15 +251,14 @@ public class qnaDAO extends DAO{
 	public void updateQna(qnaVO qnaNo) {
 		conn = getConnect();
 		getConnect();
-		String sql = "update qna\r\n"
-				+ "set qna_category= ?, qna_title = ?, qna_content=?\r\n"
-				+ "where qna_no = ?";
+		String sql = "update qna \r\n"
+				+ "set qna_title = ?, qna_content=?\r\n"
+				+ "where qna_no=?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, qnaNo.getQnaCategory());
-			psmt.setString(2, qnaNo.getQnaTitle());
-			psmt.setString(3, qnaNo.getQnaContent());
-			psmt.setInt(4, qnaNo.getQnaNo());
+			psmt.setString(1, qnaNo.getQnaTitle());
+			psmt.setString(2, qnaNo.getQnaContent());
+			psmt.setInt(3, qnaNo.getQnaNo());
 			
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 수정되었습니다");
