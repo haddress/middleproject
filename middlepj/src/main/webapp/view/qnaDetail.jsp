@@ -65,7 +65,7 @@
 	<c:when test="${empty Uid }"><h3 id="log">로그인 후 이용가능합니다.</h3>
 				<p><a href="view/login.jsp">로그인하기</a></p>
 	</c:when>
-	<c:when test="${qnadetail.id != Uid }">
+	<c:when test="${qnadetail.id != Uid } & ${Uid != 'admin' }">
 		<h3 id="only">작성자만 볼 수 있습니다.</h3>
 	</c:when>
 	<c:when test="${qnadetail.id == Uid }">
@@ -103,8 +103,40 @@
 				<input type="submit" value="수정">
 			</a>
 	</c:when>
-</c:choose>	
+	<c:when test="${Uid == 'admin' }">
+		<h3 id="h3">문의글 상세보기</h3>
 		
+		<div id="detailtable">
+		<form>
+		<table id="detail">
+			<tr>
+				<td class="td">문의글 번호</td>
+				<td>${qnadetail.qnaNo }</td>
+			</tr>
+			<tr>
+				<td class="td">아이디</td>
+				<td>${qnadetail.id }</td>
+			</tr>
+				<td class="td">작성자</td>
+				<td>${qnadetail.qnaWrite }</td>
+			<tr>
+				<td class="td">제목</td>
+				<td>${qnadetail.qnaTitle }</td>
+			<tr>
+				<td class="td">내용</td>
+				<td>${qnadetail.qnaContent }</td>
+			</tr>
+			<tr>
+				<td class="td">작성일</td>
+				<td>${qnadetail.qnaDate }</td>
+			</tr>
+		</table>
+		</form>
+		</div>
+			<button type="button" onclick="deleteQna('${qnadetail.qnaNo }');">문의글 삭제</button>
+	</c:when>
+</c:choose>	
+
 		
 		
 		
