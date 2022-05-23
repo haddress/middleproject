@@ -48,8 +48,8 @@ public class ReviewService {
 	}
 
 	// 전체 리뷰데이터 갯수
-	public int reviewCount() {
-		return dao.reviewCount();
-		;
-	}
+//	public int reviewCount() {
+//		return dao.reviewCount();
+//		;
+//	}
 }

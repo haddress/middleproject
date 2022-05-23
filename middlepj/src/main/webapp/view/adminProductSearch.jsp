@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
- <h3>상품검색</h3>
+ <h3>상품검색</h3><br>
+ <h4>상품코드로검색...</h4>
     <form action="../productSearch.do" method="get">
         <input type="text" name="productCode" id=""><br>
         <input type="hidden" name="job" value="search">
