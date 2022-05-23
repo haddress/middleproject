@@ -30,12 +30,10 @@ public class ModiFyDAO extends DAO {
 			if(rs.next()) {
 				if(id.equals("admin")&&pw.equals("admin")) {
 					check=2; // 관리자로그인
-			}else if(rs.getString(1).equals(pw)) {
+			}else if(rs.getString(1).equals(id)&&rs.getString(2).equals(pw)) {
 				check=1; // 유저로그인
 				
-		}	
-				
-				
+		}				
 				else {
 					check = 3; // 아이디 비번확인
 				}
@@ -272,6 +270,56 @@ public class ModiFyDAO extends DAO {
 		e.printStackTrace();
 	}
    }
-
+   public String findId(String name, String tel) {
+	   conn = getConnect();
+	   String mid = null;
+	   String sql = "select id from user_info where name=? and tel=? ";
+		try {
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, name);
+			psmt.setString(2, tel);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				mid = rs.getString("id");
+			}
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mid;
+	}
+   public String findpw(String id) {
+	   conn=getConnect();
+	   System.out.println(id);
+	   String pw = null;
+	   String sql = "select pw from user_info\r\n"
+	   		+ "where id=? ";
+	   try {
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, id);
+		psmt.executeQuery();
+		
+		if(rs.next()) {
+			pw = rs.getString("pw");
+			
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}return pw;
+   } 
    
 }
+
+
+
+
+
+
+
+
+
+
+
+

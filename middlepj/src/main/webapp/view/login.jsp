@@ -20,8 +20,12 @@
 
 </form>
 
+<form action="idfind.jsp" method="post">
+<input type = "submit" value ="아이디찾기">
+</form>
 
 
-<a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지11</a>
+
+<a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 </body>
 </html>
