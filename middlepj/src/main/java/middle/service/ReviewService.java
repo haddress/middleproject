@@ -31,11 +31,11 @@ public class ReviewService {
 		dao.deleteReview(reviewCode);
 	}
 	
-//	// 리뷰리스트
-//	public List<ReviewVO> reviewList() {
-//		return dao.reviewList();
-//		
-//	}
+	// 리뷰리스트
+	public List<ReviewVO> reviewList() {
+		return dao.reviewList();
+		
+	}
 	
 	// 리뷰 상세보기
 	public ReviewVO reviewDetail(int reviewCode) {
