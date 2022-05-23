@@ -59,7 +59,7 @@
 				<td><input type="text" name="qnaTitle" value="${qnadetail.qnaTitle }"></td>
 			<tr>
 				<td class="td">내용</td>
-				<td><textarea name="qnaContent" value="${qnadetail.qnaContent }"></textarea></td>
+				<td><input type="text" name="qnaContent" value="${qnadetail.qnaContent }" style= "height:150px; width:200px;"></td>
 			</tr>
 			<tr>
 				<td class="td">작성일</td>
