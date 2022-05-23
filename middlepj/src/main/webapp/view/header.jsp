@@ -90,7 +90,7 @@ nav ul {
 				%>
 				<li class="log"><%=Uid%> 관리자님 반갑습니다.</li>
 				<li class="log"><a
-					href="<%=request.getContextPath()%>/admin.jsp"
+					href="<%=request.getContextPath()%>/view/admin.jsp"
 					style="text-decoration: none">관리자페이지로 이동</a>
 				<li>
 				<li class="log"><a
