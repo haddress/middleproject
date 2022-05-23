@@ -181,7 +181,7 @@ public class ReviewDAO extends DAO {
 	public List<ReviewVO> productReview(String productName) {
 		conn = getConnect();
 		List<ReviewVO> list = new ArrayList<ReviewVO>();
-		String sql = "select * from review where product_name = ?";
+		String sql = "select * from review where product_name = ? order by review_date desc";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, productName);
@@ -264,43 +264,43 @@ public class ReviewDAO extends DAO {
 		return result;
 	}
 	
-	// 해당상품 리뷰게시판 페이징
-	public List<ReviewVO> getPdReviewList(int pageNum, int amount, String productName) {
-		conn = getConnect(); // 연결
-		List<ReviewVO> list = new ArrayList<ReviewVO>();
-		String sql = "select * "
-				+ "from (select rownum rn, "
-				+ "        rv.* "
-				+ "        from(select * from review order by review_code desc) rv) "
-				+ "where rn > ? and rn <= ? and product_name=?";
-		try {
-			psmt = conn.prepareStatement(sql); // sql준비
-			psmt.setInt(1, (pageNum - 1) * amount);
-			psmt.setInt(2, pageNum * amount);
-			psmt.setString(3, productName);
-			rs = psmt.executeQuery(); // sql문 실행
-			while(rs.next()) {
-				// 한바퀴 회전당 VO를 하나씩 생성
-				ReviewVO vo = new ReviewVO();
-				vo.setReviewCode(rs.getInt("review_code"));
-				vo.setProductName(rs.getString("product_name"));
-				vo.setId(rs.getString("writer"));
-				vo.setReviewPass(rs.getString("review_pw"));
-				vo.setReviewTitle(rs.getString("review_title"));
-				vo.setReviewContent(rs.getString("review_content"));
-				vo.setReviewDate(rs.getString("review_date"));
-				vo.setReviewImg(rs.getString("review_img"));
-				vo.setReviewStar(rs.getInt("review_star"));
-				
-				list.add(vo);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			disconnect();
-		}
-		return list;
-	}
+//	// 해당상품 리뷰게시판 페이징
+//	public List<ReviewVO> getPdReviewList(int pageNum, int amount, String productName) {
+//		conn = getConnect(); // 연결
+//		List<ReviewVO> list = new ArrayList<ReviewVO>();
+//		String sql = "select * "
+//				+ "from (select rownum rn, "
+//				+ "        rv.* "
+//				+ "        from(select * from review order by review_code desc) rv) "
+//				+ "where rn > ? and rn <= ? and product_name=?";
+//		try {
+//			psmt = conn.prepareStatement(sql); // sql준비
+//			psmt.setInt(1, (pageNum - 1) * amount);
+//			psmt.setInt(2, pageNum * amount);
+//			psmt.setString(3, productName);
+//			rs = psmt.executeQuery(); // sql문 실행
+//			while(rs.next()) {
+//				// 한바퀴 회전당 VO를 하나씩 생성
+//				ReviewVO vo = new ReviewVO();
+//				vo.setReviewCode(rs.getInt("review_code"));
+//				vo.setProductName(rs.getString("product_name"));
+//				vo.setId(rs.getString("writer"));
+//				vo.setReviewPass(rs.getString("review_pw"));
+//				vo.setReviewTitle(rs.getString("review_title"));
+//				vo.setReviewContent(rs.getString("review_content"));
+//				vo.setReviewDate(rs.getString("review_date"));
+//				vo.setReviewImg(rs.getString("review_img"));
+//				vo.setReviewStar(rs.getInt("review_star"));
+//				
+//				list.add(vo);
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			disconnect();
+//		}
+//		return list;
+//	}
 	
 	// 해당상품 리뷰게시판 게시글 수
 	public int getPdTotal(String productName) {

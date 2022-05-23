@@ -96,13 +96,16 @@ input[id="tab2"]:checked ~ .con2 {
 				<table width="1000" id="review">
 					<tr>
 						<th></th>
+						<th></th>
 						<th>상품명</th>
 						<th>제목</th>
 						<th>작성자</th>
 						<th>작성일</th>
 					</tr>
 					<c:forEach items="${review }" var="review">
-					<tr class="reviewTr">
+					<c:set var="i" value="${i+1 }"/>
+					<tr class="reviewTr${i }">
+						<td>${i }</td>
 						<td>
 							<c:choose>
 								<c:when test="${review.reviewStar == 5}">
@@ -131,7 +134,7 @@ input[id="tab2"]:checked ~ .con2 {
 				</table>
 				
 				<div class="viewBtn">
-					<button type="button" class="viewAdd">더보기</button>
+					<button type="button" class="viewAdd"></button>
 				</div>
 				
 				
@@ -191,17 +194,30 @@ document.addEventListener("DOMContentLoaded", change);
 	}   
   	
   	// 더보기
-  	let listMore = 3;
-  	let firstList = 4;
+  	let startList = 3; // 최초 3개
 
-  	let tableTr = document.getElementsByClassName('reviewTr');
-  	let totalTrCnt = tableTr.rows.length;
+  	let tableTr = document.getElementsByClassName('reviewTr${i }');
+
   	
   	let buttonAdd = document.getElementsByClassName('viewAdd');
-    buttonAdd.addEventListener('click', feedReviewMore);
-    
+   buttonAdd.addEventListener('click', feedReviewMore);
+   
+  	for(int i=1; i<tableTr.length; i++) {
+  		if (i<startList) {
+  			document.getElementsByClassName('reviewTr${i }').style.display = 'block';
+  		} else {
+  			document.getElementsByClassName('reviewTr${i+3 }').style.display = 'none';
+  		}
+  	}
+  	
     function feedReviewMore() {
-    	
+		if (document.getElementsByClassName('reviewTr${i+3 }').style.display === 'block') {
+			document.getElementsByClassName('reviewTr${i+3 }').style.display = 'none';
+			buttonAdd.textContent = '더보기';
+		} else {
+			document.getElementsByClassName('reviewTr${i+3 }').style.display = 'block';
+			buttonAdd.textContent = '숨기기';
+		}
     	
     }
     
