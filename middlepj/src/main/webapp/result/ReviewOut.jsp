@@ -20,6 +20,16 @@ tr td {
 #title {
 	text-align:left;
 }
+.pagination {
+	list-style:none;
+}
+.pagination li {
+	display:inline;
+}
+.pagination li a {
+	color: black;
+	text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -32,7 +42,7 @@ tr td {
 		
 		
 		<div id="container">
-			<table width="1000">
+			<table width="1000" id="review-data">
 				<tr>
 					<th>번호</th>
 					<th></th>
@@ -72,44 +82,31 @@ tr td {
 					</tr>
 				</c:forEach>
 			</table>
-			
-			
-			<div class="pager">
-				<ul>
-				<c:if test="${ curPageNum > 5 && !empty kwd }">
-					<li><a href="/mysite/board?page=${ blockStartNum - 1 }&kwd=${ kwd }">◀</a></li>
-				</c:if>
-        
-				<c:if test="${ curPageNum > 5 }">
-				<li><a href="/mysite/board?page=${ blockStartNum - 1 }">◀</a></li>
-				</c:if>
-        
-				<c:forEach var="i" begin="${ blockStartNum }" end="${ blockLastNum }">
-					<c:choose>
-						<c:when test="${ i > lastPageNum }">
-							<li>${ i }</li>
-						</c:when>
-						<c:when test="${ i == curPageNum }">
-							<li class="selected">${ i }</li>
-						</c:when>
-						<c:when test="${ !empty kwd}">
-							<li><a href="/mysite/board?a=search&page=${ i }&kwd=${ kwd }">${ i }</a></li>
- 						</c:when>
-						<c:otherwise>
- 							<li><a href="/mysite/board?page=${ i }">${ i }</a></li>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-        
-				<c:if test="${ lastPageNum > blockLastNum && !empty kwd }">
-					<li><a href="/mysite/board?a=search&page=${ blockLastNum + 1 }&kwd=${ kwd }">▶</a></li>
-				</c:if>
-        
-				<c:if test="${ lastPageNum > blockLastNum }">
-					<li><a href="/mysite/board?page=${ blockLastNum + 1 }">▶</a></li>
-				</c:if>
-			</ul>
-			</div>  
+
+			<!-- 페이징 -->
+			<table width="1000" id="review-paging">
+				<tr>
+					<td align="center">
+						<ul class="pagination pagination-sm">
+							<!-- 이전버튼 -->
+							<c:if test="${pageVO.prev }">
+								<li><a href="review.do?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount }">PREV</a>
+							</c:if>
+							
+							<!-- 페이지 번호 -->
+							<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
+								<li class="${pageVO.pageNum eq num ? 'active' : '' }">&nbsp;
+								<a href="review.do?pageNum=${num }&amount=${pageVO.amount }">${num }</a></li>
+							</c:forEach>
+							
+							<!-- 다음버튼 -->
+							<c:if test="${pageVO.next }">
+								<li><a href="review.do?pageNum=${pageVO.endPage - 1 }&amount=${pageVO.amount }">NEXT</a>
+							</c:if>
+						</ul>
+					</td>
+				</tr>
+			</table>
 			
 			<form action="reviewOrderList.do" method="post" onsubmit="return idCheck();">
 				<input type="hidden" name="Uid" value="${Uid }"><input type="submit" value="리뷰쓰기">
