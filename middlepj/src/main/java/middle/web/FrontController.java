@@ -50,7 +50,7 @@ public class FrontController extends HttpServlet {
       list.put("/reviewDetail.do", new RevDetailControl()); // 리뷰상세보기
       list.put("/reviewMoDe.do", new ReviewDeleteControl()); // 리뷰 삭제
       list.put("/reviewModify.do", new ReviewModifyControl()); // 리뷰 수정
-      list.put("/productName.do", new ProNameSearchControl()); // 상품이름 검색
+      list.put("/productName.do", new ProNameSearchControl()); // 상품이름 검색1
 
       
       

@@ -14,7 +14,7 @@ public class AdminReviewListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub1
 		ReviewService service = new ReviewService();
 		List<ReviewVO> list = service.reviewList();
 		

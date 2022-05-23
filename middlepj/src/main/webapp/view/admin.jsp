@@ -22,7 +22,7 @@
   <a href="${pageContext.servletContext.contextPath }/listProduct.do">상품리스트</a><br>
   
   <h4>게시판관련</h4><br>
-  <a href="adminForBoard.jsp">게시글관련</a><br>
+  <a href="adminForBoard.jsp">게시글관련메뉴</a><br>
   
  
   <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>

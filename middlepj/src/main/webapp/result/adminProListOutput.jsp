@@ -10,7 +10,7 @@
 <title>상품정보리스트</title>
 </head>
 <body>
-	<h3>상품정보리ㅡㅌ</h3>
+	<h3>상품정보리스트</h3>
 				<form action="${pageContext.servletContext.contextPath }/productDel.do" method="post">
 	<c:choose>
 		<c:when test="${empty list}">

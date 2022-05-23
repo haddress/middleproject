@@ -14,7 +14,7 @@
 <h2>리뷰게시글관리</h2>
 		<c:choose>
 			<c:when test="${empty list}">
-				<h3>리뷰정보없음</h3>
+				<h3>리뷰정보없슴</h3>
 			</c:when>
 			<c:otherwise>
 

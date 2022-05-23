@@ -14,7 +14,7 @@
 <h2>QnA게시글관리</h2>
 	<c:choose>
 		<c:when test="${empty list}">
-			<h3>QnA정보없음</h3>
+			<h3>QnA정보없슴</h3>
 		</c:when>
 		<c:otherwise>
 			<table border="1">

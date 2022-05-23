@@ -205,7 +205,7 @@ public class qnaDAO extends DAO{
 		return null;
 	}
 	
-	//문의글쓰기
+	//문의글쓰기11
 	public void addQna(qnaVO qna) {
 		conn = getConnect();
 		getConnect();

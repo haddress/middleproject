@@ -14,7 +14,7 @@ public class qnaAddControl implements Control{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//1
 		String depart = "";
 		
 		HttpSession session = request.getSession();

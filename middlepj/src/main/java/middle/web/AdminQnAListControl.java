@@ -14,7 +14,7 @@ public class AdminQnAListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub1
 		qnaService service = new qnaService();
 		List<qnaVO> list = service.qnaList();
 		

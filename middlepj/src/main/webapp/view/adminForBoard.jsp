@@ -11,16 +11,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="${pageContext.servletContext.contextPath }/reviewList.do">리뷰글리스트</a><br>
-		
-	
+	<a href="${pageContext.servletContext.contextPath }/reviewList.do">리뷰글리스트</a>
+	<br>
 
 
-	
 
-<a href="${pageContext.servletContext.contextPath }/QnAList.do">QnA글리스트</a><br>
 
-	
+
+
+	<a href="${pageContext.servletContext.contextPath }/QnAList.do">QnA글리스트</a>
+	<br>
+
+
 
 
 
