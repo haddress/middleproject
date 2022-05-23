@@ -173,5 +173,4 @@ public class AdminDAO extends DAO {
 			disconnect();
 		}
 	}
-	
 }

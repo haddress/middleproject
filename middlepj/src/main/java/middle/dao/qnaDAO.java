@@ -156,13 +156,12 @@ public class qnaDAO extends DAO{
 				qnaVO qnavo = new qnaVO();
 				qnavo.setQnaCategory(rs.getString("qna_category"));
 				qnavo.setQnaNo(rs.getInt("qna_no"));
-//				qnavo.setId(rs.getString("id"));
+				qnavo.setId(rs.getString("id"));
 				qnavo.setQnaTitle(rs.getString("qna_title"));
 				qnavo.setQnaContent(rs.getString("qna_content"));
 				qnavo.setQnaWrite(rs.getString("qna_writer"));
 				qnavo.setQnaDate(rs.getString("qan_date"));
 				qnavo.setQnaPw(rs.getString("qna_pw"));
-				qnavo.setProductCode(rs.getString("product_code"));
 				list.add(qnavo);
 
 			}
@@ -209,11 +208,11 @@ public class qnaDAO extends DAO{
 	public void addQna(qnaVO qna) {
 		conn = getConnect();
 		getConnect();
-		String sql = "insert into qna (qna_no, product_code, qna_category, qna_title, qna_content, qna_writer, qan_date, qna_pw)\r\n"
+		String sql = "insert into qna (qna_no, id, qna_category, qna_title, qna_content, qna_writer, qan_date, qna_pw)\r\n"
 				+ "values (qna_no_seq.nextval,?, ?, ?, ?, ?, sysdate , ?)";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, qna.getProductCode());
+			psmt.setString(1, qna.getId());
 			psmt.setString(2, qna.getQnaCategory());
 			psmt.setString(3, qna.getQnaTitle());
 			psmt.setString(4, qna.getQnaContent());
