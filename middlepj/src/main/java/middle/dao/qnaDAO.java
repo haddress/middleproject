@@ -175,35 +175,32 @@ public class qnaDAO extends DAO{
 	}
 	
 	//문의번호 클릭시 문의글 상세보기
-	public qnaVO qnaDetail(int qnaNo) {
-		conn = getConnect();
-		getConnect();
-		String sql = "select q.qna_no, q.id, q.qna_writer, q.qna_title, q.qna_content, q.qan_date\r\n"
-				+ "from qna q join user_order o\r\n"
-				+ "on(q.id = o.id)\r\n"
-				+ "where q.qna_no = ?";
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, qnaNo);
-			rs = psmt.executeQuery();
-			if(rs.next()) {
-				qnaVO vo = new qnaVO();
-				vo.setQnaNo(rs.getInt("qna_no"));
-				vo.setId(rs.getString("id"));
-				vo.setQnaWrite(rs.getString("qna_writer"));
-				vo.setQnaTitle(rs.getString("qna_title"));
-				vo.setQnaContent(rs.getString("qna_content"));
-				vo.setQnaDate(rs.getString("qan_date"));
-				return vo;
+		public qnaVO qnaDetail(int qnaNo) {
+			conn = getConnect();
+			getConnect();
+			String sql = "select * from qna where qna_no = ?";
+			
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1, qnaNo);
+				rs = psmt.executeQuery();
+				if(rs.next()) {
+					qnaVO vo = new qnaVO();
+					vo.setQnaNo(rs.getInt("qna_no"));
+					vo.setId(rs.getString("id"));
+					vo.setQnaWrite(rs.getString("qna_writer"));
+					vo.setQnaTitle(rs.getString("qna_title"));
+					vo.setQnaContent(rs.getString("qna_content"));
+					vo.setQnaDate(rs.getString("qan_date"));
+					return vo;
+					}
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}finally {
+					disconnect();
 				}
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}finally {
-				disconnect();
-			}
-		return null;
-	}
+			return null;
+		}
 	
 	//문의글쓰기11
 	public void addQna(qnaVO qna) {

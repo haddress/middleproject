@@ -31,11 +31,11 @@ public class ReviewService {
 		dao.deleteReview(reviewCode);
 	}
 	
-	// 리뷰리스트
-	public List<ReviewVO> reviewList() {
-		return dao.reviewList();
-		
-	}
+//	// 리뷰리스트
+//	public List<ReviewVO> reviewList() {
+//		return dao.reviewList();
+//		
+//	}
 	
 	// 리뷰 상세보기
 	public ReviewVO reviewDetail(int reviewCode) {
@@ -46,10 +46,25 @@ public class ReviewService {
 	public List<ReviewVO> productReview(String productName) {
 		return dao.productReview(productName);
 	}
+	
+	// 리뷰게시판 페이징
+	public List<ReviewVO> getReviewList(int pageNum, int amount) {
+		return dao.getReviewList(pageNum, amount);
+	}
+	
+	// 리뷰게시판 전체 게시글 수
+	public int getTotal() {
+		return dao.getTotal();
+	}
+	
+	// 해당상품 리뷰게시판 페이징
+	public List<ReviewVO> getPdReviewList(int pageNum, int amount, String productName) {
+			return dao.getPdReviewList(pageNum, amount, productName);
+	}
+	
+	// 해당상품 리뷰게시판 게시글 수
+	public int getPdTotal(String productName) {
+		return dao.getPdTotal(productName);
+	}
 
-	// 전체 리뷰데이터 갯수
-//	public int reviewCount() {
-//		return dao.reviewCount();
-//		;
-//	}
 }

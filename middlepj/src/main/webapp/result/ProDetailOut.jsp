@@ -46,7 +46,8 @@ input[id="tab2"]:checked ~ .con2 {
 		<br>
 		<br>
   
-  
+  <c:set var="listMore" value="5"/>
+  <c:set var="totalSet" value="7"/>
 		
 	<div id="container">
 		<table border="1" width="1000">
@@ -94,8 +95,6 @@ input[id="tab2"]:checked ~ .con2 {
 			<div class="conbox con2">
 				<table width="1000" id="review">
 					<tr>
-						<th>번호</th>
-						<th></th>
 						<th></th>
 						<th>상품명</th>
 						<th>제목</th>
@@ -103,9 +102,7 @@ input[id="tab2"]:checked ~ .con2 {
 						<th>작성일</th>
 					</tr>
 					<c:forEach items="${review }" var="review">
-					<tr>
-						<td width="40">${review.reviewCode }</td>
-						<td width="110"><img src="reviewUpload/${review.reviewImg }" width="100"></td>
+					<tr id="review${total }">
 						<td>
 							<c:choose>
 								<c:when test="${review.reviewStar == 5}">
@@ -126,12 +123,13 @@ input[id="tab2"]:checked ~ .con2 {
 							</c:choose>
 						</td>
 						<td width="150">${review.productName }</td>
-						<td width="400"><a href="${pageContext.request.contextPath}/reviewDetail.do?code=${review.reviewCode }" style="text-decoration: none; color:black;">${review.reviewTitle }</a></td>
+						<td width="400" style="text-align:left;"><a href="${pageContext.request.contextPath}/reviewDetail.do?code=${review.reviewCode }" style="text-decoration: none; color:black;">${review.reviewTitle }</a></td>
 						<td width="80">${review.id }</td>
 						<td>${review.reviewDate }</td>
 					</tr>
 					</c:forEach>
 				</table>
+				
 				<button type="button" id="all" onclick="location.href='${pageContext.request.contextPath}/review.do'">전체보기</button>
 			</div>
 			 

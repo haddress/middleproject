@@ -25,6 +25,7 @@ public class FrontController extends HttpServlet {
       list.put("/logout.do", new logoutControl()); // 로그아웃
       list.put("/mypage.do", new Orderlist()); //마이페이지 구매내역
       list.put("/search.do", new SearchControl());
+      list.put("/pwfind.do", new PasswordFindControl());
       
       // 고객센터
       list.put("/qna.do", new qnaListControl()); //문의글 전체리스트

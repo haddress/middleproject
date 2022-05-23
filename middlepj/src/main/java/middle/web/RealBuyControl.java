@@ -17,7 +17,8 @@ public class RealBuyControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		Markservice service = new Markservice();
 		HttpSession session = request.getSession(true);
 		String Uid = (String) session.getAttribute("Uid");

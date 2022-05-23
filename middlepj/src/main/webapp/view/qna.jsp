@@ -11,12 +11,25 @@
 		width:1000px;
 		margin: 0 auto;
 	}
-	#h {
+	#h3 {
 		text-align:center;
 	}
-	.list {
-		width:70px;
-		margin-left:30px;
+	#noqna {
+		text-align:center;
+	}
+	table {
+		width:1000px;
+	}
+	tr th {
+		width:200px;
+	}
+	tr td {
+		text-align:center;
+		padding:10px;
+	}
+	input {
+		width:60px;
+		margin-bottom:10px;
 	}
 </style>
 <title>qna.jsp</title>
@@ -36,13 +49,13 @@
 			<%request.getSession().removeAttribute("delete"); %>
 		</c:if>
  <c:choose> 
-	<c:when test="${empty list }"><h3>문의글 정보가 없습니다</h3>
+	<c:when test="${empty list }"><h3 id="noqna">문의글 정보가 없습니다</h3>
 	<a href="view/qnaWrite.jsp?id=${Uid }">글쓰기</a>
 	</c:when>
 	<c:otherwise>
-	<h3 id="h">고객센터</h3>
+	<h3 id="h3">고객센터</h3>
 	<div id="container">
-	<table width="1000">
+	<table>
 	<thead>
 		<tr>
 			<th>카테고리</th>
@@ -54,14 +67,16 @@
 	 </thead>
 	 <tbody>
 		 <c:forEach var="list" items="${list }" >
-			<tr><td class="list">${list.qnaCategory }</td><td>${list.qnaNo }</td><td><a href="detail.do?qnaNo=${list.qnaNo }&id=${Uid }">${list.qnaTitle }</a></td><td>${list.qnaWrite }</td><td>${list.qnaDate }</td>
+			<tr><td>${list.qnaCategory }</td><td>${list.qnaNo }</td><td><a href="detail.do?job=detail&qnaNo=${list.qnaNo }">${list.qnaTitle }</a></td><td>${list.qnaWrite }</td><td>${list.qnaDate }</td>
 			</tr>
 		</c:forEach>
 		
 	 </tbody>
 	</table>
 	</div>
-	<a href="view/qnaWrite.jsp?id=${Uid }">글쓰기</a>
+	<a href="view/qnaWrite.jsp?id=${Uid }">
+		<input type="submit" value="글쓰기">
+	</a>
 	 </c:otherwise>
 	</c:choose>  
 	
