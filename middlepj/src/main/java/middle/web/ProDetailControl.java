@@ -1,6 +1,9 @@
 package middle.web;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import middle.service.ProductService;
 import middle.service.ReviewService;
+import middle.vo.PagingVO;
 import middle.vo.ProductVO;
 import middle.vo.ReviewVO;
 
@@ -36,8 +40,11 @@ public class ProDetailControl implements Control {
 		ReviewService rservice = new ReviewService();
 		List<ReviewVO> rvo = rservice.productReview(pname);
 		
-		request.setAttribute("review", rvo);
+		int total = rservice.getPdTotal(pname);
 		
+		request.setAttribute("total", total);
+		
+		request.setAttribute("review", rvo);
 		
 		request.getRequestDispatcher("result/ProDetailOut.jsp").forward(request, response);
 		
