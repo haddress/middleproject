@@ -116,36 +116,36 @@ public class ReviewDAO extends DAO {
 	}
 	
 	
-//	// 리뷰리스트
-//	public List<ReviewVO> reviewList() {
-//		conn = getConnect();
-//		List<ReviewVO> list = new ArrayList<ReviewVO>();
-//		String sql = "select rownum, rv.* from (select * from review order by review_code desc) rv;";
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			rs = psmt.executeQuery();
-//			while(rs.next()) {
-//				ReviewVO vo = new ReviewVO();
-//				vo.setReviewCode(rs.getInt("review_code"));
-//				vo.setProductName(rs.getString("product_name"));
-//				vo.setId(rs.getString("writer"));
-//				vo.setReviewPass(rs.getString("review_pw"));
-//				vo.setReviewTitle(rs.getString("review_title"));
-//				vo.setReviewContent(rs.getString("review_content"));
-//				vo.setReviewDate(rs.getString("review_date"));
-//				vo.setReviewImg(rs.getString("review_img"));
-//				vo.setReviewStar(rs.getInt("review_star"));
-//				
-//				list.add(vo);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			disconnect();
-//		}
-//		return list;
-//		
-//	}
+	// 리뷰리스트
+	public List<ReviewVO> reviewList() {
+		conn = getConnect();
+		List<ReviewVO> list = new ArrayList<ReviewVO>();
+		String sql = "select * from review order by 1";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				ReviewVO vo = new ReviewVO();
+				vo.setReviewCode(rs.getInt("review_code"));
+				vo.setProductName(rs.getString("product_name"));
+				vo.setId(rs.getString("writer"));
+				vo.setReviewPass(rs.getString("review_pw"));
+				vo.setReviewTitle(rs.getString("review_title"));
+				vo.setReviewContent(rs.getString("review_content"));
+				vo.setReviewDate(rs.getString("review_date"));
+				vo.setReviewImg(rs.getString("review_img"));
+				vo.setReviewStar(rs.getInt("review_star"));
+				
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
+		
+	}
 	
 	// 리뷰 상세보기
 	public ReviewVO reviewDetail(int reviewCode) {
