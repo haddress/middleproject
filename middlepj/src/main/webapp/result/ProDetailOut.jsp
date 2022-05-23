@@ -102,7 +102,7 @@ input[id="tab2"]:checked ~ .con2 {
 						<th>작성일</th>
 					</tr>
 					<c:forEach items="${review }" var="review">
-					<tr id="review${total }">
+					<tr class="reviewTr">
 						<td>
 							<c:choose>
 								<c:when test="${review.reviewStar == 5}">
@@ -130,6 +130,11 @@ input[id="tab2"]:checked ~ .con2 {
 					</c:forEach>
 				</table>
 				
+				<div class="viewBtn">
+					<button type="button" class="viewAdd">더보기</button>
+				</div>
+				
+				
 				<button type="button" id="all" onclick="location.href='${pageContext.request.contextPath}/review.do'">전체보기</button>
 			</div>
 			 
@@ -150,7 +155,7 @@ document.addEventListener("DOMContentLoaded", change);
       let count, price;
       
 
-
+	// 수량버튼
 	function change() {
 		count = document.getElementById("pamount").value;
 		price = "<c:out value='${product.productPrice }'/>";
@@ -173,7 +178,8 @@ document.addEventListener("DOMContentLoaded", change);
       document.querySelector('input[name=paycount]').value = count;
       document.querySelector('input[name=allpay]').value = price;
       
-    
+   
+    // 로그인 확인
   	function idCheck() {
 		if('${Uid }' == '') {
 			alert('로그인이 필요합니다.');
@@ -183,7 +189,22 @@ document.addEventListener("DOMContentLoaded", change);
 			return true;
 		}
 	}   
+  	
+  	// 더보기
+  	let listMore = 3;
+  	let firstList = 4;
 
+  	let tableTr = document.getElementsByClassName('reviewTr');
+  	let totalTrCnt = tableTr.rows.length;
+  	
+  	let buttonAdd = document.getElementsByClassName('viewAdd');
+    buttonAdd.addEventListener('click', feedReviewMore);
+    
+    function feedReviewMore() {
+    	
+    	
+    }
+    
 
 </script>
 </html>

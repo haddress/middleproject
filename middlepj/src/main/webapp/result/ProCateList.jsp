@@ -14,6 +14,16 @@
 h3 {
 	color: gray;
 }
+.pagination {
+	list-style:none;
+}
+.pagination li {
+	display:inline;
+}
+.pagination li a {
+	color: black;
+	text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -50,6 +60,30 @@ h3 {
 				</table>
 		</c:otherwise>
 	</c:choose>
+	<!-- 페이징 -->
+			<table width="1000" id="review-paging">
+				<tr>
+					<td align="center">
+						<ul class="pagination pagination-sm">
+							<!-- 이전버튼 -->
+							<c:if test="${pageVO.prev }">
+								<li><a href="CateList.do?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount }&cate=${list[0].productCate }">PREV</a>
+							</c:if>
+							
+							<!-- 페이지 번호 -->
+							<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
+								<li class="${pageVO.pageNum eq num ? 'active' : '' }">&nbsp;
+								<a href="CateList.do?pageNum=${num }&amount=${pageVO.amount }&cate=${list[0].productCate }">${num }</a></li>
+							</c:forEach>
+							
+							<!-- 다음버튼 -->
+							<c:if test="${pageVO.next }">
+								<li><a href="CateList.do?pageNum=${pageVO.endPage - 1 }&amount=${pageVO.amount }&cate=${list[0].productCate }">NEXT</a>
+							</c:if>
+						</ul>
+					</td>
+				</tr>
+			</table>
 	<br>
 	<br>
 	</div>

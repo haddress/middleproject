@@ -156,5 +156,61 @@ public class ProductDAO extends DAO {
 		return null;
 	}
 	
+	// 상품카테고리 페이징
+	public List<ProductVO> getProductList(int pageNum, int amount, String productCate) {
+		conn = getConnect();
+		List<ProductVO> productList = new ArrayList<ProductVO>();
+		String sql = "select * "
+				+ "from (select rownum rn, "
+				+ "        rv.* "
+				+ "        from(select * from product where product_category=? order by product_date desc) rv) "
+				+ "where rn > ? and rn <= ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, productCate);
+			psmt.setInt(2, (pageNum - 1) * amount);
+			psmt.setInt(3, pageNum * amount);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				ProductVO vo = new ProductVO();
+				vo.setProductCode(rs.getInt("product_code"));
+				vo.setProductCate(rs.getString("product_category"));
+				vo.setProductName(rs.getString("product_name"));
+				vo.setProductPrice(rs.getInt("product_price"));
+				vo.setProductAmount(rs.getInt("product_amount"));
+				vo.setProductExp(rs.getString("product_exp"));
+				vo.setProductImg(rs.getString("product_img"));
+				vo.setProductDate(rs.getString("product_date"));
+
+				productList.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return productList;
+	}
+	
+	// 상품카테고리 전체 상품 수
+	public int getTotalPd(String productCate) {
+		conn = getConnect();
+		int result = 0;
+		String sql = "select count(*) as total from product where product_category=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, productCate);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt("total");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return result;
+	}
+	
 
 }

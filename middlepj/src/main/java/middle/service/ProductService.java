@@ -20,6 +20,16 @@ public class ProductService {
 		return dao.listProduct(productCate);
 	}
 	
+	// 카테고리별 페이징
+	public List<ProductVO> getProductList(int pageNum, int amount, String productCate) {
+		return dao.getProductList(pageNum, amount, productCate);
+	}
+	
+	// 카테고리별 전체상품수
+	public int getTotalPd(String productCate) {
+		return dao.getTotalPd(productCate);
+	}
+	
 	
 	// 최신목록
 	public List<ProductVO> newList() {
@@ -36,6 +46,8 @@ public class ProductService {
 	public ProductVO productName(String productName) {
 		return dao.productName(productName);
 	}
+	
+
 
 	
 	
