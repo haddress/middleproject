@@ -54,4 +54,8 @@ public class Markservice {
    public int checku(String id, String pw) {
 	   return dao.ucheck(id, pw);
    }
+   public String idfind(String name, String tel) {
+	   return dao.findId(name, tel);
+   }
+
 }
