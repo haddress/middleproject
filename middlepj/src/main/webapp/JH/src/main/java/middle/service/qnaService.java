@@ -24,12 +24,7 @@ public class qnaService {
 	}
 	
 	//문의글 삭제
-	public void deleteQna(int qnaNo) {
-		qnadao.deleteQna(qnaNo);
-	}
-	
-	//문의글 수정
-	public void updateQna(qnaVO qnaNo) {
-		qnadao.updateQna(qnaNo);
+	public void deleteQna(String id) {
+		qnadao.deleteQna(id);
 	}
 }

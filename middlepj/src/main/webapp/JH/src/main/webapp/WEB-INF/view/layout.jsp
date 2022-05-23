@@ -1,5 +1,4 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,25 +15,21 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
+<link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
 	<table>
 		<!--menu navigation bar -->
 
-			<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
-			
-			<!--banner area  -->
-			
-			<jsp:include page="/WEB-INF/view/banner.jsp" flush="false" />
+			<jsp:include page="nav.jsp" flush="false"/>
 
 		<!--main contents -->
 
-			<jsp:include page="/WEB-INF/view/body.jsp" flush="false"/>
+			<jsp:include page="body.jsp" flush="false"/>
 
 		<!--Footer -->
 
-			<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/>
+			<jsp:include page="footer.jsp" flush="false"/>
 	
 	</table>
 </body>
