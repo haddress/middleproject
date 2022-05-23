@@ -17,7 +17,7 @@ public class AdminDAO extends DAO {
 	ResultSet rs = null;
 
 	public List<UserVO1> Userlist() {
-		// 유저정보 불러오기\
+		// 유저정보 불러오기\1
 
 		List<UserVO1> list = new ArrayList<UserVO1>();
 		String sql = "select * from user_info order by 1";
@@ -173,4 +173,5 @@ public class AdminDAO extends DAO {
 			disconnect();
 		}
 	}
+	
 }

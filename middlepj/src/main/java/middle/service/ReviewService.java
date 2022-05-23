@@ -10,7 +10,7 @@ public class ReviewService {
 	
 	ReviewDAO dao = new ReviewDAO();
 	
-	// 리뷰쓰기
+	// 리뷰쓰기1
 	public void reviewInsert(ReviewVO review) {
 		dao.insertReview(review);
 	}

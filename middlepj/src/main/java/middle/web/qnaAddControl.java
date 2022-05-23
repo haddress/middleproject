@@ -14,12 +14,12 @@ public class qnaAddControl implements Control{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//1
 		String depart = "";
 		
 		HttpSession session = request.getSession();
 		String Uid = (String) session.getAttribute("Uid");
-		
+		String productCode = request.getParameter("product_code");
 		String category = request.getParameter("category");
 		String title = request.getParameter("qnaTitle");
 		String content = request.getParameter("qnaContent");
