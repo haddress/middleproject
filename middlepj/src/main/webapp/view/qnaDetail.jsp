@@ -4,7 +4,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>레이아웃</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
 <script>
 	function deleteQna(no) {
 		var confirmed = confirm("삭제하시겠습니까?");
@@ -16,14 +29,6 @@
 	
 </script>
 <style type="text/css">
-	#container {
-		width:1000px;
-		margin: 0 auto;
-	}
-	#detailtable {
-		width:1000px;
-		margin:auto;
-	}
 	#detail {
 		margin:auto;
 	}
@@ -34,7 +39,9 @@
 		margin-bottom:10px;
 	}
 	#h3 {
+		display:block;
 		text-align:center;
+		margin:20px;
 	}
 	#detail {
 		margin-bottom:10px;
@@ -54,13 +61,8 @@
 <title>qnaDetail.jsp</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 <div id="container">
-<!-- Header -->
-		<div id="head">
-			<jsp:include page="header.jsp"/>
-		</div>
-		<br>
-		<br>
 <c:choose>
 	<c:when test="${empty Uid }"><h3 id="log">로그인 후 이용가능합니다.</h3>
 				<p><a href="view/login.jsp">로그인하기</a></p>
@@ -82,8 +84,6 @@
 				<td class="td">아이디</td>
 				<td>${qnadetail.id }</td>
 			</tr>
-				<td class="td">작성자</td>
-				<td>${qnadetail.qnaWrite }</td>
 			<tr>
 				<td class="td">제목</td>
 				<td>${qnadetail.qnaTitle }</td>
@@ -133,17 +133,11 @@
 		</table>
 		</form>
 		</div>
+		</div>
 			<button type="button" onclick="deleteQna('${qnadetail.qnaNo }');">문의글 삭제</button>
 	</c:when>
 </c:choose>	
-
-		
-		
-		
-		
-<!-- Footer -->
-		<div id="foot">
-			<jsp:include page="footer.jsp"/>
-		</div>		
+</div>
+<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/> 
 </body>
 </html>

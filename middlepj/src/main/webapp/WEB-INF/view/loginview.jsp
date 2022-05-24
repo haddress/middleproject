@@ -41,7 +41,9 @@
                                         <h1 class="h4 text-gray-900 mb-4">welcome!</h1>
                                     </div>
                                     <!--아이디 입력칸입니다.  -->
+
                                     <form class="user" action="${pageContext.request.contextPath}/view/logincheck.jsp" method="post">
+
                                         <div class="form-group">
                                             <input type="text" name="Uid" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
@@ -50,6 +52,7 @@
                                         <!--아이디 입력칸 끝  -->
                                         <!--비밀번호 입력칸입니다.  -->
                                         <div class="form-group">
+
                                             <input type="password" class="form-control form-control-user" name="Upw"
                                                 id="exampleInputPassword" placeholder="비밀번호를 입력해주세요">
                                         </div>
@@ -58,6 +61,7 @@
                                         <input type="submit" value="로그인" class="btn btn-primary btn-user btn-block">
                                            
                                        
+
                                         
                                         <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
@@ -70,10 +74,12 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
+
                                         <a class="small" href="${pageContext.request.contextPath}/view/idfind.jsp">아이디 찾기</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="${pageContext.request.contextPath}/view/add.jsp">회원가입 하러가기!</a>
+
                                     </div>
                                 </div>
                             </div>

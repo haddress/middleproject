@@ -4,6 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style>
+	h3 {
+		text-align:center;
+	}
+	input {
+		display:block;
+		margin:auto;
+	}
+</style>
 <title>updateqnaOutput.jsp</title>
 </head>
 <body>

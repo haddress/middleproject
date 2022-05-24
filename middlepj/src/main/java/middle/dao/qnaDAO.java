@@ -202,20 +202,19 @@ public class qnaDAO extends DAO{
 			return null;
 		}
 	
-	//문의글쓰기11
+	//문의글쓰기
 	public void addQna(qnaVO qna) {
 		conn = getConnect();
 		getConnect();
-		String sql = "insert into qna (qna_no, product_code, qna_category, qna_title, qna_content, qna_writer, qan_date, qna_pw)\r\n"
-				+ "values (qna_no_seq.nextval,?, ?, ?, ?, ?, sysdate , ?)";
+		String sql = "insert into qna (qna_no, qna_category, id, qna_pw, qna_title, qna_content, qan_date)\r\n"
+				+ "values (qna_no_seq.nextval,?, ?, ?, ?, ?, sysdate )";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, qna.getProductCode());
-			psmt.setString(2, qna.getQnaCategory());
-			psmt.setString(3, qna.getQnaTitle());
-			psmt.setString(4, qna.getQnaContent());
-			psmt.setString(5, qna.getQnaWrite());
-			psmt.setString(6, qna.getQnaPw());
+			psmt.setString(1, qna.getQnaCategory());
+			psmt.setString(2, qna.getId());
+			psmt.setString(3, qna.getQnaPw());
+			psmt.setString(4, qna.getQnaTitle());
+			psmt.setString(5, qna.getQnaContent());
 			
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 입력되었습니다.");
@@ -268,15 +267,14 @@ public class qnaDAO extends DAO{
 	}
 	
 	//문의글 페이징
-	public List<qnaVO> getQnaPage(int pageNum, int amount) {
+	public List<qnaVO> getQnaList(int pageNum, int amount) {
 		conn = getConnect();
 		getConnect();
 		List<qnaVO> pagelist = new ArrayList<qnaVO> ();
-		String sql = "select * "
-				+ "from (select rownum rn, "
-				+ "        rv.* "
-				+ "        from(select * from review order by review_code desc) rv) "
-				+ "where rn > ? and rn <= ?";
+		String sql = "select * from (select rownum rn, \r\n"
+				+ "rv.* \r\n"
+				+ "from (select * from qna order by qna_no desc) rv)\r\n"
+				+ "where rn>? and rn<=?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, (pageNum - 1) * amount);
@@ -304,4 +302,23 @@ public class qnaDAO extends DAO{
 		return pagelist;
 	}
 	
+	//문의글 전체 게시글 수
+	public int getTotal() {
+		conn = getConnect();
+		getConnect();
+		int result = 0;
+		String sql = "select count(*) as total from qna";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt("total");
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+		return result;
+	}
 }

@@ -16,6 +16,7 @@
 <body>
 
 	<%
+
 	String Uid = (String) session.getAttribute("Uid");
 	String check = null;
 	if (Uid == null) {
@@ -25,6 +26,7 @@
 		check = "admin";
 	} else if (Uid != null) {
 		check = "user";
+
 	}
 	%>
 
@@ -48,6 +50,7 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page"
 						href="<%=request.getContextPath()%>/index.jsp">홈</a></li>
+
 						<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="qna.do">고객센터</a></li>
 					<%
@@ -110,6 +113,7 @@
 					<li class="nav-item"><a class="nav-link active"	aria-current="page"	href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
 					<li class="nav-item"><a class="nav-link active"	aria-current="page"	href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
 					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
@@ -141,12 +145,14 @@
 						</ul></li>
 				</ul>
 
+
 						<%=Uid%>님 환영합니다
 							<%
 							}
 							%>
 						
 					
+
 
 			</div>
 		</div>

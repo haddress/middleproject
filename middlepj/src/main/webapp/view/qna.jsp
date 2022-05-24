@@ -5,43 +5,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>레이아웃</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
 <style type="text/css">
-	#container {
-		width:1000px;
-		margin: 0 auto;
-	}
+	
 	#h3 {
+		display:block;
 		text-align:center;
+		margin:20px;
+		
 	}
 	#noqna {
 		text-align:center;
 	}
 	table {
-		width:1000px;
-	}
-	tr th {
-		width:200px;
-	}
-	tr td {
+		width:1100px;
+		margin:auto;
 		text-align:center;
+	}
+	td {
+		width:50px;
 		padding:10px;
 	}
-	input {
-		width:60px;
-		margin-bottom:10px;
+	a input {
+		margin:auto;
+	}
+	ul {
+		list-style:none;
+	}
+	li {
+		list-style:none;
+		display:inline;
 	}
 </style>
-<title>qna.jsp</title>
 </head>
 <body>
-<div id="container">
-<!-- Header -->
-		<div id="head">
-			<jsp:include page="header.jsp"/>
-		</div>
-		<br>
-		<br>
+<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
+		
 		<c:if test="${!empty delete }">
 			<script>
 			alert(${delete });
@@ -61,13 +73,12 @@
 			<th>카테고리</th>
 			<th>문의번호</th>
 			<th>제목</th>
-			<th>작성자</th>
 			<th>날짜</th>
 		</tr>
 	 </thead>
 	 <tbody>
 		 <c:forEach var="list" items="${list }" >
-			<tr><td>${list.qnaCategory }</td><td>${list.qnaNo }</td><td><a href="detail.do?job=detail&qnaNo=${list.qnaNo }&id=${Uid }">${list.qnaTitle }</a></td><td>${list.qnaWrite }</td><td>${list.qnaDate }</td>
+			<tr><td>${list.qnaCategory }</td><td>${list.qnaNo }</td><td><a href="detail.do?job=detail&qnaNo=${list.qnaNo }&id=${Uid }">${list.qnaTitle }</a></td><td>${list.qnaDate }</td>
 			</tr>
 		</c:forEach>
 		
@@ -80,11 +91,30 @@
 	 </c:otherwise>
 	</c:choose>  
 	
-	<!-- Footer -->
-		<div id="foot">
-			<jsp:include page="footer.jsp"/>
-		</div>
-		
+	<!-- 문의글 페이징 -->
+	<table>
+		<tr>
+			<td>
+				<ul>
+					<!-- 이전버튼 -->
+					<c:if test="${pageVO.prev }">
+						<li><a href="qna.do?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount }">PREV</a></li>
+					</c:if>
+					<!-- 페이지 번호 -->
+					<c:forEach var="num" begin="${PageVO.startPage +1}" end="${pageVO.endPage }">
+						<li class="${pageVO.pageNum eq num ? 'active' : '' }">&nbsp;
+						<a href="qna.do?pageNum=${num }&amount=${pageVO.amount }">${num }</a></li>
+					</c:forEach>
+					<!-- 다음버튼 -->
+					<c:if test="${pageVO.next }">
+								<li><a href="qna.do?pageNum=${pageVO.endPage - 1 }&amount=${pageVO.amount }">NEXT</a></li>
+							</c:if>
+				</ul>
+			</td>
+		</tr>
+	</table>
+
 	</div>
+	<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/> 
 </body>
 </html>

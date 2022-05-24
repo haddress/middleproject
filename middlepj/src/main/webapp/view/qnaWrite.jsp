@@ -3,7 +3,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>레이아웃</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
 <style>
 	#container {
 		width:1000px;
@@ -26,17 +39,18 @@
 	input {
 		margin-bottom:10px;
 	}
+	#add {
+		display:block;
+		margin:auto;
+		margin-bottom:10px;
+	}
 </style>
 <title>qnaWrite.jsp</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 <div id="container">
-<!-- Header -->
-		<div id="head">
-			<jsp:include page="header.jsp"/>
-		</div>
-		<br>
-		<br>
+
   <h3>문의하기</h3>
   <form  action="../qnaAdd.do" method="post">
   <div id="writetable">
@@ -62,10 +76,7 @@
 				<td class="td">내용</td>
 				<td><textarea placeholder="내용입력" name="qnaContent" style="width:400px; height:300px;"></textarea></td>
 			</tr>
-			<tr>
-				<td class="td">작성자</td>
-				<td><input type="text" placeholder="작성자 입력" name="qnaWriter"></td>
-			</tr>
+				<input type="hidden" name="Uid" value="${Uid }">
 			<tr>
 				<td class="td">비밀번호</td>
 				<td><input type="password" name="qnaPw"></td>
@@ -73,11 +84,9 @@
 		</tbody>
 	</table>
 	</div>
-		<input type="submit" value="글 저장">
+		<input id="add" type="submit" value="글 저장">
   </form>
-  <!-- Footer -->
-		<div id="foot">
-			<jsp:include page="footer.jsp"/>
-		</div>		
+  </div>
+<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/> 
 </body>
 </html>

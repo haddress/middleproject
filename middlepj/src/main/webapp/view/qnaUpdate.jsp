@@ -5,7 +5,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>레이아웃</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
 <style>
 	#container {
 		width:1000px;
@@ -32,13 +45,9 @@
 <title>qnaUpdate.jsp</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 <div id="container">
-<!-- Header -->
-		<div id="head">
-			<jsp:include page="header.jsp"/>
-		</div>
-		<br>
-		<br>
+
 <h3>문의글 수정</h3>
 <form action="${pageContext.servletContext.contextPath }/qnaUpdate.do?qnaNo=${qnadetail.qnaNo }" method="get">
 	<div id="updatetable">
@@ -69,12 +78,10 @@
 		</div>
 	<input type="submit" value="문의글 수정" id="updatebt">
 </form>
+</div>
 <form action="${pageContext.servletContext.contextPath }/index.jsp">
 	<input type="submit" value="홈">
 	</form>
-<!-- Footer -->
-		<div id="foot">
-			<jsp:include page="footer.jsp"/>
-		</div>		
+<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/> 	
 </body>
 </html>

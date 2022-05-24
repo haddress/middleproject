@@ -34,7 +34,12 @@ public class qnaService {
 	}
 	
 	//문의글 페이징
-	public List<qnaVO> getQnaPage(int pageNum, int amount) {
-		return qnadao.getQnaPage(pageNum, amount);
+	public List<qnaVO> getQnaList(int pageNum, int amount) {
+		return qnadao.getQnaList(pageNum, amount);
+	}
+	
+	//문의글 전체 게시글 수
+	public int getTotal() {
+		return qnadao.getTotal();
 	}
 }

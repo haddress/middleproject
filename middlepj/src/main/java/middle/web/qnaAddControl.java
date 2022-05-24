@@ -19,11 +19,9 @@ public class qnaAddControl implements Control{
 		
 		HttpSession session = request.getSession();
 		String Uid = (String) session.getAttribute("Uid");
-		String productCode = request.getParameter("product_code");
 		String category = request.getParameter("category");
 		String title = request.getParameter("qnaTitle");
 		String content = request.getParameter("qnaContent");
-		String writer = request.getParameter("qnaWriter");
 		String pw = request.getParameter("qnaPw");
 		
 		if(category.equals("상품")) {
@@ -39,13 +37,13 @@ public class qnaAddControl implements Control{
 		vo.setQnaCategory(category);
 		vo.setQnaTitle(title);
 		vo.setQnaContent(content);
-		vo.setQnaWrite(writer);
 		vo.setQnaPw(pw);
 		
 		qnaService qnaaddservice = new qnaService();
 		qnaaddservice.addQna(vo);
 		
-		request.setAttribute("writer", writer);
+		request.setAttribute("vo", vo);
+		request.setAttribute("id", Uid);
 		
 		request.getRequestDispatcher("view/addQnaOutput.jsp").forward(request, response);
 		

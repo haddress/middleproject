@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import middle.service.qnaService;
 import middle.vo.PagingVO;
-import middle.vo.ReviewVO;
+import middle.vo.qnaVO;
 
 public class qnaPageControl implements Control{
 
@@ -25,20 +25,20 @@ public class qnaPageControl implements Control{
 					amount = Integer.parseInt(request.getParameter("amount"));
 				}
 				
-				// 리뷰데이터 가져오기
+				// 문의글 데이터 가져오기
 				qnaService pageservice = new qnaService();
-				List<ReviewVO> list = service.getReviewList(pageNum, amount);
+				List<qnaVO> list = pageservice.getQnaList(pageNum, amount);
 				
-				int total = service.getTotal();
+				int total = pageservice.getTotal();
 				PagingVO pageVO = new PagingVO(pageNum, amount, total);
 				
 				// 페이지네이션
 				request.setAttribute("pageVO", pageVO);
 
 				// 리뷰게시판 데이터
-				request.setAttribute("review", list);
+				request.setAttribute("qnapage", list);
 				
-				request.getRequestDispatcher("result/ReviewOut.jsp").forward(request, response);
+				request.getRequestDispatcher("view/qna.jsp").forward(request, response);
 				
 			}
 
