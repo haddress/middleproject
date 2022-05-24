@@ -35,6 +35,7 @@
 
 		</c:otherwise>
 	</c:choose>
-	
+	<a href="${pageContext.servletContext.contextPath }/view/admin.jsp">관리자페이지로</a>
+	<br>
 </body>
 </html>
