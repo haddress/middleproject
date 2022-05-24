@@ -3,6 +3,7 @@
     
     
     <wb-module deploy-name="middlepj2-0.0.1-SNAPSHOT">
+    
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
                                 
         

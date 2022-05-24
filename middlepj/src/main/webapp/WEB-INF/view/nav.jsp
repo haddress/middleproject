@@ -16,10 +16,17 @@
 <body>
 
 	<%
-	String id = (String) session.getAttribute("id");
 
-	if (id == null) {
-		id = "guest";
+	String Uid = (String) session.getAttribute("Uid");
+	String check = null;
+	if (Uid == null) {
+		check = "guest";
+
+	} else if (Uid.equals("admin")) {
+		check = "admin";
+	} else if (Uid != null) {
+		check = "user";
+
 	}
 	%>
 
@@ -43,44 +50,75 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page"
 						href="<%=request.getContextPath()%>/index.jsp">홈</a></li>
-					<%
-					if (id.equals("guest")) {
-					%>
-					<li class="nav-item"><a class="nav-link active"
+
+						<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="qna.do">고객센터</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page"
-						href="${pageContext.request.contextPath}/Function/add.jsp">회원가입</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page"
-						href="${pageContext.request.contextPath}/Function/login.jsp">로그인</a></li>
 					<%
-					} else {
+					if (check.equals("guest")) {
 					%>
-					<li class="log"><%=id%> 님 반갑습니다.</li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page"
-						href="<%=request.getContextPath()%>/mypage.do">마이페이지</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page"
-						href="<%=request.getContextPath()%>/logout.do">로그아웃</a>
-					<li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="qna.do" style="text-decoration: none">고객센터</a>
-					<li>
-						<%
-						}
-						%>
 					
-					<li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-
-
-
-					<li class="nav-item dropdown"><a
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page"
+						href="${pageContext.request.contextPath}/view/add.jsp">회원가입</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page"
+						href="${pageContext.request.contextPath}/view/login.jsp">로그인</a></li>
+						
+					<%
+					} else if (check.equals("admin")) {
+					%>
+					
+					<li class="nav-item"><a class="nav-link active"	aria-current="page"	href="${pageContext.request.contextPath}/view/admin.jsp">관리자페이지로 이동</a></li>
+					<li class="nav-item"><a class="nav-link active"	aria-current="page"	href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
+					<li class="nav-item"><a class="nav-link active"	aria-current="page" href="${pageContext.request.contextPath}/logout.do" style="text-decoration: none">로그아웃</a>
+					</li>
+										<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+							<li><a class="dropdown-item" href="#!">모든 상품</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item"
+								href="${pageContext.request.contextPath}/SnackList.do">간식</a></li>
+							<li><a class="dropdown-item"
+								href="${pageContext.request.contextPath}/ToyList.do">장난감</a></li>
+							<li><a class="dropdown-item"
+								href="${pageContext.request.contextPath}/GoodsList.do">실내용품</a></li>
+							<li><a class="dropdown-item"
+								href="${pageContext.request.contextPath}/WashList.do">목욕/미용</a></li>
+								
+								
+								
+						</ul></li>
+						<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">커뮤니티</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+							<li><a class="dropdown-item"
+								href="${pageContext.request.contextPath}/review.do">리뷰</a></li>
+							<li><a class="dropdown-item"
+								href="${pageContext.request.contextPath}/qna.do">Q & A</a></li>
+			
+								
+						</ul></li>
+				</ul>
+
+						<%=Uid%>님 환영합니다
+						<%
+						} else if (check.equals("user")) {
+							%>
+							
+					<li class="nav-item"><a class="nav-link active"	aria-current="page"	href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
+					<li class="nav-item"><a class="nav-link active"	aria-current="page"	href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+							<li><a class="dropdown-item" href="#!">모든 상품</a></li>
+							<li><hr class="dropdown-divider" /></li>
 							<li><a class="dropdown-item"
 								href="${pageContext.request.contextPath}/CateList.do?cate=snack">간식</a></li>
 							<li><a class="dropdown-item"
@@ -107,12 +145,16 @@
 						</ul></li>
 				</ul>
 
-				<form class="d-flex">
-					<button class="btn btn-outline-dark" type="submit">
-						<i class="bi-cart-fill me-1"></i> 장바구니 <span
-							class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-					</button>
-				</form>
+
+						<%=Uid%>님 환영합니다
+							<%
+							}
+							%>
+						
+					
+
+
+>>>>>>> refs/heads/master
 			</div>
 		</div>
 	</nav>

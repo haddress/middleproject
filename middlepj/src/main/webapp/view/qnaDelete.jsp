@@ -1,5 +1,6 @@
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,15 +18,11 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
+<title>qnaDelete.jsp</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
-비밀번호는 ${vo.upw } 입니다
-
-	   <form action="${pageContext.servletContext.contextPath }/view/login.jsp" method="post">
- 		    <input type="submit" value="로그인" class="btn btn-primary btn-user btn-block"/>
-</form>
-
-<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/>
-</body>
+<h3>삭제되었습니다</h3>
+<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/> 
+</body> 
 </html>

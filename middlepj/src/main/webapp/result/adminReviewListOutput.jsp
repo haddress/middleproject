@@ -38,6 +38,7 @@
 					<tbody>
 						<c:forEach items="${list}" var="review">
 							<tr>
+								<form action="adminReviewMoDe.do" method="post">
 								<td>${review.reviewCode }</td>
 								<td>${review.productName }</td>
 								<td>${review.id }</td>
@@ -47,17 +48,18 @@
 								<td>${review.reviewDate }</td>
 								<td>${review.reviewImg }</td>
 								<td>${review.reviewStar }</td>
-								<td><a href="">수정</a></td>
-								<td><a href="">삭제</a></td>
+								<td><input type="submit" value="한건삭제">
+								<input type="hidden" name="reviewCode" value=${review.reviewCode }>
+						</td>
+								</form>
 							</tr>
 						</c:forEach>
-						<tr>
-							<td><input type="submit" value="수정"> <input
-								type="button" value="삭제"></td>
-						</tr>
+						
 					</tbody>
 				</table>
 			</c:otherwise>
 		</c:choose>
+		<a href="${pageContext.servletContext.contextPath }/view/admin.jsp">관리자페이지로</a>
+	<br>
 </body>
 </html>

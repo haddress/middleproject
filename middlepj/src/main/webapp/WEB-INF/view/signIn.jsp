@@ -36,7 +36,10 @@
 						<form action="../addUser.do" method="post">
 							<!--아이디 입력 -->
 							<div class="form-floating mb-3">
-								<input class="form-control" id="Uid" type="text"
+
+
+								<input class="form-control" type="text" name="Uid"
+
 									placeholder="Enter your name..." data-sb-validations="required" />
 								<label for="Uid">ID</label>
 								<div class="invalid-feedback" data-sb-feedback="name:required">ID
@@ -44,7 +47,9 @@
 							</div>
 							<!--비밀번호 입력-->
 							<div class="form-floating mb-3">
-								<input class="form-control" id="Upw" type="password"
+
+								<input class="form-control" type="password" name="Upw"
+
 									placeholder="(123) 456-7890" data-sb-validations="required" />
 								<label for="Upw">비밀번호</label>
 								<div class="invalid-feedback"
@@ -52,7 +57,9 @@
 							</div>
 							<!--이름 입력-->
 							<div class="form-floating mb-3">
-								<input class="form-control" id="Uname" type="text"
+
+								<input class="form-control" type="text" name="Uname"
+
 									placeholder="(123) 456-7890" data-sb-validations="required" />
 								<label for="Uname">이름</label>
 								<div class="invalid-feedback" data-sb-feedback="phone:required">이름을
@@ -60,7 +67,9 @@
 							</div>
 							<!-- Phone number input-->
 							<div class="form-floating mb-3">
-								<input class="form-control" id="Utel" type="tel"
+
+								<input class="form-control" type="tel" name="Utel" 
+
 									placeholder="(123) 456-7890" data-sb-validations="required" />
 								<label for="Utel">휴대전화 번호</label>
 								<div class="invalid-feedback" data-sb-feedback="phone:required">휴대폰
@@ -68,7 +77,9 @@
 							</div>
 							<!--메일 입력-->
 							<div class="form-floating mb-3">
-								<input class="form-control" id="Uemail" type="email"
+
+								<input class="form-control" type="email" name="Uemail"
+
 									placeholder="name@example.com"
 									data-sb-validations="required,email" /> <label for="Uemail">이메일</label>
 								<div class="invalid-feedback" data-sb-feedback="email:required">이메일을
@@ -78,7 +89,9 @@
 							</div>
 							<!--주소입력-->
 							<div class="form-floating mb-3">
-								<input class="form-control" id="Uaddress" type="text"
+
+								<input class="form-control" type="text" name="Uaddress"
+
 									placeholder="(123) 456-7890" data-sb-validations="required" />
 								<label for="Uaddress">주소</label>
 								<div class="invalid-feedback"
@@ -86,7 +99,10 @@
 							</div>
 							
 							<input type="submit" value="회원가입">
-							<a href="main.jsp">첫페이지</a>
+
+							<a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
+
+
 						</form>
 					</div>
 				</div>
