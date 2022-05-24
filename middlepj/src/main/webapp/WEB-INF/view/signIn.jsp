@@ -16,7 +16,8 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css" />
 <meta charset="UTF-8">
 <title>회원가입</title>
 </head>
@@ -38,18 +39,14 @@
 							<div class="form-floating mb-3">
 
 
-								<input class="form-control" type="text" name="Uid"
-
-									placeholder="Enter your name..." data-sb-validations="required" />
+								<input class="form-control" type="text" name="Uid"	placeholder="Enter your name..." data-sb-validations="required" />
 								<label for="Uid">ID</label>
-								<div class="invalid-feedback" data-sb-feedback="name:required">ID
-									를 입력해주세요.</div>
+								<div class="check_font" id="id_check"></div>
 							</div>
 							<!--비밀번호 입력-->
 							<div class="form-floating mb-3">
 
 								<input class="form-control" type="password" name="Upw"
-
 									placeholder="(123) 456-7890" data-sb-validations="required" />
 								<label for="Upw">비밀번호</label>
 								<div class="invalid-feedback"
@@ -59,7 +56,6 @@
 							<div class="form-floating mb-3">
 
 								<input class="form-control" type="text" name="Uname"
-
 									placeholder="(123) 456-7890" data-sb-validations="required" />
 								<label for="Uname">이름</label>
 								<div class="invalid-feedback" data-sb-feedback="phone:required">이름을
@@ -68,8 +64,7 @@
 							<!-- Phone number input-->
 							<div class="form-floating mb-3">
 
-								<input class="form-control" type="tel" name="Utel" 
-
+								<input class="form-control" type="tel" name="Utel"
 									placeholder="(123) 456-7890" data-sb-validations="required" />
 								<label for="Utel">휴대전화 번호</label>
 								<div class="invalid-feedback" data-sb-feedback="phone:required">휴대폰
@@ -79,7 +74,6 @@
 							<div class="form-floating mb-3">
 
 								<input class="form-control" type="email" name="Uemail"
-
 									placeholder="name@example.com"
 									data-sb-validations="required,email" /> <label for="Uemail">이메일</label>
 								<div class="invalid-feedback" data-sb-feedback="email:required">이메일을
@@ -91,16 +85,16 @@
 							<div class="form-floating mb-3">
 
 								<input class="form-control" type="text" name="Uaddress"
-
 									placeholder="(123) 456-7890" data-sb-validations="required" />
 								<label for="Uaddress">주소</label>
 								<div class="invalid-feedback"
 									data-sb-feedback="address:required">주소를 입력해주세요.</div>
 							</div>
-							
-							<input type="submit" value="회원가입">
+							<div style="text-align: center;">
+								<input type="submit" value="회원가입"
+									class="btn btn-primary btn-user btn-block">
+							</div>
 
-							<a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 
 
 						</form>

@@ -64,12 +64,7 @@
 
                                         
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        
                                         <!--로그인 옵션 끝  -->
                                     </form>
                                     <hr>
@@ -78,7 +73,7 @@
                                         <a class="small" href="${pageContext.request.contextPath}/view/idfind.jsp">아이디 찾기</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="${pageContext.request.contextPath}/view/add.jsp">회원가입 하러가기!</a>
+                                        <a class="small" href="${pageContext.request.contextPath}/view/add.jsp">회원가입</a>
                                     </div>
                                 </div>
                             </div>

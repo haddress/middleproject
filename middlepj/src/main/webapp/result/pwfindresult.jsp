@@ -19,12 +19,16 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
 </head>
 <body>
-<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
-비밀번호는 ${vo.upw } 입니다
 
+<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
+<br><br><br><br><br><br><br><br><br>
+<h3 style=" text-align: center;">비밀번호는 ${vo.upw } 입니다</h3>
+<br><br><br><br><br><br><br><br><br>
+<div style=" text-align: center;">
 	   <form action="${pageContext.servletContext.contextPath }/view/login.jsp" method="post">
  		    <input type="submit" value="로그인" class="btn btn-primary btn-user btn-block"/>
 </form>
+</div>
 
 <jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/>
 </body>

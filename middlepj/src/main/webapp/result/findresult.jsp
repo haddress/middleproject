@@ -35,25 +35,40 @@ Markservice service = new Markservice();
       <%
        if (mid != null) {
       %>
-      
-	      <h4>  회원님의 아이디는 <%=mid%> 입니다 </h4>  
+      		<br><br><br><br><br><br><br>
+      		
+      		
+	      <h4 style=" text-align: center;">  회원님의 아이디는 <%=mid%> 입니다 </h4>  
+	      <br><br><br><br><br><br><br><br>
 	     <form action="${pageContext.request.contextPath}/view/login.jsp" method="post">
- 		    <input type="submit" value="로그인" class="btn btn-primary btn-user btn-block"/>
- 		    
+ 		    <div style=" text-align: left;">
+ 		    <input type="submit" value="로그인" class="btn btn-primary btn-user btn-block" style=" display: inline-block; position: absolute; top: 350px; left: 800px "/>
+ 		    </div>
  		    </form>
+ 		    
  		    <form action="${pageContext.request.contextPath}/view/pwfind.jsp" method="post">
- 		    <input type="submit" value="비밀번호찾기" class="btn btn-primary btn-user btn-block"/>
+ 		    <div style=" text-align: right;">
+ 		    <input type="submit" value="비밀번호찾기" class="btn btn-primary btn-user btn-block" style=" display: inline-block; position: absolute; top: 350px; right: 800px "/>
+ 		    </div>
  		    </form>
       <%
   } else if(mid == null) {
  %>
-
-	      <h4>  등록된 정보가 없습니다 </h4>  
-
- 		    <input type="button" id="btnback" value="다시 찾기" onClick="history.back()"/>
+				<br><br><br><br><br><br><br>
+	      <h4 style=" text-align: center;">  등록된 정보가 없습니다 </h4>  
+				<br><br><br><br><br><br><br><br>
+ 		    
+ 		    <div style=" text-align: left;">
+ 		    <input type="button" id="btnback" value="다시 찾기" onClick="history.back()" class="btn btn-primary btn-user btn-block" style=" display: inline-block; position: absolute; top:380px; left:700px;"/>
+ 		    </div>
+ 		    
+ 		    <form action="${pageContext.request.contextPath}/view/add.jsp" method="post">
+ 		    <div style=" text-align: right;">
+ 		    <input type="submit" value="회원가입" onClick="history.back()" class="btn btn-primary btn-user btn-block" style=" display: inline-block; position: absolute; top:380px; right:700px;"/>
+ 		    </div>
+ 		    </form>
  		    
  		    
- 		    <a class="small" href="${pageContext.request.contextPath}/view/add.jsp">회원가입 하러가기!</a>
  		    
  		    
 
