@@ -18,6 +18,8 @@
   </c:if>
 
 
- <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
+ <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a><br>
+ <a href="${pageContext.servletContext.contextPath }/view/admin.jsp">관리자페이지로</a>
+	<br>
 </body>
 </html>

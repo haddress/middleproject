@@ -33,4 +33,13 @@ public class AdminService {
 	public void adminProDel (String productCode) {
 		dao.adminProDel(productCode);
 	}
+	public void adminReviewDel (String productCode) {
+		dao.adminReviewDel(productCode);
+	}
+	public void adminQnADel (String qnaNo) {
+		dao.adminQnADel(qnaNo);
+	}
+	
+	
+	
 }
