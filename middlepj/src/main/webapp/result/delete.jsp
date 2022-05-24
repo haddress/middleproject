@@ -22,7 +22,7 @@
 <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 <form action="${pageContext.servletContext.contextPath }/delete.do" method="get">
         탈퇴하시겠습니까?
-        <input type="submit" value="탈퇴">
+        <input type="submit" value="탈퇴"class="btn btn-primary btn-user btn-block">
     </form>
     
     <jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/>
