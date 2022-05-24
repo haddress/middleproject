@@ -35,12 +35,37 @@
 		margin:auto;
 		text-align:center;
 	}
+	#list {
+		border-collapse:collapse;
+	}
+	.trlist {
+		border-bottom:1px solid black;
+	}
 	td {
 		width:50px;
 		padding:10px;
 	}
-	a input {
+	#top {
+		background-color:black;
+	}
+	.th {
+		color:white;
+	}
+	#addbtn {
+		display:block;
+		width:80px;
 		margin:auto;
+		margin-top:20px;
+	}
+	a:link {
+		color:black;
+		text-decoration:none;
+	}
+	a:visited {
+		color:black;
+	}
+	#text {
+		text-decoration:none;
 	}
 	ul {
 		list-style:none;
@@ -48,6 +73,7 @@
 	li {
 		list-style:none;
 		display:inline;
+		margin-right:50px;
 	}
 </style>
 </head>
@@ -62,31 +88,33 @@
 		</c:if>
  <c:choose> 
 	<c:when test="${empty list }"><h3 id="noqna">문의글 정보가 없습니다</h3>
-	<a href="view/qnaWrite.jsp?id=${Uid }">글쓰기</a>
+	<a href="view/qnaWrite.jsp?id=${Uid }" id="text">
+		<input  type="submit" value="글쓰기" id="addbtn">
+	</a>
 	</c:when>
 	<c:otherwise>
 	<h3 id="h3">고객센터</h3>
 	<div id="container">
-	<table>
+	<table id="list">
 	<thead>
-		<tr>
-			<th>카테고리</th>
-			<th>문의번호</th>
-			<th>제목</th>
-			<th>날짜</th>
+		<tr class="trlist" id="top">
+			<th class="th">카테고리</th>
+			<th class="th">문의번호</th>
+			<th class="th">제목</th>
+			<th class="th">작성일</th>
 		</tr>
 	 </thead>
 	 <tbody>
 		 <c:forEach var="list" items="${list }" >
-			<tr><td>${list.qnaCategory }</td><td>${list.qnaNo }</td><td><a href="detail.do?job=detail&qnaNo=${list.qnaNo }&id=${Uid }">${list.qnaTitle }</a></td><td>${list.qnaDate }</td>
+			<tr class="trlist"><td>${list.qnaCategory }</td><td>${list.qnaNo }</td><td><a href="detail.do?job=detail&qnaNo=${list.qnaNo }&id=${Uid }">${list.qnaTitle }</a></td><td>${list.qnaDate }</td>
 			</tr>
 		</c:forEach>
 		
 	 </tbody>
 	</table>
 	</div>
-	<a href="view/qnaWrite.jsp?id=${Uid }">
-		<input type="submit" value="글쓰기">
+	<a href="view/qnaWrite.jsp?id=${Uid }" id="text">
+		<input type="submit" value="글쓰기" id="addbtn">
 	</a>
 	 </c:otherwise>
 	</c:choose>  

@@ -32,9 +32,6 @@
 	#detail {
 		margin:auto;
 	}
-	button {
-		margin-bottom:10px;
-	}
 	input {
 		margin-bottom:10px;
 	}
@@ -55,6 +52,11 @@
 	}
 	#only {
 		text-align:center;
+	}
+	#del {
+		display:block;
+		margin:auto;
+		margin-bottom:10px;
 	}
 </style>
 
@@ -98,10 +100,12 @@
 		</table>
 		</form>
 		</div>
+		<div style="text-align:center; margin-bottom:20px;">
 			<button type="button" onclick="deleteQna('${qnadetail.qnaNo }');">문의글 삭제</button>
 			<a href="${pageContext.servletContext.contextPath }/detail.do?job=update&qnaNo=${qnadetail.qnaNo }">
 				<input type="submit" value="수정">
 			</a>
+		</div>
 	</c:when>
 	<c:when test="${Uid == 'admin' }">
 		<h3 id="h3">문의글 상세보기</h3>
@@ -134,7 +138,7 @@
 		</form>
 		</div>
 		</div>
-			<button type="button" onclick="deleteQna('${qnadetail.qnaNo }');">문의글 삭제</button>
+			<button type="button" onclick="deleteQna('${qnadetail.qnaNo }');" id="del">문의글 삭제</button>
 	</c:when>
 </c:choose>	
 </div>
