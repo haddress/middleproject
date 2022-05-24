@@ -35,11 +35,12 @@ tr td {
 <body>
 	<!-- Header -->
 		<div id="head">
-			<jsp:include page="/view/header.jsp"/>
+			<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 		</div>
 		<br>
 		<br>
 		
+		<jsp:include page="/WEB-INF/view/banner.jsp" flush="false"/>
 		
 		<div id="container">
 			<table width="1000" id="review-data">
@@ -116,7 +117,7 @@ tr td {
 
 	<!-- Footer -->
 		<div id="foot">
-			<jsp:include page="/view/footer.jsp"/>
+			<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/>
 		</div>
 </body>
 <script>

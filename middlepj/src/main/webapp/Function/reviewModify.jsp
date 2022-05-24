@@ -14,7 +14,7 @@
 <body>
 <!-- Header -->
 		<div id="head">
-			<jsp:include page="/view/header.jsp"/>
+			<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 		</div>
 		<br>
 		<br>
@@ -42,7 +42,7 @@
 
 <!-- Footer -->
 		<div id="foot">
-			<jsp:include page="/view/footer.jsp"/>
+			<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/>
 		</div>
 </body>
 </html>

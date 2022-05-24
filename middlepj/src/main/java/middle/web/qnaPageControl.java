@@ -25,19 +25,19 @@ public class qnaPageControl implements Control{
 					amount = Integer.parseInt(request.getParameter("amount"));
 				}
 				
-				// 리뷰데이터 가져오기
-				qnaService pageservice = new qnaService();
-				List<ReviewVO> list = service.getReviewList(pageNum, amount);
+//				// 리뷰데이터 가져오기
+//				qnaService pageservice = new qnaService();
+//				List<ReviewVO> list = service.getReviewList(pageNum, amount);
+//				
+//				int total = service.getTotal();
+//				PagingVO pageVO = new PagingVO(pageNum, amount, total);
 				
-				int total = service.getTotal();
-				PagingVO pageVO = new PagingVO(pageNum, amount, total);
-				
-				// 페이지네이션
-				request.setAttribute("pageVO", pageVO);
-
-				// 리뷰게시판 데이터
-				request.setAttribute("review", list);
-				
+//				// 페이지네이션
+//				request.setAttribute("pageVO", pageVO);
+//
+//				// 리뷰게시판 데이터
+//				request.setAttribute("review", list);
+//				
 				request.getRequestDispatcher("result/ReviewOut.jsp").forward(request, response);
 				
 			}

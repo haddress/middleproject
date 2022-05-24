@@ -35,7 +35,7 @@ public class CateListControl implements Control {
 		System.out.println(cate);
 		
 		int pageNum = 1;
-		int amount = 9;
+		int amount = 12;
 		
 		if(request.getParameter("pageNum") != null && request.getParameter("amount") != null) {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));

@@ -57,10 +57,10 @@ public class ReviewService {
 		return dao.getTotal();
 	}
 	
-	// 해당상품 리뷰게시판 페이징
-	public List<ReviewVO> getPdReviewList(int pageNum, int amount, String productName) {
-			return dao.getPdReviewList(pageNum, amount, productName);
-	}
+//	// 해당상품 리뷰게시판 페이징
+//	public List<ReviewVO> getPdReviewList(int pageNum, int amount, String productName) {
+//			return dao.getPdReviewList(pageNum, amount, productName);
+//	}
 	
 	// 해당상품 리뷰게시판 게시글 수
 	public int getPdTotal(String productName) {

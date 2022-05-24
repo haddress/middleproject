@@ -14,25 +14,29 @@
 h3 {
 	color: gray;
 }
-.pagination {
+.page {
 	list-style:none;
 }
-.pagination li {
+.page li {
 	display:inline;
+	
 }
-.pagination li a {
+.page li a {
 	color: black;
 	text-decoration: none;
+	
 }
 </style>
 </head>
 <body>
 <!-- Header -->
 		<div id="head">
-			<jsp:include page="/view/header.jsp"/>
+			<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 		</div>
 		<br>
 		<br>
+		
+		<jsp:include page="/WEB-INF/view/banner.jsp" flush="false"/>
 		
 <div id="container">
 	<c:choose>
@@ -40,6 +44,7 @@ h3 {
 		<c:otherwise>
 				<c:set var="i" value="0"/>
 				<c:set var="j" value="3"/>
+				<hr>
 				<h3 style="text-align:center;">${list[0].productCate }</h3>
 				<hr>
 				<table width="1000">
@@ -47,7 +52,7 @@ h3 {
 					<c:if test="${i%j==0 }">
 					<tr>
 					</c:if>
-						<td align="center"><a href="productDetail.do?productCode=${product.productCode}&productName=${product.productName}" style="text-decoration:none; color:black">
+						<td style="text-align:center; padding:5px; width:300px;"><a href="productDetail.do?productCode=${product.productCode}&productName=${product.productName}" style="text-decoration:none; color:black">
 								<img src="upload/${product.productImg }" width="170"><br>
 								${product.productName }<br>
 								${product.productPrice }원<br>
@@ -64,7 +69,7 @@ h3 {
 			<table width="1000" id="review-paging">
 				<tr>
 					<td align="center">
-						<ul class="pagination pagination-sm">
+						<ul class="page pagination-sm">
 							<!-- 이전버튼 -->
 							<c:if test="${pageVO.prev }">
 								<li><a href="CateList.do?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount }&cate=${list[0].productCate }">PREV</a>
@@ -91,7 +96,7 @@ h3 {
 
 	<!-- Footer -->
 		<div id="foot">
-			<jsp:include page="/view/footer.jsp"/>
+			<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/>
 		</div>
 		
 

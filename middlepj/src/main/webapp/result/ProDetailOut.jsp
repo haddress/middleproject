@@ -41,10 +41,12 @@ input[id="tab2"]:checked ~ .con2 {
 <body>
 <!-- Header -->
 		<div id="head">
-			<jsp:include page="/view/header.jsp"/>
+			<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 		</div>
 		<br>
 		<br>
+		
+		<jsp:include page="/WEB-INF/view/banner.jsp" flush="false"/>
   
   <c:set var="listMore" value="5"/>
   <c:set var="totalSet" value="7"/>
@@ -68,7 +70,7 @@ input[id="tab2"]:checked ~ .con2 {
 			</tr>
 			<tr>
 				<td>TOTAL PRICE</td>
-				<td colspan="2"><span id="totalprice2"></span>원 (<span id="totalcount"></span>개)</td>
+				<td colspan="2" width="120px"><span id="totalprice2"></span>원 (<span id="totalcount"></span>개)</td>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -104,7 +106,7 @@ input[id="tab2"]:checked ~ .con2 {
 					</tr>
 					<c:forEach items="${review }" var="review">
 					<c:set var="i" value="${i+1 }"/>
-					<tr class="reviewTr">
+					<tr class="reviewTr" height="50px">
 						<td>${i }</td>
 						<td>
 							<c:choose>
@@ -133,8 +135,8 @@ input[id="tab2"]:checked ~ .con2 {
 					</c:forEach>
 				</table>
 				
-				<div class="viewBtn">
-					<button type="button" id="viewAdd" onclick="listMore();">더보기</button>
+				<div class="viewBtn" style="text-align:center;">
+					<button type="button" style="border:none;" id="viewAdd" onclick="listMore();">더보기</button>
 				</div>
 				
 				
@@ -148,7 +150,7 @@ input[id="tab2"]:checked ~ .con2 {
 
    <!-- Footer -->
       <div id="foot">
-         <jsp:include page="/view/footer.jsp"/>
+         <jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/>
       </div>
 </body>
 
@@ -212,7 +214,7 @@ document.addEventListener("DOMContentLoaded", change);
   	function listMore() {
   		for(let i = showCount; i<showCount+moreCount; i++) {
   			if (reviews[i] != null) {
-  				reviews[i].style.display = 'block';
+  				reviews[i].style.display = '';
   			} else {
   				moreBtn.style.display = 'none';
   			}

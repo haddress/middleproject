@@ -21,7 +21,7 @@ public class ReviewControl implements Control {
 		// 화면전환시 조회하는 페이지 번호 & 화면에 그려질 데이커개수
 		// 첫페이지
 		int pageNum = 1;
-		int amount = 9;
+		int amount = 12;
 		
 		// 페이지 번호 클릭 시
 		if(request.getParameter("pageNum") != null && request.getParameter("amount") != null) {

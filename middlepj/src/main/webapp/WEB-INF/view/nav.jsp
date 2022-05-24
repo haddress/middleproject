@@ -81,16 +81,14 @@
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-							<li><a class="dropdown-item" href="#!">모든 상품</a></li>
-							<li><hr class="dropdown-divider" /></li>
 							<li><a class="dropdown-item"
-								href="${pageContext.request.contextPath}/SnackList.do">간식</a></li>
+								href="${pageContext.request.contextPath}/CateList.do?cate=snack">간식</a></li>
 							<li><a class="dropdown-item"
-								href="${pageContext.request.contextPath}/ToyList.do">장난감</a></li>
+								href="${pageContext.request.contextPath}/CateList.do?cate=toy">장난감</a></li>
 							<li><a class="dropdown-item"
-								href="${pageContext.request.contextPath}/GoodsList.do">실내용품</a></li>
+								href="${pageContext.request.contextPath}/CateList.do?cate=goods">실내용품</a></li>
 							<li><a class="dropdown-item"
-								href="${pageContext.request.contextPath}/WashList.do">목욕/미용</a></li>
+								href="${pageContext.request.contextPath}/CateList.do?cate=wash">목욕/미용</a></li>
 								
 								
 								
