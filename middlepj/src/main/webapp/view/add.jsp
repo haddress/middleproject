@@ -1,26 +1,36 @@
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>레이아웃</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
 </head>
 
 <body>
+	<div>
+		<jsp:include page="/WEB-INF/view/nav.jsp" flush="false" />
+	</div>
 
-    <h3>회원가입</h3>
-    <form action="../addUser.do" method="post">
-        Id: <input type="text" name="Uid"><br>
-        pw: <input type="password" name="Upw"><br>
-        name: <input type="text" name="Uname"><br>
-        tel: <input type="tel" name="Utel"><br>
-        email: <input type="email" name="Uemail"><br>
-        address: <input type="text" name="Uaddress"><br>      
-        <input type="submit" value="회원가입">
-    </form>
-    
-    <a href="main.jsp">첫페이지</a>
+		<div>
+			<jsp:include page="/WEB-INF/view/signIn.jsp" flush="false" />
+		</div>
+		
+	<div>
+		<jsp:include page="/WEB-INF/view/footer.jsp" flush="false" />
+	</div>
 
 </body>
 

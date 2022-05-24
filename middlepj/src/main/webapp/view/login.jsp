@@ -1,31 +1,39 @@
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>레이아웃</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css" />
 </head>
 <body>
 
-<form action="logincheck.jsp" method="post">
-        Id: <input type="text" name="Uid"><br>
-        pw: <input type="password" name="Upw"><br>
-        <input type = "submit" value ="로그인">
-</form>
+	<div>
+		<jsp:include page="/WEB-INF/view/nav.jsp" flush="false" />
+	</div>
 
+	<div>
+		<jsp:include page="/WEB-INF/view/loginview.jsp" flush="false" />
+	</div>
 
-<form action="add.jsp" method="post">
-<input type ="submit" value = "회원가입">
+	<div>
+		<jsp:include page="/WEB-INF/view/footer.jsp" flush="false" />
+	</div>
 
-</form>
-
-<form action="idfind.jsp" method="post">
-<input type = "submit" value ="아이디찾기">
-</form>
-
-
-
-<a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
+	
 </body>
 </html>

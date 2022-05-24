@@ -36,7 +36,7 @@ public class addUserControl implements Control {
 		System.out.println(vo.toString());
 		request.setAttribute("Uid", Uid);
 		
-		request.getRequestDispatcher("result/addoutput.jsp").forward(request, response);
+		request.getRequestDispatcher("/result/addoutput.jsp").forward(request, response);
 	}
 
 }
