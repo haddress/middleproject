@@ -267,4 +267,41 @@ public class qnaDAO extends DAO{
 		}
 	}
 	
+	//문의글 페이징
+	public List<qnaVO> getQnaPage(int pageNum, int amount) {
+		conn = getConnect();
+		getConnect();
+		List<qnaVO> pagelist = new ArrayList<qnaVO> ();
+		String sql = "select * "
+				+ "from (select rownum rn, "
+				+ "        rv.* "
+				+ "        from(select * from review order by review_code desc) rv) "
+				+ "where rn > ? and rn <= ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, (pageNum - 1) * amount);
+			psmt.setInt(2, pageNum * amount);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				qnaVO qnavo = new qnaVO();
+				qnavo.setQnaCategory(rs.getString("qna_category"));
+				qnavo.setId(rs.getString("id"));
+				qnavo.setQnaNo(rs.getInt("qna_no"));
+				qnavo.setQnaTitle(rs.getString("qna_title"));
+				qnavo.setQnaContent(rs.getString("qna_content"));
+				qnavo.setQnaWrite(rs.getString("qna_writer"));
+				qnavo.setQnaDate(rs.getString("qan_date"));
+				qnavo.setQnaPw(rs.getString("qna_pw"));
+				qnavo.setProductCode(rs.getString("product_code"));
+				pagelist.add(qnavo);
+
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+		return pagelist;
+	}
+	
 }

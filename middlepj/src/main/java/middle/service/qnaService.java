@@ -32,4 +32,9 @@ public class qnaService {
 	public void updateQna(qnaVO qnaNo) {
 		qnadao.updateQna(qnaNo);
 	}
+	
+	//문의글 페이징
+	public List<qnaVO> getQnaPage(int pageNum, int amount) {
+		return qnadao.getQnaPage(pageNum, amount);
+	}
 }
