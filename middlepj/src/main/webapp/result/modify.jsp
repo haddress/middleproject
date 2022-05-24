@@ -19,7 +19,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/styles.css" />
 <meta charset="UTF-8">
-<title>회원가입</title>
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
