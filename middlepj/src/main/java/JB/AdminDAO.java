@@ -174,4 +174,37 @@ public class AdminDAO extends DAO {
 		}
 	}
 	
+	public void adminReviewDel (String productCode) {
+		String sql = "delete from review where review_code=?";
+		
+		try {
+			conn = getConnect();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, productCode);
+			int r = psmt.executeUpdate();
+			System.out.println(r + "건 삭제.");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
+	public void adminQnADel (String qnaNo) {
+		String sql = "delete from qna where qna_no=?";
+		
+		try {
+			conn = getConnect();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, qnaNo);
+			int r = psmt.executeUpdate();
+			System.out.println(r + "건 삭제.");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
+	
 }

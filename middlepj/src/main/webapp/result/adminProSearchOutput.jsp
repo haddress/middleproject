@@ -17,6 +17,7 @@
       / 상품회사: ${vo.productExp} / 상품이미지: ${vo.productImg}/ 상품주문날짜: ${vo.productDate}
     </h4> 
   </c:if>
-
+	<a href="${pageContext.servletContext.contextPath }/view/admin.jsp">관리자페이지로</a>
+	<br>
 </body>
 </html>

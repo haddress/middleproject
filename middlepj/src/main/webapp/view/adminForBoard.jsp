@@ -13,15 +13,18 @@
 <body>
 	<a href="${pageContext.servletContext.contextPath }/reviewList.do">리뷰글리스트</a>
 	<br>
-
-
-
+	
+	<a >리뷰 수정.....</a>
+	<br>
 
 
 
 	<a href="${pageContext.servletContext.contextPath }/QnAList.do">QnA글리스트</a>
 	<br>
-
+	<a>QnA 수정....</a>
+	<br>
+	<a href="${pageContext.servletContext.contextPath }/view/admin.jsp">관리자페이지로</a>
+	<br>
 
 
 
