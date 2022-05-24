@@ -7,7 +7,10 @@
 <style>
 #container {
    width: 1000px;
-   margin: 0 auto;
+   margin: 20px auto;
+}
+.pweight {
+	font-weight: 700;
 }
 input[type="radio"] {
 	display:none;
@@ -36,6 +39,12 @@ input[id="tab2"]:checked ~ .con2 {
 .all {
 	float:left;
 }
+.reviewTr {
+	height: 50px;
+}
+.star {
+	color: #eddd31;
+}
 </style>
 </head>
 <body>
@@ -52,13 +61,13 @@ input[id="tab2"]:checked ~ .con2 {
   <c:set var="totalSet" value="7"/>
 		
 	<div id="container">
-		<table border="1" width="1000">
+		<table width="1000">
 			<tr>
 				<td rowspan="6" width="450"><img src="upload/${product.productImg }" width="400">
-				<td colspan="3">${product.productName }</td>
+				<td colspan="3" class="pweight">${product.productName }</td>
 			</tr>
 			<tr>
-				<td colspan="3">판매가  ${product.productPrice }원</td>
+				<td colspan="3"><span class="pweight">판매가</span>  ${product.productPrice }원</td>
 			</tr>
 			<tr>
 				<td colspan="3">수량을 선택해주세요.<br>최소주문수량 1개 이상입니다.</td>
@@ -66,10 +75,10 @@ input[id="tab2"]:checked ~ .con2 {
 			<tr>
 				<td>${product.productName }</td>
 				<td><input type="number" name="pamount" id="pamount" value="1" min="1" max="10" style="width:40px;" onchange="change();">
-				<td><span id="totalprice"></span>원</td>
+				<td align="left"><span id="totalprice"></span>원</td>
 			</tr>
 			<tr>
-				<td>TOTAL PRICE</td>
+				<td class="pweight">TOTAL PRICE</td>
 				<td colspan="2" width="120px"><span id="totalprice2"></span>원 (<span id="totalcount"></span>개)</td>
 			</tr>
 			<tr>
@@ -106,24 +115,24 @@ input[id="tab2"]:checked ~ .con2 {
 					</tr>
 					<c:forEach items="${review }" var="review">
 					<c:set var="i" value="${i+1 }"/>
-					<tr class="reviewTr" height="50px">
+					<tr class="reviewTr">
 						<td>${i }</td>
 						<td>
 							<c:choose>
 								<c:when test="${review.reviewStar == 5}">
-									★★★★★
+									<span class="star">★★★★★</span>
 								</c:when>
 								<c:when test="${review.reviewStar == 4}">
-									★★★★☆
+									<span class="star">★★★★☆</span>
 								</c:when>
 								<c:when test="${review.reviewStar == 3}">
-									★★★☆☆
+									<span class="star">★★★☆☆</span>
 								</c:when>
 								<c:when test="${review.reviewStar == 2}">
-									★★☆☆☆
+									<span class="star">★★☆☆☆</span>
 								</c:when>
 								<c:when test="${review.reviewStar == 1}">
-									★☆☆☆☆
+									<span class="star">★☆☆☆☆</span>
 								</c:when>
 							</c:choose>
 						</td>
