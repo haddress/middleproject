@@ -8,7 +8,7 @@
 <title>addQnaOutput.jsp</title>
 </head>
 <body>
-	<h3>${writer }님의 문의글 작성이 완료되었습니다!</h3>
+	<h3>문의글 작성이 완료되었습니다!</h3>
 	
 	<form action="${pageContext.servletContext.contextPath }/index.jsp">
 	<input type="submit" value="홈">
