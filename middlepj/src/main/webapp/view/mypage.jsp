@@ -8,18 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
- 
- table {
- width:60%; height: 100px; margin: auto; text-align: center;
- }
-.box{
-display:block;
-margin:auto;
-}
 
-
-</style>
 <meta charset="UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -34,11 +23,13 @@ margin:auto;
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 
+
+
 </head>
 <body>
-	<div>
+	
 		<jsp:include page="/WEB-INF/view/nav.jsp" flush="false" />
-	</div>
+	
 	<c:choose> 
 	<c:when test="${empty list }">구매내역이 없습니다.
 	</c:when>
