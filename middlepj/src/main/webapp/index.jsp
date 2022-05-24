@@ -7,6 +7,6 @@
 <title>메인화면입니다.</title>
 </head>
 <body>
-   <jsp:forward page="myapp.homepage.tiles"></jsp:forward>
+   <jsp:forward page="mainList.do"></jsp:forward>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <style>
 #container {
 	width: 1000px;
-	margin: 0 auto;
+	margin: 0px auto;
 }
 h3 {
 	color: gray;
@@ -24,7 +24,6 @@ h3 {
 .page li a {
 	color: black;
 	text-decoration: none;
-	
 }
 </style>
 </head>
@@ -42,31 +41,34 @@ h3 {
 	<c:choose>
 		<c:when test="${empty list }"><h4>상품정보가 없습니다.</h4></c:when>
 		<c:otherwise>
-				<c:set var="i" value="0"/>
-				<c:set var="j" value="3"/>
-				<hr>
-				<h3 style="text-align:center;">${list[0].productCate }</h3>
-				<hr>
-				<table width="1000">
-				<c:forEach items="${list }" var="product">
-					<c:if test="${i%j==0 }">
-					<tr>
-					</c:if>
-						<td style="text-align:center; padding:5px; width:300px;"><a href="productDetail.do?productCode=${product.productCode}&productName=${product.productName}" style="text-decoration:none; color:black">
-								<img src="upload/${product.productImg }" width="170"><br>
-								${product.productName }<br>
-								${product.productPrice }원<br>
-						</a></td>
-					<c:if test="${i%j==j-1 }"	>
-					</tr>	
-					</c:if>
-					<c:set var="i" value="${i+1 }"/>
-				</c:forEach>
-				</table>
-		</c:otherwise>
-	</c:choose>
+			<h3 style="text-align:center;">${list[0].productCate }</h3>
+				<section class="py-5">
+					<div class="container px-4 px-lg-5 mt-5">
+						<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+							<c:forEach items="${list }" var="product">
+								<div class="col mb-5">
+									<div class="card h-100">					
+										<a href="productDetail.do?productCode=${product.productCode}&productName=${product.productName}" style="text-decoration:none; color:black">
+											<img class="card-img-top" src="upload/${product.productImg }">
+												<div class="card-body p-4">
+													<div class="text-center">
+													<h5 class="fw-bolder">${product.productName }</h5>
+													${product.productPrice }원
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+					</div>
+				</section>													
+			</c:otherwise>
+		</c:choose>
+		
+		
 	<!-- 페이징 -->
-			<table width="1000" id="review-paging">
+			<table width="1000">
 				<tr>
 					<td align="center">
 						<ul class="page pagination-sm">

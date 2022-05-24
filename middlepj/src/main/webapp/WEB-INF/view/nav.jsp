@@ -154,7 +154,7 @@
 					
 
 
->>>>>>> refs/heads/master
+
 			</div>
 		</div>
 	</nav>

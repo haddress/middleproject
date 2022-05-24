@@ -9,10 +9,22 @@
 <style>
 #container {
 	width: 1000px;
-	margin: 0 auto;
+	margin: 20px auto;
 }
-tr th {
+review-data {
+	border-collapse: collapse;
+}
+#tableth {
+	border-top:	1px solid black;
+	border-bottom: 1px solid black;
+}
+#tableth th {
 	text-align:center;
+	background: black;
+	color: white;
+}
+.tablecon {
+	border-bottom: 1px solid #ddd;
 }
 tr td {
 	text-align:center;
@@ -20,15 +32,22 @@ tr td {
 #title {
 	text-align:left;
 }
-.pagination {
+#paging {
+	text-align:center;
+}
+.page {
 	list-style:none;
 }
-.pagination li {
+.page li {
 	display:inline;
+	
 }
-.pagination li a {
+.page li a {
 	color: black;
 	text-decoration: none;
+}
+.star {
+	color: #eddd31;
 }
 </style>
 </head>
@@ -44,7 +63,7 @@ tr td {
 		
 		<div id="container">
 			<table width="1000" id="review-data">
-				<tr>
+				<tr id="tableth">
 					<th>번호</th>
 					<th></th>
 					<th></th>
@@ -54,25 +73,25 @@ tr td {
 					<th>작성일</th>
 				</tr>
 				<c:forEach items="${review }" var="review">
-					<tr>
+					<tr class="tablecon">
 						<td width="40">${review.reviewCode }</td>
 						<td width="110"><img src="reviewUpload/${review.reviewImg }" width="100"></td>
 						<td>
 							<c:choose>
 								<c:when test="${review.reviewStar == 5}">
-									★★★★★
+									<span class="star">★★★★★</span>
 								</c:when>
 								<c:when test="${review.reviewStar == 4}">
-									★★★★☆
+									<span class="star">★★★★☆</span>
 								</c:when>
 								<c:when test="${review.reviewStar == 3}">
-									★★★☆☆
+									<span class="star">★★★☆☆</span>
 								</c:when>
 								<c:when test="${review.reviewStar == 2}">
-									★★☆☆☆
+									<span class="star">★★☆☆☆</span>
 								</c:when>
 								<c:when test="${review.reviewStar == 1}">
-									★☆☆☆☆
+									<span class="star">★☆☆☆☆</span>
 								</c:when>
 							</c:choose>
 						</td>
@@ -85,10 +104,11 @@ tr td {
 			</table>
 
 			<!-- 페이징 -->
-			<table width="1000" id="review-paging">
+			<div id="paging">
+			<table width="1000">
 				<tr>
 					<td align="center">
-						<ul class="pagination pagination-sm">
+						<ul class="page pagination-sm">
 							<!-- 이전버튼 -->
 							<c:if test="${pageVO.prev }">
 								<li><a href="review.do?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount }">PREV</a>
@@ -108,6 +128,7 @@ tr td {
 					</td>
 				</tr>
 			</table>
+			</div>
 			
 			<form action="reviewOrderList.do" method="post" onsubmit="return idCheck();">
 				<input type="hidden" name="Uid" value="${Uid }"><input type="submit" value="리뷰쓰기">

@@ -8,10 +8,13 @@
 <style>
 #container {
    width: 1000px;
-   margin: 0 auto;
+   margin: 20px auto;
 }
 .label {
 	width: 70px;
+}
+.star {
+	color: #eddd31;
 }
 </style>
 </head>
@@ -50,19 +53,19 @@
 				<td>
 					<c:choose>
 						<c:when test="${review.reviewStar == 5}">
-							★★★★★
+							<span class="star">★★★★★</span>
 						</c:when>
 						<c:when test="${review.reviewStar == 4}">
-							★★★★☆
+							<span class="star">★★★★☆</span>
 						</c:when>
 						<c:when test="${review.reviewStar == 3}">
-							★★★☆☆
+							<span class="star">★★★☆☆</span>
 						</c:when>
 						<c:when test="${review.reviewStar == 2}">
-							★★☆☆☆
+							<span class="star">★★☆☆☆</span>
 						</c:when>
 						<c:when test="${review.reviewStar == 1}">
-							★☆☆☆☆
+							<span class="star">★☆☆☆☆</span>
 						</c:when>
 					</c:choose>
 				</td>
