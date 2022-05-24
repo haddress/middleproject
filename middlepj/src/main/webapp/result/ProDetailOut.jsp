@@ -104,7 +104,7 @@ input[id="tab2"]:checked ~ .con2 {
 					</tr>
 					<c:forEach items="${review }" var="review">
 					<c:set var="i" value="${i+1 }"/>
-					<tr class="reviewTr${i }">
+					<tr class="reviewTr">
 						<td>${i }</td>
 						<td>
 							<c:choose>
@@ -134,7 +134,7 @@ input[id="tab2"]:checked ~ .con2 {
 				</table>
 				
 				<div class="viewBtn">
-					<button type="button" class="viewAdd"></button>
+					<button type="button" id="viewAdd" onclick="listMore();">더보기</button>
 				</div>
 				
 				
@@ -194,33 +194,32 @@ document.addEventListener("DOMContentLoaded", change);
 	}   
   	
   	// 더보기
-  	let startList = 3; // 최초 3개
-
-  	let tableTr = document.getElementsByClassName('reviewTr${i }');
-
+  	const firstCount = 3;
+  	const moreCount = 5;
+  	let showCount = firstCount;
   	
-  	let buttonAdd = document.getElementsByClassName('viewAdd');
-   buttonAdd.addEventListener('click', feedReviewMore);
-   
-  	for(int i=1; i<tableTr.length; i++) {
-  		if (i<startList) {
-  			document.getElementsByClassName('reviewTr${i }').style.display = 'block';
-  		} else {
-  			document.getElementsByClassName('reviewTr${i+3 }').style.display = 'none';
+  	let reviews = document.getElementsByClassName('reviewTr');
+  	let moreBtn = document.getElementById('viewAdd');
+  	
+  	if(reviews.length < 5) {
+  		moreBtn.style.display = 'none';
+  	} else {
+  		for (let i = firstCount; i<reviews.length; i++) {
+  			reviews[i].style.display = 'none';
   		}
   	}
   	
-    function feedReviewMore() {
-		if (document.getElementsByClassName('reviewTr${i+3 }').style.display === 'block') {
-			document.getElementsByClassName('reviewTr${i+3 }').style.display = 'none';
-			buttonAdd.textContent = '더보기';
-		} else {
-			document.getElementsByClassName('reviewTr${i+3 }').style.display = 'block';
-			buttonAdd.textContent = '숨기기';
-		}
-    	
-    }
-    
+  	function listMore() {
+  		for(let i = showCount; i<showCount+moreCount; i++) {
+  			if (reviews[i] != null) {
+  				reviews[i].style.display = 'block';
+  			} else {
+  				moreBtn.style.display = 'none';
+  			}
+  		}
+  		showCount += moreCount;
+  	}
+  	
 
 </script>
 </html>
