@@ -20,9 +20,26 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
-
-<h3>${Uid }님 가입완료</h3>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3 style=" text-align: center;">${Uid }님 가입완료</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<form action="${pageContext.servletContext.contextPath }/view/login.jsp" method="post">
+ 		    <div style=" text-align: center;">
+ 		    <input type="submit" value="로그인" class="btn btn-primary btn-user btn-block"/>
+			</div>
+</form>
+</div>
 <jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/>
 
 

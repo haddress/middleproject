@@ -22,11 +22,24 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
-수정완료
+<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+<h3 style=" text-align: center;">수정완료</h3>
+<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
 <form action="${pageContext.servletContext.contextPath }/index.jsp">
-
+<div style=" text-align: center;">
 <input type="submit" value="홈" class="btn btn-primary btn-user btn-block">
+</div>
 </form>
 <jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/>
 </body>
