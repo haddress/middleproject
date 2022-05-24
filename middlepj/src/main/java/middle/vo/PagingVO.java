@@ -9,7 +9,7 @@ public class PagingVO {
 	private boolean prev, next; // 이전버튼, 다음버튼 활성화 여부
 	
 	private int pageNum; // 현재 조회중인 페이지 번호
-	private int amount = 9; // 리뷰게시판 화면에 그려질 데이터
+	private int amount = 12; // 리뷰게시판 화면에 그려질 데이터
 	private int total; // 전체게시글 수
 	
 	
@@ -25,11 +25,11 @@ public class PagingVO {
 //		 ex) 조회하는 페이지 11 -> 끝번호 20
 //		 공식 = (int)Math.ceil(페이지번호 / 페이지네이션개수) * 페이지네이션개수
 		
-		this.endPage = (int)Math.ceil(this.pageNum * 0.1) * 9;
+		this.endPage = (int)Math.ceil(this.pageNum * 0.1) * 12;
 		
 		// 2. startPage결정
 		// 공식 = 끝페이지 - 페이지네이션개수 + 1
-		this.startPage = this.endPage - 9 + 1;
+		this.startPage = this.endPage - 12 + 1;
 		
 		// 3. realEnd(진짜 끝번호) 구해서 endPage의 값을 다시 결정
 //		 만약 게시글이 52개라면 -> 진짜 끝번호 6

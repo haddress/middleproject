@@ -29,6 +29,7 @@ public class qnaPageControl implements Control{
 				qnaService pageservice = new qnaService();
 				List<qnaVO> list = pageservice.getQnaList(pageNum, amount);
 				
+
 				int total = pageservice.getTotal();
 				PagingVO pageVO = new PagingVO(pageNum, amount, total);
 				
@@ -39,6 +40,7 @@ public class qnaPageControl implements Control{
 				request.setAttribute("qnapage", list);
 				
 				request.getRequestDispatcher("view/qna.jsp").forward(request, response);
+
 				
 			}
 

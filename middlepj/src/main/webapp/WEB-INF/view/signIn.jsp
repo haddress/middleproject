@@ -37,6 +37,7 @@
 							<!--아이디 입력 -->
 							<div class="form-floating mb-3">
 
+
 								<input class="form-control" type="text" name="Uid"
 
 									placeholder="Enter your name..." data-sb-validations="required" />
@@ -100,6 +101,7 @@
 							<input type="submit" value="회원가입">
 
 							<a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
+
 
 						</form>
 					</div>

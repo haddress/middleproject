@@ -15,6 +15,7 @@
      <put-attribute name="banner" value="/WEB-INF/view/banner.jsp"/>
      <put-attribute name="loginview" value="/WEB-INF/view/loginview.jsp"/>
      
+
      
      
   </definition>
@@ -22,6 +23,7 @@
   <definition name="WILDCARD:*/*/*" extends="myapp.homepage">
   
   	<put-attribute name="Body" value="/webapp/{1}/{2}.jsp"/>
+
 
 
   	

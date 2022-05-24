@@ -79,7 +79,6 @@
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="${pageContext.request.contextPath}/view/add.jsp">회원가입 하러가기!</a>
-
                                     </div>
                                 </div>
                             </div>

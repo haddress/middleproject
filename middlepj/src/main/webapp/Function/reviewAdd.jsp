@@ -4,6 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8" />
+<title>도비마켓</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="${pageContext.servletContext.contextPath }/css/styles.css" rel="stylesheet" />
 <style>
 #container {
 	width: 1000px;
@@ -14,7 +24,7 @@
 <body>
 <!-- Header -->
 		<div id="head">
-			<jsp:include page="/view/header.jsp"/>
+			<jsp:include page="/WEB-INF/view/nav.jsp"/>
 		</div>
 		<br>
 		<br>
@@ -45,7 +55,7 @@
 
 <!-- Footer -->
 		<div id="foot">
-			<jsp:include page="/view/footer.jsp"/>
+			<jsp:include page="/WEB-INF/view/footer.jsp"/>
 		</div>
 </body>
 </html>
