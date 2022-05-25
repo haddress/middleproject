@@ -67,7 +67,7 @@
                             <a class="lead fw-normal text-muted mb-0" href="productAdd.jsp" >상품추가</a><br>
                             <a class="lead fw-normal text-muted mb-0" href="adminProductSearch.jsp" >상품단건검색</a><br>
                             <a class="lead fw-normal text-muted mb-0" href="adminProductInfoMod.jsp" >상품정보수정</a><br>
-                            <a class="lead fw-normal text-muted mb-0" href="adminProductDel.jsp" >상품삭제</a><br>
+                           
                             <a class="lead fw-normal text-muted mb-0" href="${pageContext.servletContext.contextPath }/listProduct.do" >상품리스트</a><br>
                         </div>
                         

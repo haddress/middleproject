@@ -21,15 +21,13 @@ public class AdminProSearchControl implements Control {
 		String job = request.getParameter("job");
 		
 		String path = "";
-		
+		System.out.println("지나감초반,(갈림길)");
 		if (job.equals("search")) {
 			path = "/view/adminProductSearch.jsp";
 		} else if (job.equals("modify")) {
 			path = "/view/adminProductInfoMod.jsp";
-		} else if (job.equals("remove")) {
-			path = "/view/adminProductDel.jsp";
-		}
-		
+		} 
+		System.out.println("지나감중간");
 		
 		if(productcode.isBlank()) {
 			request.setAttribute("error", "상품코드를 입력하세요.");
@@ -48,10 +46,11 @@ public class AdminProSearchControl implements Control {
 			path = "result/adminProSearchOutput.jsp"; 
 			
 		}
+		System.out.println("지나감마지막2");
 		request.setAttribute("vo", vo);
 		
 		
-		
+		System.out.println("지나감마지막1");
 
 		request.getRequestDispatcher(path).forward(request, response);
 		

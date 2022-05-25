@@ -66,6 +66,7 @@ public class FrontController extends HttpServlet {
       list.put("/AllproductDel.do", new AdminProAllDellControl());//상품전체삭제
       list.put("/adminReviewMoDe.do", new AdminReviewDelControl());//관리자리뷰삭제
       list.put("/adminQnaDelete.do", new AdminQnADelControl());//관리자QnA삭제
+      list.put("/productDel.do", new AdminProDelControl());
    }
    @Override
    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -75,7 +75,8 @@
 			<br>
 			<br>
 			<br>	
-				<form id="contactForm">
+				<form id="contactForm"
+				action="${pageContext.servletContext.contextPath }/productMod.do" >
 					<!-- Name input-->
 					<div class="form-floating mb-3">
 						<input class="form-control" type="text" name="productCode" id=""
@@ -110,7 +111,7 @@
 						<input class="form-control" type ="text"name="productExp" id="" value="${vo.productExp}" placeholder="상품설명">
 
 					</div>
-
+					
                     <input type="submit" value="수정">
 
 				</form>

@@ -14,6 +14,8 @@ public class AdminProModControl implements Control {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		System.out.println("업데이트 시작");
 		String productCode = request.getParameter("productCode");
 		String productCate = request.getParameter("productCate");
 		String productName = request.getParameter("productName");
@@ -21,7 +23,7 @@ public class AdminProModControl implements Control {
 		String productAmount = request.getParameter("productAmount");
 		String productExp = request.getParameter("productExp");
 		
-		
+		System.out.println("빈거 확인전");
 		
 		if(productCode.isEmpty() || productCate.isEmpty() || productName.isEmpty() 
 				|| productPrice.isEmpty() || productAmount.isEmpty() || productExp.isEmpty() ) {
@@ -31,12 +33,13 @@ public class AdminProModControl implements Control {
 		}
 		System.out.println("비어잇는거통과");
 		ProductVO vo = new ProductVO();
-		vo.setProductCode(Integer.parseInt(productExp));
+		vo.setProductCode(Integer.parseInt(productCode));
 		vo.setProductCate(productCate);
 		vo.setProductName(productName);
 		vo.setProductPrice(Integer.parseInt(productPrice));
 		vo.setProductAmount(Integer.parseInt(productAmount));
 		vo.setProductExp(productExp);
+		System.out.println(vo);
 		
 		
 		AdminService service = new AdminService();

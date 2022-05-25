@@ -83,12 +83,12 @@
 											<th>삭제</th>
 										</tr>
 									</tfoot>
-									<form action="AllproductDel.do" method="post">
+									<form action="AllproductDel.do" method="post"> 
 									<tbody>
 
 										<c:forEach items="${list}" var="product">
 											<tr>
-												<form action="productDel.do" method="post">
+												<form action="${pageContext.servletContext.contextPath }/productDel.do" method="post">
 													<td>${product.productCode}</td>
 													<td>${product.productCate}</td>
 													<td>${product.productName}</td>
@@ -100,15 +100,16 @@
 																src="${pageContext.servletContext.contextPath }/upload/${product.productImg}">
 														</c:if></td>
 													<td>${product.productDate}</td>
-													<td><input type="submit" value="한건삭제"></td> <input
-														type="hidden" name=productCode
-														value=${product.productCode }>
+													<td><input type="submit" value="한건삭제"></td> 
+													<input type="hidden" name=productCode value=${product.productCode }>
 												</form>
 											</tr>
 
 										</c:forEach>
 
+									</form>
 									</tbody>
+									
 					</table>
 					</c:otherwise>
 					</c:choose>

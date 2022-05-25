@@ -156,7 +156,7 @@ public class AdminDAO extends DAO {
 		
 	}
 	
-	
+	//물건 삭제
 	public void adminProDel (String productCode) {
 		String sql = "delete from product where product_code=?";
 		
@@ -173,7 +173,7 @@ public class AdminDAO extends DAO {
 			disconnect();
 		}
 	}
-	
+	//리뷰삭제
 	public void adminReviewDel (String productCode) {
 		String sql = "delete from review where review_code=?";
 		
@@ -190,6 +190,7 @@ public class AdminDAO extends DAO {
 			disconnect();
 		}
 	}
+	//Qna삭제
 	public void adminQnADel (String qnaNo) {
 		String sql = "delete from qna where qna_no=?";
 		
