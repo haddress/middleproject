@@ -45,7 +45,7 @@
                                     <form class="user" action="${pageContext.request.contextPath}/view/logincheck.jsp" method="post">
 
                                         <div class="form-group">
-                                            <input type="text" name="Uid" class="form-control form-control-user"
+                                            <input type="text" name="Uid" class="form-control form-control-user" required
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="ID를 입력해주세요">
                                         </div>
@@ -53,7 +53,7 @@
                                         <!--비밀번호 입력칸입니다.  -->
                                         <div class="form-group">
 
-                                            <input type="password" class="form-control form-control-user" name="Upw"
+                                            <input type="password" class="form-control form-control-user" name="Upw" required
                                                 id="exampleInputPassword" placeholder="비밀번호를 입력해주세요">
                                         </div>
                                         <!--비밀번호 입력칸 끝  -->

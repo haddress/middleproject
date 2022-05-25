@@ -67,12 +67,9 @@
 						aria-current="page"
 						href="${pageContext.request.contextPath}/view/admin.jsp">관리자페이지로 이동</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page"
-						href="${pageContext.request.contextPath}/mypage.do">마이페이지</a>
-					</li>
-					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="logout.do" style="text-decoration: none">로그아웃</a>
 					</li>
+					
 					
 						<%
 						}else if (check.equals("user")){
@@ -85,8 +82,7 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page"
 						href="<%=request.getContextPath()%>/logout.do">로그아웃</a>
-					</li>
-						
+					
 						
 						
 						<%}
@@ -125,6 +121,19 @@
 								
 						</ul></li>
         </ul>
+        
+        <% 
+        if (check.equals("guest")){
+         	
+        }else if(check.equals("user")){%>
+        	${Uid }님 반갑습니다
+        	
+        	
+        <% }else if(check.equals("admin")){%>
+        	관리자 로그인
+        <% }       
+        
+        %>
 
 
 

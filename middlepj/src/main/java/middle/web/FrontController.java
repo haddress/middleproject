@@ -26,7 +26,7 @@ public class FrontController extends HttpServlet {
       list.put("/mypage.do", new Orderlist()); //마이페이지 구매내역
       list.put("/search.do", new SearchControl());
       list.put("/pwfind.do", new PasswordFindControl());
-      
+      list.put("/idcheck.do", new idcheckControl());      
       // 고객센터
       list.put("/qna.do", new qnaListControl()); //문의글 전체리스트
       list.put("/detail.do", new qnaDetailControl()); //문의글 상세보기
