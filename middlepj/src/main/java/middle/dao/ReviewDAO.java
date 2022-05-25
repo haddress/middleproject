@@ -99,7 +99,7 @@ public class ReviewDAO extends DAO {
 	}
 	
 	// 리뷰삭제
-	public void deleteReview(int reviewCode) {
+	public int deleteReview(int reviewCode) {
 		conn = getConnect();
 		String sql = "delete from review where review_code = ?";
 		try {
@@ -107,11 +107,13 @@ public class ReviewDAO extends DAO {
 			psmt.setInt(1, reviewCode);
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 삭제");
+			return 1;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
+		return -1;
 		
 	}
 	

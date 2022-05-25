@@ -6,15 +6,32 @@
 <head>
 <meta charset="UTF-8">
 <style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
 #container {
    width: 1000px;
    margin: 20px auto;
+}
+.pname {
+	font-weight: 777;
 }
 .label {
 	width: 70px;
 }
 .star {
 	color: #eddd31;
+}
+.starTr {
+	border-bottom: 1px solid #cacaca;
+}
+.starTd {
+	padding: 0 0 20px 0;
+}
+#passCk {
+	color: red;
 }
 </style>
 </head>
@@ -33,7 +50,7 @@
 	<form action="reviewMoDe.do" method="post">
 		<input type="hidden" name="rcode" value="${review.reviewCode }">
 		<hr>
-		<a href="${pageContext.request.contextPath}/productName.do?productName=${review.productName }" style="text-decoration: none; color:black;">${review.productName }</a>
+		<a href="${pageContext.request.contextPath}/productName.do?productName=${review.productName }" style="text-decoration: none; color:black;"><span class="pname">${review.productName }</span></a>
 		<hr>
 		<table width="1000">
 			<tr>
@@ -48,9 +65,9 @@
 				<td class="label">DATE</td>
 				<td>${review.reviewDate }</td>
 			</tr>
-			<tr>
-				<td class="label">별점</td>
-				<td>
+			<tr class="starTr">
+				<td class="label" style="padding: 0 0 20px 0;">별점</td>
+				<td class="starTd">
 					<c:choose>
 						<c:when test="${review.reviewStar == 5}">
 							<span class="star">★★★★★</span>
@@ -81,7 +98,7 @@
 			<tr>
 				<td class="label">비밀번호</td>
 				<td>
-					<input type="password" name="pass" size="20" id="pass" required> ! 수정·삭제하려면 비밀번호를 입력하세요
+					<input type="password" name="pass" size="20" id="pass" required><span id="passCk"></span>
 				</td>
 			</tr>
 			<tr>
@@ -113,16 +130,18 @@
 			alert('로그인이 필요합니다.');
 			return false;
 			history.back();
+		} else if('${Uid }' == 'admin') {
+			return true;
 		} else if('${Uid }' != '${review.id}') {
 			alert('권한이 없습니다.');
 			return false;
 			history.back();
 		} else if(document.getElementById("pass").value == "") {
-			alert('비밀번호를 입력해주세요.');
+			document.getElementById("passCk").innerText = " ! 비밀번호를 입력해주세요";
 			return false;
 			history.back();
 		} else if (document.getElementById("pass").value != '${review.reviewPass }') {
-			alert('비밀번호가 일치하지 않습니다.');
+			document.getElementById("passCk").innerText = " ! 비밀번호가 일치하지 않습니다";
 			return false;
 			history.back();
 		} else {

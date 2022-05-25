@@ -7,15 +7,23 @@
 <meta charset="UTF-8">
 <title>Dobby marCat</title>
 <style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
 #container {
-   width: 1000px;
+   width: 1200px;
    margin: 0px auto;
 }
-h3 {
-	color: gray;
-}
 #banner {
-	text-align: center
+	text-align: center;
+}
+.newimg {
+	text-align: center;
+}
+.text-center:hover {
+	color: #ddd;
 }
 </style>
 </head>
@@ -40,12 +48,15 @@ h3 {
       	<c:when test="${empty list }"><h4>상품정보가 없습니다.</h4></c:when>
       <c:otherwise> 
  				<!-- 최신상품 리스트 -->
-      	<h3 style="text-align:center;">신상품</h3>
-				<section class="py-5">
+				<section class="py-5" style="padding-top:0px !important; padding-bottom:0px !important;">
+      		<div class="newimg">
+      			<span>
+      				<img src="home/new.png" width="130"/>
+						</span>
+      		</div>
 					<div class="container px-4 px-lg-5 mt-5">
 						<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             	<c:forEach items="${list }" var="product">
-								<!--4번카드  -->
 								<div class="col mb-5">
 									<div class="card h-100">
 										<a href="productDetail.do?productCode=${product.productCode}" style="text-decoration:none; color:black">
