@@ -83,7 +83,14 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 </style>
 </head>
 <body>
-<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
+	<!-- Header -->
+		<div id="head">
+			<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
+		</div>
+		<br>
+		<br>
+		
+		<jsp:include page="/WEB-INF/view/banner.jsp" flush="false"/>
 <div>
 		<c:if test="${!empty delete }">
 			<script>
