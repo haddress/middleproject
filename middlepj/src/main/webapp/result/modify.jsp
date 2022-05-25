@@ -19,7 +19,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/styles.css" />
 <meta charset="UTF-8">
-<title>회원가입</title>
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
@@ -92,8 +92,18 @@
 
 							<input type="submit" value="수정" class="btn btn-primary btn-user btn-block">
 							
-							
+				
+
+
 						</form>
+						<form action="${pageContext.servletContext.contextPath }/search.do" method="get">
+    
+    <input type="hidden" name="job" value="delete">
+    <input type="hidden" name="Uid" value="${Uid }">
+  <div style=" text-align: right;">
+  <input type="submit" value="탈퇴" class="btn btn-primary btn-user btn-block" style=" display: inline-block; position: absolute; top:689px; right:680px;">
+</div>
+</form>
 					</div>
 				</div>
 			</div>

@@ -41,8 +41,8 @@
 							<div class="form-floating mb-3">
 								<input class="form-control" type="text" name="id"
 									placeholder = "아이디 입력"
-									data-sb-validations="required" /> <label for="Uname">이름</label>
-								<div class="invalid-feedback" data-sb-feedback="phone:required">이름을
+									data-sb-validations="required" /> <label for="Uname">아이디입력</label>
+								<div class="invalid-feedback" data-sb-feedback="phone:required">아이디를
 									입력해주세요!</div>
 							</div>
 														

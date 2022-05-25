@@ -35,11 +35,13 @@
 		display:inline-block;
 		margin-right:20px;
 	}
+	.click {
+		display:block;
+		margin:auto;
+		margin-bottom:10px;
+	}
 	h3 {
 		text-align:center;
-	}
-	#updatebt {
-		margin-bottom:10px;
 	}
 </style>
 <title>qnaUpdate.jsp</title>
@@ -76,11 +78,11 @@
 			</tr>
 		</table>
 		</div>
-	<input type="submit" value="문의글 수정" id="updatebt">
+	<input class="click" type="submit" value="문의글 수정">
 </form>
 </div>
 <form action="${pageContext.servletContext.contextPath }/index.jsp">
-	<input type="submit" value="홈">
+	<input class="click" type="submit" value="홈">
 	</form>
 <jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/> 	
 </body>

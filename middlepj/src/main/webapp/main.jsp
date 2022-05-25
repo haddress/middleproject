@@ -9,10 +9,13 @@
 <style>
 #container {
    width: 1000px;
-   margin: 0 auto;
+   margin: 0px auto;
 }
 h3 {
 	color: gray;
+}
+#banner {
+	text-align: center
 }
 </style>
 </head>
@@ -27,57 +30,48 @@ h3 {
       <jsp:include page="/WEB-INF/view/banner.jsp" flush="false"/>
       
       
-   <div id="container">
       <!-- 배너 -->
-      <img src="home/banner.jpg" width="1000">
-      
-      <!-- 최신상품 리스트 -->
-      <div id="newlist">
-      <hr>
-      <h3 style="text-align:center;">신상품</h3>
-      <hr>
-      <c:choose>
-      <c:when test="${empty list }"><h4>상품정보가 없습니다.</h4></c:when>
-      <c:otherwise>
-            <c:set var="i" value="0"/>
-            <c:set var="j" value="3"/>
-            <section class="py-5">
-            <table width="1000">
-            <c:forEach items="${list }" var="product">
-               <c:if test="${i%j==0 }">
-               <tr>
-               </c:if>
-                  <td style="text-align:center; padding:5px; width:300px;">
-									<div class="container px-4 px-lg-5 my-5">
-									<div class="row gx-4 gx-lg-5 align-items-center">
-                  	<a href="productDetail.do?productCode=${product.productCode}" style="text-decoration:none; color:black">
-                  
-				<!--상품이미지  -->
-										<div class="col-md-6">
-                      <img class="card-img-top mb-5 mb-md-0" src="upload/${product.productImg }" width="170"><br>
-                    </div>
-										<div class="col-md-6">
-                       <h1 class="display-5 fw-bolder"> ${product.productName }</h1><br>
-                    	<div class="fs-5 mb-5">
-                    	<span class="text-decoration-line-through">${product.productPrice }</span><span>원</span><br>
-                    	</div>
-                  	</div>
-                  	</a>
-                  </td>
-               <c:if test="${i%j==j-1 }"   >
-               </tr>   
-               </c:if>
-               <c:set var="i" value="${i+1 }"/>
-            </c:forEach>
-            </table>
-   					</section>
-      </c:otherwise>
-   		</c:choose>
-   		</div>
+      <div id="banner">
+      	<img src="home/banner.jpg" width="1200">
+      </div>
+    
+    	<div id="container">
+     	<c:choose>
+      	<c:when test="${empty list }"><h4>상품정보가 없습니다.</h4></c:when>
+      <c:otherwise> 
+ 				<!-- 최신상품 리스트 -->
+      	<h3 style="text-align:center;">신상품</h3>
+				<section class="py-5">
+					<div class="container px-4 px-lg-5 mt-5">
+						<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            	<c:forEach items="${list }" var="product">
+								<!--4번카드  -->
+								<div class="col mb-5">
+									<div class="card h-100">
+										<a href="productDetail.do?productCode=${product.productCode}" style="text-decoration:none; color:black">
+											<!-- Product image-->
+											<img class="card-img-top" src="upload/${product.productImg }" width="200"/>
+											<!-- Product details-->
+											<div class="card-body p-4">
+												<div class="text-center">
+													<!-- Product name-->
+													<h5 class="fw-bolder">${product.productName }</h5>
+													<!-- Product price-->
+													${product.productPrice }원
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+					</div>
+				</section>
+	     </c:otherwise>
+			</c:choose>
    
    <br>
    <br>
-      
    </div>
       <!-- Footer -->
       <div id="foot">

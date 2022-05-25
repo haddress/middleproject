@@ -17,7 +17,7 @@
 <style>
 #container {
 	width: 1000px;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 </style>
 </head>
@@ -28,6 +28,8 @@
 		</div>
 		<br>
 		<br>
+		
+		<jsp:include page="/WEB-INF/view/banner.jsp" flush="false"/>
 	
 	<div id="container">
 	<form action="reviewAdd.do" method="post" enctype="multipart/form-data">
