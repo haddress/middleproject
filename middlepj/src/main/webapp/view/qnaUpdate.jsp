@@ -42,7 +42,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 		text-align:center;
 		margin-top:30px;
 		margin-bottom:20px;
-	}
+	} 
 </style>
 <title>qnaUpdate.jsp</title>
 </head>

@@ -28,6 +28,14 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 		margin-top:30px;
 		margin-bottom:30px;
 	}
+	#back {
+		display:block;
+		margin:auto;
+		margin-bottom:10px;
+	}
+	#backa {
+		text-decoration:none;
+	}
 	#home {
 		display:block;
 		margin:auto;
@@ -40,6 +48,9 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 	<h3 id="show">문의글 작성이 완료되었습니다!</h3>
 	
+	<a href="${pageContext.servletContext.contextPath }/qna.do?id=${Uid }" id="backa">
+		<input type="submit" value="고객센터 게시판" id="back">
+	</a>
 	<form action="${pageContext.servletContext.contextPath }/index.jsp">
 	<input type="submit" value="홈" id="home">
 	</form>
