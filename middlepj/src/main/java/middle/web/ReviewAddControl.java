@@ -48,7 +48,7 @@ public class ReviewAddControl implements Control {
 		service.reviewInsert(vo);
 		
 		
-		request.getRequestDispatcher("result/ReviewAddOut.tiles").forward(request, response);
+		request.getRequestDispatcher("result/ReviewAddOut.jsp").forward(request, response);
 		
 		
 		

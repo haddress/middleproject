@@ -137,11 +137,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 			return false;
 			history.back();
 		} else if(document.getElementById("pass").value == "") {
-			document.getElementById("passCk").innerText = " ! 비밀번호를 입력해주세요";
+			document.getElementById("passCk").innerText = "  ! 비밀번호를 입력해주세요";
 			return false;
 			history.back();
 		} else if (document.getElementById("pass").value != '${review.reviewPass }') {
-			document.getElementById("passCk").innerText = " ! 비밀번호가 일치하지 않습니다";
+			document.getElementById("passCk").innerText = "  ! 비밀번호가 일치하지 않습니다";
 			return false;
 			history.back();
 		} else {

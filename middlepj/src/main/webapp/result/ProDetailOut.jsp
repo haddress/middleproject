@@ -48,6 +48,14 @@ input[id="tab2"]:checked ~ .con2 {
 #buybtn:hover {
 	font-weight: 700;
 }
+.proCon {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;	
+}
+.context {
+	font-size: 18px;
+}
 #review-data {
 	width: 996px;
 	border-collapse: collapse;
@@ -145,7 +153,11 @@ input[id="tab2"]:checked ~ .con2 {
 			
 			<div>
 			</div>			
-			<div class="conbox con1">${product.productExp }</div>
+			<div class="conbox con1">
+				<div class="proCon">
+					<span class="context">${product.productExp }</span>
+				</div>	
+			</div>
 			<div class="conbox con2">
 				<table id="review-data">
 					<tr id="tableth">
