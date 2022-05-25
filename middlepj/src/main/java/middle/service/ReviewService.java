@@ -27,8 +27,8 @@ public class ReviewService {
 	}
 	
 	// 리뷰삭제
-	public void reviewDelete(int reviewCode) {
-		dao.deleteReview(reviewCode);
+	public int reviewDelete(int reviewCode) {
+		return dao.deleteReview(reviewCode);
 	}
 	
 	// 리뷰리스트

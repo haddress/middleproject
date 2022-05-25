@@ -51,17 +51,17 @@
 								<div class="invalid-feedback" data-sb-feedback="phone:required"></div>
 							</div>
 							<div class="form-floating mb-3">
-								<input class="form-control" type="text" name="address" value=${voo.uorderAddress } data-sb-validations="required" /> 
+								<input class="form-control" type="text" name="address" value=${voo.uorderAddress } data-sb-validations="required" required /> 
 								<label for="Uname">주소</label>
 								<div class="invalid-feedback" data-sb-feedback="phone:required">주소를 확인하세요</div>
 							</div>
 							<div class="form-floating mb-3">
-								<input class="form-control" type="text" name="uordername" value=${voo.uorderName } data-sb-validations="required" /> 
+								<input class="form-control" type="text" name="uordername" value=${voo.uorderName } data-sb-validations="required" required /> 
 								<label for="Uname">구매자</label>
 								<div class="invalid-feedback" data-sb-feedback="phone:required"></div>
 							</div>
 							<div class="form-floating mb-3">
-								<input class="form-control" type="text" name="uordertel" value=${voo.uorderTel } data-sb-validations="required" /> 
+								<input class="form-control" type="text" name="uordertel" value=${voo.uorderTel } data-sb-validations="required" required /> 
 								<label for="Uname">전화번호</label>
 								<div class="invalid-feedback" data-sb-feedback="phone:required">전화번호를 확인하세요</div>
 							</div>
