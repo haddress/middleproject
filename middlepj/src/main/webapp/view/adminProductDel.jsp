@@ -6,6 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+
+
+
+<style>
+	@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+	</style>
 </head>
 <body>
 	<h3>상품제거</h3>
@@ -33,7 +44,9 @@
 
 		</c:otherwise>
 	</c:choose>
-	<a href="${pageContext.servletContext.contextPath }/view/admin.jsp">관리자페이지로</a>
+	<a href="${pageContext.servletContext.contextPath }/index.jsp" class="btn btn-primary btn-user btn-block">첫페이지</a>
+	<br>
+	<a href="${pageContext.servletContext.contextPath }/view/admin.jsp" class="btn btn-primary btn-user btn-block" >관리자페이지로</a>
 	<br>
 </body>
 </html>
