@@ -7,11 +7,20 @@
 <head>
 <meta charset="UTF-8">
 <style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
 #container {
 	width: 1000px;
 	margin: 20px auto;
 }
-review-data {
+h4 {
+	color: gray;
+}
+#review-data {
+	margin-top: 30px;
 	border-collapse: collapse;
 }
 #tableth {
@@ -37,6 +46,7 @@ tr td {
 }
 .page {
 	list-style:none;
+	padding: 0;
 }
 .page li {
 	display:inline;
@@ -48,6 +58,12 @@ tr td {
 }
 .star {
 	color: #eddd31;
+}
+.rwrite	{
+	text-align: right;
+}
+.rhov:hover {
+	color: #ddd;
 }
 </style>
 </head>
@@ -62,6 +78,7 @@ tr td {
 		<jsp:include page="/WEB-INF/view/banner.jsp" flush="false"/>
 		
 		<div id="container">
+		<h4 style="text-align:center;">| REVIEW |</h4>
 			<table width="1000" id="review-data">
 				<tr id="tableth">
 					<th>번호</th>
@@ -96,7 +113,8 @@ tr td {
 							</c:choose>
 						</td>
 						<td width="150">${review.productName }</td>
-						<td width="400" id="title"><a href="${pageContext.request.contextPath}/reviewDetail.do?code=${review.reviewCode }" style="text-decoration: none; color:black;">${review.reviewTitle }</a></td>
+						<td width="400" id="title"><a href="${pageContext.request.contextPath}/reviewDetail.do?code=${review.reviewCode }" style="text-decoration: none; color:black;">
+							<span class="rhov">${review.reviewTitle }</span></a></td>
 						<td width="80">${review.id }</td>
 						<td>${review.reviewDate }</td>
 					</tr>
@@ -111,18 +129,18 @@ tr td {
 						<ul class="page pagination-sm">
 							<!-- 이전버튼 -->
 							<c:if test="${pageVO.prev }">
-								<li><a href="review.do?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount }">PREV</a>
+								<li><a href="review.do?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount }"><span class="rhov">PREV</span></a>
 							</c:if>
 							
 							<!-- 페이지 번호 -->
 							<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
 								<li class="${pageVO.pageNum eq num ? 'active' : '' }">&nbsp;
-								<a href="review.do?pageNum=${num }&amount=${pageVO.amount }">${num }</a></li>
+								<a href="review.do?pageNum=${num }&amount=${pageVO.amount }"><span class="rhov">${num }</span></a></li>
 							</c:forEach>
 							
 							<!-- 다음버튼 -->
 							<c:if test="${pageVO.next }">
-								<li><a href="review.do?pageNum=${pageVO.endPage - 1 }&amount=${pageVO.amount }">NEXT</a>
+								<li><a href="review.do?pageNum=${pageVO.endPage - 1 }&amount=${pageVO.amount }"><span class="rhov">NEXT</span></a>
 							</c:if>
 						</ul>
 					</td>
@@ -130,9 +148,11 @@ tr td {
 			</table>
 			</div>
 			
-			<form action="reviewOrderList.do" method="post" onsubmit="return idCheck();">
-				<input type="hidden" name="Uid" value="${Uid }"><input type="submit" value="리뷰쓰기">
-			</form>
+			<div class="rwrite">
+				<form action="reviewOrderList.do" method="post" onsubmit="return idCheck();">
+					<input type="hidden" name="Uid" value="${Uid }"><input type="submit" value="WRITE">
+				</form>
+			</div>
 		</div>
 
 

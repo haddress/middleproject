@@ -5,6 +5,11 @@
 <html>
 <head>
 <style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
 #container {
    width: 1000px;
    margin: 20px auto;
@@ -17,9 +22,12 @@ input[type="radio"] {
 }
 input[type="radio"] + label {
 	display:inline-block;
-	padding:0 222px;
+	padding:0 221px;
 	background:#ddd;
 	cursor:pointer;
+}
+input[type="radio"] + label:hover {
+	font-weight: 700;
 }
 .conbox {
 	display:none;
@@ -30,20 +38,55 @@ input[id="tab1"]:checked ~ .con1 {
 input[id="tab2"]:checked ~ .con2 {
 	display:block;
 }
-#review tr th {
+#buybtn {
+	width:500px;
+	border:none;
+	padding:10px;
+	background:#fff;
+	border: 1px solid black;
+}
+#buybtn:hover {
+	font-weight: 700;
+}
+#review-data {
+	width: 996px;
+	border-collapse: collapse;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#tableth {
+	border-top:	1px solid black;
+	border-bottom: 1px solid black;
+}
+#tableth th {
+	text-align:center;
+	background: black;
+	color: white;
+}
+#review-data tr th {
 	text-align:center;
 }
-#review tr td {
+#review-data tr td {
 	text-align:center;
-}
-.all {
-	float:left;
 }
 .reviewTr {
 	height: 50px;
 }
 .star {
 	color: #eddd31;
+}
+.viewAll {
+	text-align: right;
+}
+.viewAll button {
+	border: 1px solid black;
+	margin-right: 4px;
+}
+.viewAll button:hover {
+	background: #ddd;
+}
+.viewMore:hover {
+	color: #ddd;
 }
 </style>
 </head>
@@ -63,7 +106,7 @@ input[id="tab2"]:checked ~ .con2 {
 	<div id="container">
 		<table width="1000">
 			<tr>
-				<td rowspan="6" width="450"><img src="upload/${product.productImg }" width="400">
+				<td rowspan="6" width="493"><img src="upload/${product.productImg }" width="400">
 				<td colspan="3" class="pweight">${product.productName }</td>
 			</tr>
 			<tr>
@@ -89,7 +132,7 @@ input[id="tab2"]:checked ~ .con2 {
 						<input type="hidden" name="paycount">
 						<input type="hidden" name="allpay">
 						<input type="hidden" name="productamount" value="${product.productAmount }">
-						<input type="submit" value="구매하기">
+						<input type="submit" value="구매하기" id="buybtn">
 					</form>
 				</td>
 			</tr>
@@ -104,8 +147,8 @@ input[id="tab2"]:checked ~ .con2 {
 			</div>			
 			<div class="conbox con1">${product.productExp }</div>
 			<div class="conbox con2">
-				<table width="1000" id="review">
-					<tr>
+				<table id="review-data">
+					<tr id="tableth">
 						<th></th>
 						<th></th>
 						<th>상품명</th>
@@ -145,11 +188,12 @@ input[id="tab2"]:checked ~ .con2 {
 				</table>
 				
 				<div class="viewBtn" style="text-align:center;">
-					<button type="button" style="border:none;" id="viewAdd" onclick="listMore();">더보기</button>
+					<button type="button" style="border:none; background:none;" id="viewAdd" onclick="listMore();"><span class="viewMore">▼</span></button>
 				</div>
 				
-				
-				<button type="button" id="all" onclick="location.href='${pageContext.request.contextPath}/review.do'">전체보기</button>
+				<div class="viewAll">
+					<button type="button" onclick="location.href='${pageContext.request.contextPath}/review.do'">LIST</button>
+				</div>
 			</div>
 			 
 

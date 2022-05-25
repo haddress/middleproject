@@ -5,9 +5,24 @@
 <head>
 <meta charset="UTF-8">
 <style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
 #container {
 	width: 1000px;
 	margin: 0 auto;
+}
+.viewAll {
+	text-align: right;
+}
+.viewAll button {
+	border: 1px solid black;
+	margin-right: 4px;
+}
+.viewAll button:hover {
+	background: #ddd;
 }
 </style>
 </head>
@@ -25,7 +40,9 @@
 	<div id="container">
 		리뷰를 수정하였습니다.
 		<hr>
-		<button type="button" onclick="location.href='${pageContext.request.contextPath}/review.do'">목록</button>
+		<div class="viewAll">
+			<button type="button" onclick="location.href='${pageContext.request.contextPath}/review.do'">LIST</button>
+		</div>
 	</div>
 
 

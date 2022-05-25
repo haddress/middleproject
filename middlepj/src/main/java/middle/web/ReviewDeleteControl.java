@@ -1,6 +1,7 @@
 package middle.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -34,9 +35,12 @@ public class ReviewDeleteControl implements Control {
 		} else { // 삭제
 			
 			ReviewService service = new ReviewService();
-			service.reviewDelete(rcode);
+			int result = service.reviewDelete(rcode);
 			
-			request.getRequestDispatcher("result/reviewDelete.jsp").forward(request, response);
+			request.setAttribute("result", result);
+			
+			
+			request.getRequestDispatcher("result/reviewDelOut.jsp").forward(request, response);
 			
 		}
 		
