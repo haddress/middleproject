@@ -19,7 +19,7 @@ public class ProductDAO extends DAO {
 	// 상품등록
 	public void insertProduct(ProductVO product) {
 		conn = getConnect();
-		String sql = "insert into product(product_code,product_category,product_name,product_price,product_amount,product_exp,product_img,product_date) values(product_seq,?,?,?,?,?,?,sysdate)";
+		String sql = "insert into product(product_code,product_category,product_name,product_price,product_amount,product_exp,product_img,product_date) values(product_seq.NEXTVAL,?,?,?,?,?,?,sysdate)";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, product.getProductCate());

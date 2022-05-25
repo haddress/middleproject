@@ -16,9 +16,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 	width: 1000px;
 	margin: 20px auto;
 }
-h4 {
-	color: gray;
-}
 #review-data {
 	margin-top: 30px;
 	border-collapse: collapse;
@@ -78,7 +75,7 @@ tr td {
 		<jsp:include page="/WEB-INF/view/banner.jsp" flush="false"/>
 		
 		<div id="container">
-		<h4 style="text-align:center;">| REVIEW |</h4>
+		<h3 style="text-align:center;">리뷰</h3>
 			<table width="1000" id="review-data">
 				<tr id="tableth">
 					<th>번호</th>
