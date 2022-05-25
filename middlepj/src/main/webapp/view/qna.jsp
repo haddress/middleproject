@@ -57,11 +57,16 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 		color:white;
 	}
 	#addbtn {
-		display:block;
-		width:80px;
-		margin:auto;
-		margin-bottom:10px;
+	width:80px;
+	border:none;
+	padding:10px;
+	background:lightgrey;
+	border: 1px solid black; 
+	margin:auto;
 	}
+	#addbtn:hover {
+	font-weight: 700;
+}
 	a:link {
 		color:black;
 		text-decoration:none;
@@ -83,7 +88,14 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 </style>
 </head>
 <body>
-<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
+	<!-- Header -->
+		<div id="head">
+			<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
+		</div>
+		<br>
+		<br>
+		
+		<jsp:include page="/WEB-INF/view/banner.jsp" flush="false"/>
 <div>
 		<c:if test="${!empty delete }">
 			<script>

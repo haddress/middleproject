@@ -42,11 +42,12 @@ public class RealBuyControl implements Control {
 		voo.setUorderAddress(address);
 		voo.setUorderTel(utel);
 
-		if (pamount <= 0) {
-			writer.println("<script>alert('상품품절'); location.href='index.jsp';</script>");
-			writer.close();
+	      if (amount>pamount) {
+	          writer.println("<script>alert('상품품절'); location.href='index.jsp';</script>");
+	          writer.close();
+	          return;
 
-		}
+	       }
 		service.Userbuy(voo);
 		service.amount(paypcode, amount);
 		request.getRequestDispatcher("result/buyoutput.jsp").forward(request, response);
