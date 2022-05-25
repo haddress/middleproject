@@ -23,9 +23,8 @@
 	<header class="bg-white py-5">
 		<div class="container px-4 px-lg-5 my-5">
 			<div class="text-center text-black">
-				<h1 class="display-4 fw-bolder">도비마켓</h1>
-				<p class="lead fw-normal text-black-50 mb-0">홈페이지 공사 중입니다. 잠시만
-					기다려주세요</p>
+				<h1 class="display-4 fw-bolder"><span class="doggy" style="font-size:2em; font-weight:700;"><span style="color:#f36b5c;">DOG</span><span style="color:#565656;">GY MAR</span><span style="color:#f36b5c;">CAT</span></span></h1>
+				<p class="lead fw-normal text-black-50 mb-0"></p>
 			</div>
 		</div>
 	</header>
