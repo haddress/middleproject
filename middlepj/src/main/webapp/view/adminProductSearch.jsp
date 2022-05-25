@@ -55,7 +55,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 
  <!-- Page Heading -->
-                    <h1 class="h3 mb-1 text-gray-800">상품정ㅂ ㅗ관련</h1>
+                    <h1 class="h3 mb-1 text-gray-800">상품정보관련</h1>
                     
                     <br>
                     <h3>${error }</h3>
