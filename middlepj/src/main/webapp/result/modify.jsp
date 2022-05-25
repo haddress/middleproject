@@ -47,7 +47,7 @@
 							</div>
 							<!--비밀번호 입력-->
 							<div class="form-floating mb-3">
-								<input class="form-control" type="password" name="Upw"
+								<input class="form-control" type="password" name="Upw" required
 									value="${vo.upw }" placeholder="(123) 456-7890"
 									data-sb-validations="required" /> <label for="Upw">비밀번호</label>
 								<div class="invalid-feedback"
@@ -55,7 +55,7 @@
 							</div>
 							<!--이름 입력-->
 							<div class="form-floating mb-3">
-								<input class="form-control" type="text" name="Uname"
+								<input class="form-control" type="text" name="Uname" required
 									value="${vo.uname }" placeholder="(123) 456-7890"
 									data-sb-validations="required" /> <label for="Uname">이름</label>
 								<div class="invalid-feedback" data-sb-feedback="phone:required">이름을
@@ -63,7 +63,7 @@
 							</div>
 							<!-- Phone number input-->
 							<div class="form-floating mb-3">
-								<input class="form-control" type="tel" name="Utel"
+								<input class="form-control" type="tel" name="Utel" required
 									value="${vo.utel }" placeholder="(123) 456-7890"
 									data-sb-validations="required" /> <label for="Utel">휴대전화
 									번호</label>

@@ -22,7 +22,7 @@
             <p class="m-0 text-center text-white">고객센터 1234-5678</p>
             <p class="m-0 text-center text-white">영업시간 : AM 10:00 ~ PM 18:00(주말 및 공휴일 휴무)</p>
             
-            <p class="m-0 text-center text-white"><a href="#!">이용약관</a>  |  <a href="#!">개인정보처리방침</a>  |  <a href="#!">사업자정보확인</a></p>
+            <p class="m-0 text-center text-white"><a href="#!" style="text-decoration: none; color:white;">이용약관</a>  |  <a href="#!" style="text-decoration: none; color:white;">개인정보처리방침</a>  |  <a href="#!" style="text-decoration: none; color:white;">사업자정보확인</a></p>
           
             </div>
         </footer>

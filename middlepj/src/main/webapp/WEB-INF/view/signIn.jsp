@@ -22,6 +22,8 @@
 <title>회원가입</title>
 </head>
 <body>
+
+
 	<!-- Page content-->
 	<section class="py-5">
 		<div class="container px-5">
@@ -39,14 +41,15 @@
 							<div class="form-floating mb-3">
 
 
-								<input class="form-control" type="text" name="Uid"	placeholder="Enter your name..." data-sb-validations="required" />
+								<input class="form-control" type="text" name="Uid" id="uid" required placeholder="Enter your name..." data-sb-validations="required" />
 								<label for="Uid">ID</label>
+								<p id ="pp"></p>
 								<div class="check_font" id="id_check"></div>
 							</div>
 							<!--비밀번호 입력-->
 							<div class="form-floating mb-3">
 
-								<input class="form-control" type="password" name="Upw"
+								<input class="form-control" type="password" name="Upw" required
 									placeholder="(123) 456-7890" data-sb-validations="required" />
 								<label for="Upw">비밀번호</label>
 								<div class="invalid-feedback"
@@ -103,6 +106,6 @@
 			</div>
 		</div>
 	</section>
-
+	<script src="../view/check.js"></script>
 </body>
 </html>

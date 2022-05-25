@@ -15,6 +15,11 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="${pageContext.servletContext.contextPath }/css/styles.css" rel="stylesheet" />
 <style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
 #container {
 	width: 1000px;
 	margin: 20px auto;

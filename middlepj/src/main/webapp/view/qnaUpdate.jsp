@@ -20,28 +20,28 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
 <style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
 	#container {
 		width:1000px;
 		margin: 0 auto;
 	}
-	#updatetable {
-		width:1000px;
-		margin:auto;
-	}
 	#update {
+		width:500px;
 		margin:auto;
-	}
-	.td {
-		display:inline-block;
-		margin-right:20px;
 	}
 	.click {
 		display:block;
 		margin:auto;
 		margin-bottom:10px;
 	}
-	h3 {
+	#show {
 		text-align:center;
+		margin-top:30px;
+		margin-bottom:20px;
 	}
 </style>
 <title>qnaUpdate.jsp</title>
@@ -50,35 +50,30 @@
 <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 <div id="container">
 
-<h3>문의글 수정</h3>
-<form action="${pageContext.servletContext.contextPath }/qnaUpdate.do?qnaNo=${qnadetail.qnaNo }" method="get">
-	<div id="updatetable">
-	<table id="update">
-			<tr>
-				<td class="td">문의글 번호</td>
-				<input type="hidden" name="qnaNo" value="${qnadetail.qnaNo }">
-				<td>${qnadetail.qnaNo }</td>
-			</tr>
-			<tr>
-				<td class="td">아이디</td>
-				<td>${qnadetail.id }</td>
-			</tr>
-				<td class="td">작성자</td>
-				<td>${qnadetail.qnaWrite }</td>
-			<tr>
-				<td class="td">제목</td>
-				<td><input type="text" name="qnaTitle" value="${qnadetail.qnaTitle }"></td>
-			<tr>
-				<td class="td">내용</td>
-				<td><input type="text" name="qnaContent" value="${qnadetail.qnaContent }" style= "height:150px; width:200px;"></td>
-			</tr>
-			<tr>
-				<td class="td">작성일</td>
-				<td>${qnadetail.qnaDate }</td>
-			</tr>
-		</table>
-		</div>
-	<input class="click" type="submit" value="문의글 수정">
+<h3 id="show">문의글 수정</h3>
+<form action="${pageContext.servletContext.contextPath }/qnaUpdate.do?qnaNo=${qnadetail.qnaNo }&id=${Uid }&${list }" method="get">
+	<table id="update" style="table-layout:fixed;">
+		<tr>
+			<th>문의글 번호</th>
+			<input type="hidden" name="qnaNo" value="${qnadetail.qnaNo }">
+			<td>${qnadetail.qnaNo }</td>
+			<th>아이디</th>
+			<td>${qnadetail.id }</td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td><input type="text" name="qnaTitle" value="${qnadetail.qnaTitle }" style="width:300px;"></td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td><input type="text" name="qnaContent" value="${qnadetail.qnaContent }" style= "height:100px; width:300px;"></td>
+		</tr>
+		<tr>
+			<th>작성 날짜</th>
+			<td>${qnadetail.qnaDate }</td>
+		</tr>
+	</table>
+		<input class="click" type="submit" value="문의글 수정">
 </form>
 </div>
 <form action="${pageContext.servletContext.contextPath }/index.jsp">

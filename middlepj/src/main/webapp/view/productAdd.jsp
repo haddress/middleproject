@@ -2,8 +2,38 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+#container {
+	width: 1000px;
+	margin: 20px auto;
+}
+</style>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="${pageContext.servletContext.contextPath }/css/styles.css" rel="stylesheet" />
+</head>
 <body>
-	<h3>상품등록화면</h3>
+<!-- Header -->
+		<div id="head">
+			<jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
+		</div>
+		<br>
+		<br>
+		
+		<jsp:include page="/WEB-INF/view/banner.jsp" flush="false"/>
+
+	<div id="container">
 	<form action="../productAdd.do" method="post" enctype="multipart/form-data">
 		상품카테고리: 
 		<select name="pcate">
@@ -18,8 +48,15 @@
 		상품설명: <textarea name="pexp" rows="4" cols="50"></textarea><br>
 		상품이미지: <input type="file" name="pimg">
 		<input type="submit" value="추가">
+		</form>
+			</div>
+
+
+
+<!-- Footer -->
+		<div id="foot">
+			<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/>
+		</div>
 		
-		
-	</form>
 </body>
 </html>
