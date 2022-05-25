@@ -18,6 +18,12 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
 <style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
 	#container {
 		width:1000px;
 		margin: 0 auto;
@@ -32,9 +38,12 @@
 	.td {
 		display:inline-block;
 		margin-right:20px;
+		text-weight:bold;
 	}
-	h3 {
+	#show {
 		text-align:center;
+		margin-top:30px;
+		margin-bottom:30px;
 	}
 	input {
 		margin-bottom:10px;
@@ -51,7 +60,7 @@
 <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 <div id="container">
 
-  <h3>문의하기</h3>
+  <h3 id="show">문의하기</h3>
   <form  action="../qnaAdd.do" method="post">
   <div id="writetable">
 	<table id="write">
@@ -70,7 +79,7 @@
 			</tr>
 			<tr>
 				<td class="td">제목</td>
-				<td><input type="text" placeholder="제목입력" name="qnaTitle"></td>
+				<td><input type="text" placeholder="제목입력" name="qnaTitle" style="width:400px"></td>
 			</tr>
 			<tr>
 				<td class="td">내용</td>
@@ -79,7 +88,7 @@
 				<input type="hidden" name="Uid" value="${Uid }">
 			<tr>
 				<td class="td">비밀번호</td>
-				<td><input type="password" name="qnaPw"></td>
+				<td><input type="password" name="qnaPw" style="width:80px;"></td>
 			</tr>
 		</tbody>
 	</table>

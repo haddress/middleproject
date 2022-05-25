@@ -19,7 +19,12 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
-<style type="text/css">
+<style>
+	@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
 	
 	#h3 {
 		display:block;
@@ -39,7 +44,7 @@
 		border-collapse:collapse;
 	}
 	.trlist {
-		border-bottom:1px solid black;
+		border-bottom:1px solid gray;
 	}
 	td {
 		width:50px;
@@ -55,7 +60,7 @@
 		display:block;
 		width:80px;
 		margin:auto;
-		margin-top:20px;
+		margin-bottom:10px;
 	}
 	a:link {
 		color:black;
@@ -79,7 +84,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
-		
+<div>
 		<c:if test="${!empty delete }">
 			<script>
 			alert(${delete });
@@ -92,9 +97,8 @@
 		<input  type="submit" value="글쓰기" id="addbtn">
 	</a>
 	</c:when>
-	<c:otherwise>
-	<h3 id="h3">고객센터</h3>
-	<div id="container">
+	<c:when test="${empty Uid }">
+		<div id="container">
 	<table id="list">
 	<thead>
 		<tr class="trlist" id="top">
@@ -112,13 +116,29 @@
 		
 	 </tbody>
 	</table>
-	</div>
-	<a href="view/qnaWrite.jsp?id=${Uid }" id="text">
-		<input type="submit" value="글쓰기" id="addbtn">
-	</a>
-	 </c:otherwise>
-	</c:choose>  
-	
+</div>
+	</c:when>
+	<c:otherwise>
+	<h3 id="h3">고객센터</h3>
+<div id="container">
+	<table id="list">
+	<thead>
+		<tr class="trlist" id="top">
+			<th class="th">카테고리</th>
+			<th class="th">문의번호</th>
+			<th class="th">제목</th>
+			<th class="th">작성일</th>
+		</tr>
+	 </thead>
+	 <tbody>
+		 <c:forEach var="list" items="${list }" >
+			<tr class="trlist"><td>${list.qnaCategory }</td><td>${list.qnaNo }</td><td><a href="detail.do?job=detail&qnaNo=${list.qnaNo }&id=${Uid }">${list.qnaTitle }</a></td><td>${list.qnaDate }</td>
+			</tr>
+		</c:forEach>
+		
+	 </tbody>
+	</table>
+</div>
 	<!-- 문의글 페이징 -->
 	<table>
 		<tr>
@@ -141,8 +161,13 @@
 			</td>
 		</tr>
 	</table>
-
-	</div>
+	<a href="view/qnaWrite.jsp?id=${Uid }" id="text">
+		<input type="submit" value="글쓰기" id="addbtn">
+	</a>
+	 </c:otherwise>
+	</c:choose>  
+	
+</div>
 	<jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/> 
 </body>
 </html>
