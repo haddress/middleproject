@@ -27,7 +27,7 @@ public class qnaUpdateControl implements Control{
 		updateservice.updateQna(upVO);
 		
 		request.setAttribute("upVO", upVO);
-		request.getRequestDispatcher("view/updateQnaOutput.jsp").forward(request, response);
+		request.getRequestDispatcher("view/updateQnaOutput.jsp?").forward(request, response);
 	}
 
 }

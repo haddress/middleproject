@@ -28,35 +28,60 @@
 	}
 	
 </script>
-<style type="text/css">
-	#detail {
-		margin:auto;
-	}
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* { 
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
 	input {
 		margin-bottom:10px;
 	}
-	#h3 {
-		display:block;
+	.show {
 		text-align:center;
-		margin:20px;
+		margin-top:30px;
+		margin-bottom:20px;
 	}
-	#detail {
-		margin-bottom:10px;
+	.detail {
+		border-collapse:collapse;
+		width:500px;
+		margin:auto;
+		text-align:center;
+	}
+	.trdetail {
+		border-bottom:1px solid gray;
 	}
 	.td {
 		display:inline-block;
-		margin-right:30px;
+		width:200px;
+		padding-bottom:10px;
+		font-weight:bold;
 	}
-	#log {
-		text-align:center;
+	#trno {
+		background-color:black;
 	}
-	#only {
-		text-align:center;
+	#notd {
+		color:white;
+	}
+	a:link {
+		text-decoration:none;
+	}
+	#login {
+		display:block;
+		margin:auto;
+		margin-top:30px;
+		margin-bottom:30px;
 	}
 	#del {
 		display:block;
 		margin:auto;
 		margin-bottom:10px;
+	}
+	#home {
+		display:block;
+		margin:auto;
+		margin-top:30px;
+		margin-bottom:30px;
 	}
 </style>
 
@@ -66,71 +91,69 @@
 <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>
 <div id="container">
 <c:choose>
-	<c:when test="${empty Uid }"><h3 id="log">로그인 후 이용가능합니다.</h3>
-				<p><a href="view/login.jsp">로그인하기</a></p>
+	<c:when test="${empty Uid }"><h3 class="show">로그인 후 이용가능합니다.</h3>
+				<a href="view/login.jsp"><input type="submit" value="로그인" id="login"></a>
 	</c:when>
 	<c:when test="${qnadetail.id != Uid } & ${Uid != 'admin' }">
-		<h3 id="only">작성자만 볼 수 있습니다.</h3>
+		<h3 class="show">작성자만 볼 수 있습니다.</h3>
 	</c:when>
 	<c:when test="${qnadetail.id == Uid }">
-		<h3 id="h3">문의글 상세보기</h3>
+		<h3 class="show">문의글 상세보기</h3>
 		
-		<div id="detailtable">
+		<div>
 		<form>
-		<table id="detail">
-			<tr>
-				<td class="td">문의글 번호</td>
-				<td>${qnadetail.qnaNo }</td>
+		<table class="detail">
+			<tr class="trdetail" id="trno">
+				<td class="td" id="notd">문의글 번호</td>
+				<td id="notd">${qnadetail.qnaNo }</td>
 			</tr>
-			<tr>
+			<tr class="trdetail">
 				<td class="td">아이디</td>
 				<td>${qnadetail.id }</td>
 			</tr>
-			<tr>
+			<tr class="trdetail">
 				<td class="td">제목</td>
 				<td>${qnadetail.qnaTitle }</td>
-			<tr>
+			<tr class="trdetail">
 				<td class="td">내용</td>
 				<td>${qnadetail.qnaContent }</td>
 			</tr>
-			<tr>
+			<tr class="trdetail">
 				<td class="td">작성일</td>
 				<td>${qnadetail.qnaDate }</td>
 			</tr>
 		</table>
 		</form>
 		</div>
-		<div style="text-align:center; margin-bottom:20px;">
+		<div style="text-align:center; margin-top:20px; margin-bottom:20px;">
 			<button type="button" onclick="deleteQna('${qnadetail.qnaNo }');">문의글 삭제</button>
-			<a href="${pageContext.servletContext.contextPath }/detail.do?job=update&qnaNo=${qnadetail.qnaNo }">
+			<a href="${pageContext.servletContext.contextPath }/detail.do?job=update&qnaNo=${qnadetail.qnaNo }&id=${Uid }">
 				<input type="submit" value="수정">
 			</a>
 		</div>
 	</c:when>
 	<c:when test="${Uid == 'admin' }">
-		<h3 id="h3">문의글 상세보기</h3>
+		<h3 class="show">문의글 상세보기</h3>
 		
-		<div id="detailtable">
+	<div>
 		<form>
-		<table id="detail">
-			<tr>
-				<td class="td">문의글 번호</td>
-				<td>${qnadetail.qnaNo }</td>
+		<table class="detail">
+			<tr class="trdetail" id="trno">
+				<td class="td" id="notd">문의글 번호</td>
+				<td id="notd">${qnadetail.qnaNo }</td>
 			</tr>
-			<tr>
+			<tr class="trdetail">
 				<td class="td">아이디</td>
 				<td>${qnadetail.id }</td>
 			</tr>
-				<td class="td">작성자</td>
-				<td>${qnadetail.qnaWrite }</td>
-			<tr>
+			<tr class="trdetail">
 				<td class="td">제목</td>
 				<td>${qnadetail.qnaTitle }</td>
-			<tr>
+			<tr class="trdetail">
 				<td class="td">내용</td>
 				<td>${qnadetail.qnaContent }</td>
 			</tr>
-			<tr>
+			<tr class="trdetail">
 				<td class="td">작성일</td>
 				<td>${qnadetail.qnaDate }</td>
 			</tr>
@@ -140,6 +163,12 @@
 		</div>
 			<button type="button" onclick="deleteQna('${qnadetail.qnaNo }');" id="del">문의글 삭제</button>
 	</c:when>
+	<c:otherwise>
+		<h3 class="show">작성자만 볼 수 있습니다.</h3>
+		<form action="${pageContext.servletContext.contextPath }/index.jsp">
+	<input type="submit" value="홈" id="home">
+	</form>
+	</c:otherwise>
 </c:choose>	
 </div>
 <jsp:include page="/WEB-INF/view/footer.jsp" flush="false"/> 
