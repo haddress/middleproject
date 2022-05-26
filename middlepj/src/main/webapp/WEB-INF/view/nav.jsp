@@ -64,7 +64,7 @@
 						aria-current="page"
 						href="${pageContext.request.contextPath}/view/admin.jsp">관리자페이지로 이동</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="logout.do" style="text-decoration: none">로그아웃</a>
+						aria-current="page" href="${pageContext.request.contextPath}/logout.do" style="text-decoration: none">로그아웃</a>
 					</li>
 					
 					
