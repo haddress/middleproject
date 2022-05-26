@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인화면입니다.</title>
+<title>Doggy marCat :: 반려동물의 모든 것</title>
 </head>
 <body>
    <jsp:forward page="mainList.do"></jsp:forward>

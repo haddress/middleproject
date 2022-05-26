@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>로그인성공페이지</title>
+<title>Doggy marCat :: 반려동물의 모든 것</title>
 </head>
 <body>
 <%

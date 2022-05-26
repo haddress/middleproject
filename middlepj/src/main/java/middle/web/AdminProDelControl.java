@@ -19,7 +19,7 @@ public class AdminProDelControl implements Control {
 		AdminService service = new AdminService();
 		service.adminProDel(productCode);
 		
-		response.sendRedirect("/middlepj2/listProduct.do");
+		response.sendRedirect("/middlepj/listProduct.do");
 	
 	}
 

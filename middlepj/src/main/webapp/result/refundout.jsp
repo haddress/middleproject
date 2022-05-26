@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Doggy marCat :: 반려동물의 모든 것</title>
 </head>
 <body>
 ${list.productName } 반품완료
