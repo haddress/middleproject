@@ -12,7 +12,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 #container {
 	width: 1000px;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 </style>
 </head>

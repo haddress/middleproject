@@ -35,6 +35,10 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 tr td {
 	text-align:center;
 }
+.imgsize {
+	width: 110px;
+	height: 105px;
+}
 #title {
 	text-align:left;
 }
@@ -89,7 +93,16 @@ tr td {
 				<c:forEach items="${review }" var="review">
 					<tr class="tablecon">
 						<td width="40">${review.reviewCode }</td>
-						<td width="110"><img src="reviewUpload/${review.reviewImg }" width="100"></td>
+						<td class="imgsize">
+							<c:choose>
+								<c:when test="${review.reviewImg eq null }">
+									<span></span>
+								</c:when>
+								<c:otherwise>
+									<img src="reviewUpload/${review.reviewImg }" width="100">
+								</c:otherwise>
+							</c:choose>
+						</td>
 						<td>
 							<c:choose>
 								<c:when test="${review.reviewStar == 5}">
@@ -109,7 +122,7 @@ tr td {
 								</c:when>
 							</c:choose>
 						</td>
-						<td width="150">${review.productName }</td>
+						<td width="180">${review.productName }</td>
 						<td width="400" id="title"><a href="${pageContext.request.contextPath}/reviewDetail.do?code=${review.reviewCode }" style="text-decoration: none; color:black;">
 							<span class="rhov">${review.reviewTitle }</span></a></td>
 						<td width="80">${review.id }</td>
