@@ -72,6 +72,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 	a:visited {
 		color:black;
 	}
+	.qwrite{
+		margin: 0 auto;
+		width: 1100px;
+		text-align: right;
+	}
 	#text {
 		text-decoration:none;
 	}
@@ -103,9 +108,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 		</c:if>
  <c:choose> 
 	<c:when test="${empty list }"><h3 id="noqna">문의글 정보가 없습니다</h3>
+	<div class="qwrite">
 	<a href="view/qnaWrite.jsp?id=${Uid }" id="text">
 		<input  type="submit" value="글쓰기" id="addbtn">
 	</a>
+	</div>
 	</c:when>
 	<c:when test="${empty Uid }">
 		<div id="container">
@@ -171,9 +178,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 			</td>
 		</tr>
 	</table>
+	<div class="qwrite">
 	<a href="view/qnaWrite.jsp?id=${Uid }" id="text">
 		<input type="submit" value="글쓰기" id="addbtn">
 	</a>
+	</div>
 	 </c:otherwise>
 	</c:choose>  
 	
