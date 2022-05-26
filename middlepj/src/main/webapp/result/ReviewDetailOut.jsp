@@ -88,7 +88,15 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" style="padding:50px 50px 20px 0;"><img src="reviewUpload/${review.reviewImg }" width="300">
+				<td colspan="2" style="padding:50px 50px 20px 0;">
+					<c:choose>
+						<c:when test="${review.reviewImg eq null }">
+							<span></span>
+						</c:when>
+						<c:otherwise>
+							<img src="reviewUpload/${review.reviewImg }" width="300">
+						</c:otherwise>
+					</c:choose>
 				</td>
 			</tr>
 			<tr>
