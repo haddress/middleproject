@@ -67,6 +67,18 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 				action="../productAdd.do" method="post"   enctype="multipart/form-data" >
 					<!-- Name input-->
 					<div class="form-floating mb-3">
+					상품카테고리: <select  name="pcate">
+					  <option value="간식">간식</option>
+					  <option value="장난감">장난감</option>
+					  <option value="실내용품">실내용품</option>
+					  <option value="목욕/미용">목욕/미용</option>
+					</select>
+					</div>
+					
+					
+					
+					
+					<div class="form-floating mb-3">
 						상품명: <input class="form-control" type="text" name="pname"
 							 placeholder="ex:츄르"> 
 
@@ -85,7 +97,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 					</div>
 					<!-- Message input-->
 					<div class="form-floating mb-3">
-						상품설명: <textarea class="form-control" type="text" name="productPrice" id=""
+						상품설명: <textarea class="form-control" type="text" name="pexp" id=""
 						placeholder="ex: 우리집고양이가좋아해요"></textarea>
 
 					</div>

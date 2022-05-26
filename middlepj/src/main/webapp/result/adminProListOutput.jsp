@@ -15,7 +15,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>유저정보</title>
+<title>상품리스트</title>
 
 <!-- Custom fonts for this template-->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -37,13 +37,13 @@
 	<div class="container-fluid">
 
 		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800">회원정보관련</h1>
+		<h1 class="h3 mb-2 text-gray-800">물품관련</h1>
 
 
 		<!-- DataTales Example -->
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">유저리스트페이지</h6>
+				<h6 class="m-0 font-weight-bold text-primary">물품리스트페이지</h6>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">

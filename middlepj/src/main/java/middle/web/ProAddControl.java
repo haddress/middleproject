@@ -26,6 +26,7 @@ public class ProAddControl implements Control {
 		
 		String name = multi.getParameter("pname");
 		String category = multi.getParameter("pcate");
+		System.out.println(category);
 		int price = Integer.parseInt(multi.getParameter("pprice"));
 		int amount = Integer.parseInt(multi.getParameter("pamount"));
 		String exp = multi.getParameter("pexp");
