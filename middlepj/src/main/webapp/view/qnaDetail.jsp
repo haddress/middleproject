@@ -91,6 +91,12 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 		margin-top:30px;
 		margin-bottom:30px;
 	}
+	#back:hover {
+		font-weight: 700;
+	}
+	#home:hover {
+		font-weight:700;
+	}
 </style>
 
 <title>qnaDetail.jsp</title>
