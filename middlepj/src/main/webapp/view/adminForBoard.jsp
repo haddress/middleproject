@@ -44,7 +44,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
                         <!-- Border Left Utilities -->
                         <div class="col-lg-6">
-							<p class="mb-4">회원정보 관련</p>
+							<p class="mb-4">게시판 관련</p>
                             <div class="card mb-4 py-3 border-left-primary">
                                 <div class="card-body">
                                   <a href="${pageContext.servletContext.contextPath }/reviewList.do">리뷰글리스트</a>
