@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>도비마켓</title>
+<title>Doggy marCat</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Bootstrap icons-->
@@ -24,6 +24,15 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 	width: 1000px;
 	margin: 20px auto;
 }
+.label {
+	width: 90px;
+}
+#rtitle {
+	width: 450px;
+}
+.trhe {
+	height: 40px;
+}
 </style>
 </head>
 <body>
@@ -37,24 +46,51 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 		<jsp:include page="/WEB-INF/view/banner.jsp" flush="false"/>
 	
 	<div id="container">
-	<form action="reviewAdd.do" method="post" enctype="multipart/form-data">
-		제목: <input type="text" name="rtitle"><br>
-		주문상품: <select name="rproduct">
-			<c:forEach items="${list }" var="order">
-				<option value="${order.productName }">${order.productName }
-			</c:forEach>
-		</select><br>
-		<select name="rstar">
-			<option value="5">★★★★★
-			<option value="4">★★★★☆
-			<option value="3">★★★☆☆
-			<option value="2">★★☆☆☆
-			<option value="1">★☆☆☆☆
-		</select><br>
-		<textarea name="rcontent" rows="5" cols="50" placeholder="리뷰 내용을 작성해주세요."></textarea><br>
-		첨부이미지: <input type="file" name="rimg"><br>
-		비밀번호: <input type="password" name="rpass" maxlength="4" placeholder="4자리 숫자를 입력해주세요."><br>
+		<form action="reviewAdd.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="rwriter" value="${Uid }">
+		<input type="hidden" name="rcode" value="${review.reviewCode }">
+		<table width="1000">
+			<tr class="trhe">
+				<td class="label">제목</td>
+				<td><input type="text" id="rtitle" name="rtitle" required></td>
+			</tr>
+			<tr class="trhe">
+				<td>주문상품</td>
+				<td>
+					<select name="rproduct">
+						<c:forEach items="${list }" var="order">
+							<option value="${order.productName }">${order.productName }
+						</c:forEach>
+					</select>
+				</td>
+			</tr>
+			<tr class="trhe">
+				<td>별점</td>
+				<td>
+					<select name="rstar">
+						<option value="5">★★★★★
+						<option value="4">★★★★☆
+						<option value="3">★★★☆☆
+						<option value="2">★★☆☆☆
+						<option value="1">★☆☆☆☆
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<textarea name="rcontent" rows="6" cols="130" placeholder="리뷰 내용을 작성해주세요." required></textarea><br>
+				</td>
+			</tr>
+			<tr class="trhe">
+				<td>첨부이미지</td>
+				<td><input type="file" name="rimg"></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" name="rpass" maxlength="4" placeholder="4자리 숫자를 입력해주세요." required></td>
+			</tr>
+		</table>
+		<hr>
 		<input type="submit" value="등록">
 		<button type="button" onclick="location.href='${pageContext.request.contextPath}/review.do'">취소</button>
 	</form>
